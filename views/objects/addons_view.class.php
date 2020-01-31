@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 /**
  * addons list view
@@ -61,7 +61,7 @@ class UniteCreatorAddonsView{
 		if(!empty($this->objAddonType->managerHeaderPrefix))
 			GlobalsUC::$alterViewHeaderPrefix = $this->objAddonType->managerHeaderPrefix;
 		
-		$headerTitle = esc_html__("Manage", "unlimited_elements")." ".$this->objAddonType->textPlural;
+		$headerTitle = esc_html__("Manage", "unlimited_elementor_elements")." ".$this->objAddonType->textPlural;
 		
 		
 		return($headerTitle);
@@ -115,9 +115,9 @@ class UniteCreatorAddonsView{
 			
 			$headerTitle = $this->getHeaderText();
 				
-			require HelperUC::getPathTemplate("header");
+			require EWPHelper::getPathTemplate("header");
 		}else
-			require HelperUC::getPathTemplate("header_missing");
+			require EWPHelper::getPathTemplate("header_missing");
 		
 		$pluginName = GlobalsUC::PLUGIN_NAME;
 				

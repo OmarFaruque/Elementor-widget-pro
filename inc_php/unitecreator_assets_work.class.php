@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorAssetsWork extends UniteCreatorAssets{
 
@@ -330,7 +330,7 @@ class UniteCreatorAssetsWork extends UniteCreatorAssets{
 		else{
 			$html = $this->getHtmlDir($pathSource);
 			$response["html"] = $html;
-			$response["message"] = esc_html__("files moved successfully", "unlimited_elements");
+			$response["message"] = esc_html__("files moved successfully", "unlimited_elementor_elements");
 		}
 		return($response);
 	}
@@ -364,7 +364,7 @@ class UniteCreatorAssetsWork extends UniteCreatorAssets{
 				$this->validateInited();
 				
 				$htmlFilelist = $this->getHtmlFilelistFromData($data);
-				HelperUC::ajaxResponseData(array("html"=>$htmlFilelist));
+				EWPHelper::ajaxResponseData(array("html"=>$htmlFilelist));
 			break;
 			default:
 				return(false);
@@ -392,54 +392,54 @@ class UniteCreatorAssetsWork extends UniteCreatorAssets{
 				$this->validateInited();
 				
 				$htmlFilelist = $this->getHtmlFilelistFromData($data);
-				HelperUC::ajaxResponseData(array("html"=>$htmlFilelist));
+				EWPHelper::ajaxResponseData(array("html"=>$htmlFilelist));
 			break;
 			case "assets_delete_files":
 				$this->validateInited();
 				
 				$htmlFilelist = $this->deleteFilesFromData($data);
-				HelperUC::ajaxResponseData(array("html"=>$htmlFilelist));
+				EWPHelper::ajaxResponseData(array("html"=>$htmlFilelist));
 			break;
 			case "assets_create_folder":
 				$this->validateInited();
 				
 				$htmlFilelist = $this->createFolderFromData($data);
-				HelperUC::ajaxResponseData(array("html"=>$htmlFilelist));
+				EWPHelper::ajaxResponseData(array("html"=>$htmlFilelist));
 			break;
 			case "assets_create_file":
 				$this->validateInited();
 				
 				$htmlFilelist = $this->createFileFromData($data);
-				HelperUC::ajaxResponseData(array("html"=>$htmlFilelist));
+				EWPHelper::ajaxResponseData(array("html"=>$htmlFilelist));
 			break;
 			case "assets_rename_file":
 				$this->validateInited();
 				$htmlFilelist = $this->renameFileFromData($data);
-				HelperUC::ajaxResponseData(array("html"=>$htmlFilelist));
+				EWPHelper::ajaxResponseData(array("html"=>$htmlFilelist));
 			break;
 			case "assets_get_file_content":
 				$this->validateInited();
 				
 				$content = $this->getContentFromData($data);
-				HelperUC::ajaxResponseData(array("content"=>$content));
+				EWPHelper::ajaxResponseData(array("content"=>$content));
 			break;
 			case "assets_save_file":
 				$this->validateInited();
 				
 				$this->saveFileFromData($data);
-				HelperUC::ajaxResponseSuccess(esc_html__("File Saved", "unlimited_elements"));
+				EWPHelper::ajaxResponseSuccess(esc_html__("File Saved", "unlimited_elementor_elements"));
 			break;
 			case "assets_move_files":
 				$this->validateInited();
 				
 				$response = $this->moveFilesFromData($data);
-				HelperUC::ajaxResponseData($response);
+				EWPHelper::ajaxResponseData($response);
 			break;
 			case "assets_unzip_file":
 				$this->validateInited();
 				
 				$htmlFilelist = $this->unzipFileFromData($data);
-				HelperUC::ajaxResponseData(array("html"=>$htmlFilelist));
+				EWPHelper::ajaxResponseData(array("html"=>$htmlFilelist));
 			break;
 			default:
 				return(false);

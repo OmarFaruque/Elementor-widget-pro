@@ -6,7 +6,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved.
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	
@@ -67,7 +67,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		if(empty($filterCatalog))
 			return(false);
 		
-		HelperUC::setState(self::STATE_FILTER_CATALOG, $filterCatalog);
+		EWPHelper::setState(self::STATE_FILTER_CATALOG, $filterCatalog);
 		
 	}
 	
@@ -82,7 +82,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		if($this->objAddonType->allowWebCatalog == false)
 			return(self::FILTER_CATALOG_INSTALLED);
 		
-		$filterCatalog = HelperUC::getState(self::STATE_FILTER_CATALOG);
+		$filterCatalog = EWPHelper::getState(self::STATE_FILTER_CATALOG);
 		if(empty($filterCatalog))
 			$filterCatalog = $this->defaultFilterCatalog;
 
@@ -99,7 +99,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		if(empty($filterActive))
 			return(false);
 				
-		HelperUC::setState(UniteCreatorManagerAddons::STATE_FILTER_ACTIVE, $filterActive);
+		EWPHelper::setState(UniteCreatorManagerAddons::STATE_FILTER_ACTIVE, $filterActive);
 		
 	}
 	
@@ -108,7 +108,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 */
 	public static function getStateFilterActive($addonType = ""){
 		
-		$filterActive = HelperUC::getState(UniteCreatorManagerAddons::STATE_FILTER_ACTIVE);
+		$filterActive = EWPHelper::getState(UniteCreatorManagerAddons::STATE_FILTER_ACTIVE);
 		
 		return($filterActive);
 	}
@@ -158,8 +158,8 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		
 		$this->validateAddonType();
 				
-		$this->itemsLoaderText = esc_html__("Getting ","unlimited_elements").$this->textPlural;
-		$this->textItemsSelected = $this->textPluralLower . esc_html__(" selected","unlimited_elements");
+		$this->itemsLoaderText = esc_html__("Getting ","unlimited_elementor_elements").$this->textPlural;
+		$this->textItemsSelected = $this->textPluralLower . esc_html__(" selected","unlimited_elementor_elements");
 		
 		if($this->enableActiveFilter == true)
 			$this->filterActive = self::getStateFilterActive($addonType);
@@ -167,7 +167,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		$this->filterCatalogState = $this->getStateFilterCatalog();
 		
 		//set selected category
-		$lastCatID = HelperUC::getState(self::STATE_LAST_ADDONS_CATEGORY);
+		$lastCatID = EWPHelper::getState(self::STATE_LAST_ADDONS_CATEGORY);
 		if(!empty($lastCatID))
 			$this->selectedCategory = $lastCatID;
 					
@@ -224,14 +224,14 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		$this->textPluralLower = strtolower($plural);
 		
 		//set text
-		$this->arrText["confirm_remove_addons"] = esc_html__("Are you sure you want to delete those {$pluralLower}?", "unlimited_elements");
+		$this->arrText["confirm_remove_addons"] = esc_html__("Are you sure you want to delete those {$pluralLower}?", "unlimited_elementor_elements");
 		
 		$objLayouts = new UniteCreatorLayouts();
 		
 		$this->arrOptions["is_layout"] = $this->isLayouts;
 		$this->arrOptions["url_screenshot_template"] = $objLayouts->getUrlTakeScreenshot();
 		
-		$this->textAddAddon = esc_html__("Add ", "unlimited_elements").$single;
+		$this->textAddAddon = esc_html__("Add ", "unlimited_elementor_elements").$single;
 		
 		//set default filter
 		if($this->objAddonType->allowManagerWebCatalog == true)
@@ -243,7 +243,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		if($this->objAddonType->showDescriptionField == false)
 			$this->enableDescriptionField = false;
 			
-		if($this->objAddonType->enableCategories == false)
+		if($this->objAddonType->enblCategories == false)
 			$this->hasCats = false;
 		
 		
@@ -769,7 +769,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 * set last selected category state
 	 */
 	private function setStateLastSelectedCat($catID){
-		HelperUC::setState(self::STATE_LAST_ADDONS_CATEGORY, $catID);
+		EWPHelper::setState(self::STATE_LAST_ADDONS_CATEGORY, $catID);
 	}
 		
 	
@@ -866,16 +866,16 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 */
 	private function putDialogImportAddons(){
 		
-		$importText = esc_html__("Import ", "unlimited_elements").$this->textPlural;
-		$textSelect = esc_html__("Select ","unlimited_elements") . $this->textPluralLower . __(" export zip file (or files)","unlimited_elements");
-		$textLoader = esc_html__("Uploading ","unlimited_elements") . $this->textSingleLower. __(" file...", "unlimited_elements");
-		$textSuccess = $this->textSingle . esc_html__(" Added Successfully", "unlimited_elements");
+		$importText = esc_html__("Import ", "unlimited_elementor_elements").$this->textPlural;
+		$textSelect = esc_html__("Select ","unlimited_elementor_elements") . $this->textPluralLower . __(" export zip file (or files)","unlimited_elementor_elements");
+		$textLoader = esc_html__("Uploading ","unlimited_elementor_elements") . $this->textSingleLower. __(" file...", "unlimited_elementor_elements");
+		$textSuccess = $this->textSingle . esc_html__(" Added Successfully", "unlimited_elementor_elements");
 		
 		$dialogTitle = $importText;
 		
-		$textOverwrite = esc_html__("Overwrite Existing ", "unlimited_elements").$this->textPlural;
+		$textOverwrite = esc_html__("Overwrite Existing ", "unlimited_elementor_elements").$this->textPlural;
 		if($this->isLayouts == true)
-			$textOverwrite = esc_html__("Overwrite Addons", "unlimited_elements");
+			$textOverwrite = esc_html__("Overwrite Addons", "unlimited_elementor_elements");
 		
 		
 		$nonce = "";
@@ -910,11 +910,11 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 						<div class="unite-inputs-sap-double"></div>
 						
 						<div class="unite-inputs-label">
-							<?php esc_html_e("Import to Category", "unlimited_elements")?>:
+							<?php esc_html_e("Import to Category", "unlimited_elementor_elements")?>:
 							
 						<select id="dialog_import_catname">
-							<option value="autodetect" ><?php esc_html_e("[Autodetect]", "unlimited_elements")?></option>
-							<option id="dialog_import_catname_specific" value="specific"><?php esc_html_e("Current Category", "unlimited_elements")?></option>
+							<option value="autodetect" ><?php esc_html_e("[Autodetect]", "unlimited_elementor_elements")?></option>
+							<option id="dialog_import_catname_specific" value="specific"><?php esc_html_e("Current Category", "unlimited_elementor_elements")?></option>
 						</select>
 							
 						</div>
@@ -936,7 +936,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 				
 				<div id="dialog_import_addons_log" class='dialog-import-addons-right' style="display:none">
 					
-					<div class="unite-bold"> <?php echo esc_html($importText).esc_html__(" Log","unlimited_elements")?> </div>
+					<div class="unite-bold"> <?php echo esc_html($importText).esc_html__(" Log","unlimited_elementor_elements")?> </div>
 					
 					<br>
 					
@@ -965,12 +965,12 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		?>
 			<!-- dialog quick edit -->
 		
-			<div id="dialog_edit_item_title"  title="<?php esc_html_e("Quick Edit","unlimited_elements")?>" style="display:none;">
+			<div id="dialog_edit_item_title"  title="<?php esc_html_e("Quick Edit","unlimited_elementor_elements")?>" style="display:none;">
 			
 				<div class="dialog_edit_title_inner unite-inputs mtop_20 mbottom_20" >
 			
 					<div class="unite-inputs-label-inline">
-						<?php esc_html_e("Title", "unlimited_elements")?>:
+						<?php esc_html_e("Title", "unlimited_elementor_elements")?>:
 					</div>
 					<input type="text" id="dialog_quick_edit_title" class="unite-input-wide">
 					
@@ -979,7 +979,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 					<div class="unite-inputs-sap"></div>
 							
 					<div class="unite-inputs-label-inline">
-						<?php esc_html_e("Name", "unlimited_elements")?>:
+						<?php esc_html_e("Name", "unlimited_elementor_elements")?>:
 					</div>
 					<input type="text" id="dialog_quick_edit_name" class="unite-input-wide">
 					
@@ -992,7 +992,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 					<div class="unite-inputs-sap"></div>
 					
 					<div class="unite-inputs-label-inline">
-						<?php esc_html_e("Description", "unlimited_elements")?>:
+						<?php esc_html_e("Description", "unlimited_elementor_elements")?>:
 					</div>
 					
 					<textarea class="unite-input-wide" id="dialog_quick_edit_description"></textarea>
@@ -1013,21 +1013,21 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		$prefix = "uc_dialog_edit_category";
 		
 		?>
-			<div id="uc_dialog_edit_category" class="uc-dialog-edit-category" data-custom='yes' title="<?php esc_html_e("Edit Category","unlimited_elements")?>" style="display:none;" >
+			<div id="uc_dialog_edit_category" class="uc-dialog-edit-category" data-custom='yes' title="<?php esc_html_e("Edit Category","unlimited_elementor_elements")?>" style="display:none;" >
 				
 				<div class="unite-dialog-top"></div>
 				
 				<div class="unite-dialog-inner-constant">	
-					<div id="<?php echo esc_attr($prefix)?>_settings_loader" class="loader_text"><?php esc_html_e("Loading Settings", "unlimited_elements")?>...</div>
+					<div id="<?php echo esc_attr($prefix)?>_settings_loader" class="loader_text"><?php esc_html_e("Loading Settings", "unlimited_elementor_elements")?>...</div>
 					
 					<div id="<?php echo esc_attr($prefix)?>_settings_content"></div>
 					
 				</div>
 				
 				<?php 
-					$buttonTitle = esc_html__("Update Category", "unlimited_elements");
-					$loaderTitle = esc_html__("Updating Category...", "unlimited_elements");
-					$successTitle = esc_html__("Category Updated", "unlimited_elements");
+					$buttonTitle = esc_html__("Update Category", "unlimited_elementor_elements");
+					$loaderTitle = esc_html__("Updating Category...", "unlimited_elementor_elements");
+					$successTitle = esc_html__("Category Updated", "unlimited_elementor_elements");
 					HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 				?>
 				
@@ -1043,7 +1043,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		
 		$prefix = "uc_dialog_addon_properties";
 		
-		$textTitle =  $this->textSingle.esc_html__(" Properties", "unlimited_elements");
+		$textTitle =  $this->textSingle.esc_html__(" Properties", "unlimited_elementor_elements");
 		
 		
 		?>
@@ -1052,16 +1052,16 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 				<div class="unite-dialog-top"></div>
 				
 				<div class="unite-dialog-inner-constant">	
-					<div id="<?php echo esc_attr($prefix)?>_settings_loader" class="loader_text uc-settings-loader"><?php esc_html_e("Loading Properties", "unlimited_elements")?>...</div>
+					<div id="<?php echo esc_attr($prefix)?>_settings_loader" class="loader_text uc-settings-loader"><?php esc_html_e("Loading Properties", "unlimited_elementor_elements")?>...</div>
 					
 					<div id="<?php echo esc_attr($prefix)?>_settings_content" class="uc-settings-content"></div>
 					
 				</div>
 				
 				<?php 
-					$buttonTitle = esc_html__("Update ", "unlimited_elements").$this->textSingle;
-					$loaderTitle = esc_html__("Updating...", "unlimited_elements");
-					$successTitle = $this->textSingle.esc_html__(" Updated", "unlimited_elements");
+					$buttonTitle = esc_html__("Update ", "unlimited_elementor_elements").$this->textSingle;
+					$loaderTitle = esc_html__("Updating...", "unlimited_elementor_elements");
+					$successTitle = $this->textSingle.esc_html__(" Updated", "unlimited_elementor_elements");
 					HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 				?>			
 				
@@ -1089,7 +1089,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 				<div class="unite-dialog-top"></div>
 			
 				<div class="unite-inputs-label">
-					<?php echo esc_html($this->textSingle).esc_html__(" Title", "unlimited_elements")?>:
+					<?php echo esc_html($this->textSingle).esc_html__(" Title", "unlimited_elementor_elements")?>:
 				</div>
 				
 				<input type="text" id="dialog_add_addon_title" class="dialog_addon_input unite-input-100" />
@@ -1132,8 +1132,8 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 				
 					$prefix = "dialog_add_addon";
 					$buttonTitle = $this->textAddAddon;
-					$loaderTitle = esc_html__("Adding ","unlimited_elements").$this->textSingle."...";
-					$successTitle = $this->textSingle. esc_html__(" Added Successfully", "unlimited_elements");
+					$loaderTitle = esc_html__("Adding ","unlimited_elementor_elements").$this->textSingle."...";
+					$successTitle = $this->textSingle. esc_html__(" Added Successfully", "unlimited_elementor_elements");
 					HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 				?>
 				
@@ -1175,34 +1175,34 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		$arrMenuItem = array();
 		
 		if($this->isLayouts == false){
-			$arrMenuItem["edit_addon"] = esc_html__("Edit ","unlimited_elements").$this->textSingle;
-			$arrMenuItem["edit_addon_blank"] = esc_html__("Edit In New Tab","unlimited_elements");
+			$arrMenuItem["edit_addon"] = esc_html__("Edit ","unlimited_elementor_elements").$this->textSingle;
+			$arrMenuItem["edit_addon_blank"] = esc_html__("Edit In New Tab","unlimited_elementor_elements");
 		}else{
-			$arrMenuItem["edit_addon_blank"] = esc_html__("Edit ","unlimited_elements").$this->textSingle;			
+			$arrMenuItem["edit_addon_blank"] = esc_html__("Edit ","unlimited_elementor_elements").$this->textSingle;			
 		}
 
 		if($this->enableEditGroup)
-			$arrMenuItem["edit_layout_group"] = esc_html__("Edit Template Group","unlimited_elements");
+			$arrMenuItem["edit_layout_group"] = esc_html__("Edit Template Group","unlimited_elementor_elements");
 		
 		if($this->enablePreview == true)
-			$arrMenuItem["preview_addon"] = esc_html__("Preview","unlimited_elements");
+			$arrMenuItem["preview_addon"] = esc_html__("Preview","unlimited_elementor_elements");
 		
 		if($this->enableViewThumbnail)
-			$arrMenuItem["preview_thumb"] = esc_html__("View Thumbnail","unlimited_elements");
+			$arrMenuItem["preview_thumb"] = esc_html__("View Thumbnail","unlimited_elementor_elements");
 		
 		if($this->enableMakeScreenshots)
-			$arrMenuItem["make_screenshots"] = esc_html__("Make Thumbnail","unlimited_elements");
+			$arrMenuItem["make_screenshots"] = esc_html__("Make Thumbnail","unlimited_elementor_elements");
 		
 			
-		$arrMenuItem["quick_edit"] = esc_html__("Quick Edit","unlimited_elements");
-		$arrMenuItem["remove_item"] = esc_html__("Delete","unlimited_elements");
+		$arrMenuItem["quick_edit"] = esc_html__("Quick Edit","unlimited_elementor_elements");
+		$arrMenuItem["remove_item"] = esc_html__("Delete","unlimited_elementor_elements");
 		
 		if($this->showTestAddon){
-			$arrMenuItem["test_addon"] = esc_html__("Test ","unlimited_elements").$this->textSingle;
-			$arrMenuItem["test_addon_blank"] = esc_html__("Test In New Tab","unlimited_elements");
+			$arrMenuItem["test_addon"] = esc_html__("Test ","unlimited_elementor_elements").$this->textSingle;
+			$arrMenuItem["test_addon_blank"] = esc_html__("Test In New Tab","unlimited_elementor_elements");
 		}	
 		
-		$arrMenuItem["export_addon"] = esc_html__("Export ","unlimited_elements").$this->textSingle;
+		$arrMenuItem["export_addon"] = esc_html__("Export ","unlimited_elementor_elements").$this->textSingle;
 		
 		$arrMenuItem = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_MANAGER_MENU_SINGLE, $arrMenuItem);
 		
@@ -1217,7 +1217,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	protected function getMenuField(){
 		$arrMenuField = array();
 				
-		$arrMenuField["select_all"] = esc_html__("Select All","unlimited_elements");
+		$arrMenuField["select_all"] = esc_html__("Select All","unlimited_elementor_elements");
 		
 		$arrMenuField = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_MANAGER_MENU_FIELD, $arrMenuField);
 		
@@ -1231,10 +1231,10 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 */
 	protected function getMenuMulitipleItems(){
 		$arrMenuItemMultiple = array();
-		$arrMenuItemMultiple["remove_item"] = esc_html__("Delete","unlimited_elements");
+		$arrMenuItemMultiple["remove_item"] = esc_html__("Delete","unlimited_elementor_elements");
 		
 		if($this->enableMakeScreenshots == true)
-			$arrMenuItemMultiple["make_screenshots"] = esc_html__("Make Thumbnails","unlimited_elements");
+			$arrMenuItemMultiple["make_screenshots"] = esc_html__("Make Thumbnails","unlimited_elementor_elements");
 		
 		$arrMenuItemMultiple = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_MANAGER_MENU_MULTIPLE, $arrMenuItemMultiple);
 		
@@ -1248,8 +1248,8 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	protected function getMenuCategory(){
 	
 		$arrMenuCat = array();
-		$arrMenuCat["edit_category"] = esc_html__("Edit Category","unlimited_elements");
-		$arrMenuCat["delete_category"] = esc_html__("Delete Category","unlimited_elements");
+		$arrMenuCat["edit_category"] = esc_html__("Edit Category","unlimited_elementor_elements");
+		$arrMenuCat["delete_category"] = esc_html__("Delete Category","unlimited_elementor_elements");
 		
 		
 		$arrMenuCat = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_MANAGER_MENU_CATEGORY, $arrMenuCat);
@@ -1292,7 +1292,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		
 		
 		$arrCats = $this->modifyLocalCats($arrCats);
-
+	
 		
 		if($this->objAddonType->allowManagerWebCatalog == true)
 			$arrCats = $webAPI->mergeCatsAndAddonsWithCatalog($arrCats, true, $this->objAddonType, $params);
@@ -1369,14 +1369,12 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 * get category list
 	 */
 	protected function getCatList($selectCatID = null, $arrCats = null, $params = array()){
-		
-		
+
 		if($arrCats === null)
 			$arrCats = $this->getArrCats($params);
-		
 		$htmlCatList = $this->objCats->getHtmlCatList($selectCatID, $this->objAddonType, $arrCats);
-		
-		
+
+	
 		return($htmlCatList);
 	}
 	
@@ -1417,9 +1415,9 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		$settings = new UniteCreatorSettings();
 		
 		$settings->addStaticText("Category ID: <b>$catID</b>","some_name");
-		$settings->addTextBox("category_title", $title, esc_html__("Category Title","unlimited_elements"));
-		$settings->addTextBox("category_alias", $alias, esc_html__("Category Name","unlimited_elements"));
-		$settings->addIconPicker("icon","",esc_html__("Category Icon", "unlimited_elements"));
+		$settings->addTextBox("category_title", $title, esc_html__("Category Title","unlimited_elementor_elements"));
+		$settings->addTextBox("category_alias", $alias, esc_html__("Category Name","unlimited_elementor_elements"));
+		$settings->addIconPicker("icon","",esc_html__("Category Icon", "unlimited_elementor_elements"));
 		
 		$settings = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_MANAGER_ADDONS_CATEGORY_SETTINGS, $settings, $objCat, $this->filterAddonType);
 		
@@ -1453,7 +1451,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 			<div class="uc-filter-set-wrapper uc-filter-set-checkbox">
 				<label>
 					<input id="uc_filter_catalog_installed" type="checkbox" data-state_active="<?php echo self::FILTER_CATALOG_INSTALLED?>" data-state_notactive="<?php echo self::FILTER_CATALOG_MIXED?>" <?php echo $addParams?>>
-					<?php _e("Show Only Installed", "unlimited_elements")?>
+					<?php _e("Show Only Installed", "unlimited_elementor_elements")?>
 				</label>
 			</div>
 			
@@ -1465,16 +1463,16 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 */
 	protected function putFilterSearch(){
 				
-		$textPlaceholder = __("Search...","unlimited_elements");
+		$textPlaceholder = __("Search...","unlimited_elementor_elements");
 		
 		?>			
 			<div class="uc-filters-set-search">
 							
 				<input id="uc_manager_addons_input_search" class="uc-filter-search-input" type="text" placeholder="<?php echo $textPlaceholder?>">
 				
-				<i id="uc_manager_addons_icon_search" class="fa fa-search uc-icon-search" title="<?php _e("Search Widget","unlimited_elements")?>"></i>
+				<i id="uc_manager_addons_icon_search" class="fa fa-search uc-icon-search" title="<?php _e("Search Widget","unlimited_elementor_elements")?>"></i>
 				
-				<a id="uc_manager_addons_clear_search" href="javascript:void(0)" onfocus="this.blur()" class="uc-filter-button-clear" title="<?php _e("Clear Search","unlimited_elements")?>" style="display:none" >
+				<a id="uc_manager_addons_clear_search" href="javascript:void(0)" onfocus="this.blur()" class="uc-filter-button-clear" title="<?php _e("Clear Search","unlimited_elementor_elements")?>" style="display:none" >
 					<i class="fa fa-times uc-icon-clear"></i>
 				</a>
 			</div>
@@ -1500,9 +1498,9 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 			$style = "";
 		
 		$arrFilter = array();
-		$arrFilter["all"] = __("Show all states", "unlimited_elements");
-		$arrFilter["active"] = __("Active state only","unlimited_elements");
-		$arrFilter["not_active"] = __("Not active state only","unlimited_elements");
+		$arrFilter["all"] = __("Show all states", "unlimited_elementor_elements");
+		$arrFilter["active"] = __("Active state only","unlimited_elementor_elements");
+		$arrFilter["not_active"] = __("Not active state only","unlimited_elementor_elements");
 		
 		$htmlSelect = HelperHtmlUC::getHTMLSelect($arrFilter, $filter, "id='uc_manager_filter_active' class='uc-select-filter-active'", true);
 		
@@ -1553,12 +1551,12 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 */
 	protected function putHtmlHeaderLine(){
 		
-		$urlLogo = GlobalsUC::$urlPluginImages."logo_unlimited.svg";
+		$urlLogo = GlobalsUC::$urlPluginImages."logo-1.svg";
 		
 		?>
 		<div class="uc-manager-header-line">
 			
-			<img class="uc-manager-header-logo" src="<?php echo $urlLogo?>">
+			<img class="elementer-pro-header-logo" src="<?php echo $urlLogo?>">
 			
 			<div class="uc-manager-header-filters">
 				<?php $this->putHeaderLineFilters()?>
@@ -1583,9 +1581,9 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		?>
 		 	<div id="uc_manager_group" class="uc-manager-group">
 		 		
-		 		<a href="javascript:void(0)" class="uc-manager-group-back"><?php _e("Back To Category","unlimited_elements")?></a>
+		 		<a href="javascript:void(0)" class="uc-manager-group-back"><?php _e("Back To Category","unlimited_elementor_elements")?></a>
 		 		
-		 		<div class="uc-manager-group-text"><?php _e("Template Group","unlimited_elements")?></div>
+		 		<div class="uc-manager-group-text"><?php _e("Template Group","unlimited_elementor_elements")?></div>
 		 				 		
 		 	</div>
 		
@@ -1671,8 +1669,8 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	protected function putItemsButtonsTemp(){
 		/*
 		 
- 			<a data-action="select_all_items" type="button" class="unite-button-secondary button-disabled uc-button-item uc-button-select" data-textselect="<?php esc_html_e("Select All","unlimited_elements")?>" data-textunselect="<?php esc_html_e("Unselect All","unlimited_elements")?>"><?php esc_html_e("Select All","unlimited_elements")?></a>
-	 		<a data-action="quick_edit" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Quick Edit","unlimited_elements")?></a>
+ 			<a data-action="select_all_items" type="button" class="unite-button-secondary button-disabled uc-button-item uc-button-select" data-textselect="<?php esc_html_e("Select All","unlimited_elementor_elements")?>" data-textunselect="<?php esc_html_e("Unselect All","unlimited_elementor_elements")?>"><?php esc_html_e("Select All","unlimited_elementor_elements")?></a>
+	 		<a data-action="quick_edit" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Quick Edit","unlimited_elementor_elements")?></a>
 		 
 		 */
 	}
@@ -1683,13 +1681,13 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 */
 	protected function putMultipleItemButtons(){
 		?>
-		 	<a data-action="remove_item" type="button" class="unite-button-secondary button-disabled uc-button-item uc-multiple-items"><?php esc_html_e("Delete","unlimited_elements")?></a>
-		 	<a data-action="duplicate_item" type="button" class="unite-button-secondary button-disabled uc-button-item uc-multiple-items"><?php esc_html_e("Duplicate","unlimited_elements")?></a>
+		 	<a data-action="remove_item" type="button" class="unite-button-secondary button-disabled uc-button-item uc-multiple-items"><?php esc_html_e("Delete","unlimited_elementor_elements")?></a>
+		 	<a data-action="duplicate_item" type="button" class="unite-button-secondary button-disabled uc-button-item uc-multiple-items"><?php esc_html_e("Duplicate","unlimited_elementor_elements")?></a>
 		
 	 		<?php if($this->enableActiveFilter == true):?>
 	 			
-		 		<a data-action="activate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-notactive-item uc-multiple-items"><?php esc_html_e("Activate","unlimited_elements")?></a>
-		 		<a data-action="deactivate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-active-item uc-multiple-items"><?php esc_html_e("Deactivate","unlimited_elements")?></a>
+		 		<a data-action="activate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-notactive-item uc-multiple-items"><?php esc_html_e("Activate","unlimited_elementor_elements")?></a>
+		 		<a data-action="deactivate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-active-item uc-multiple-items"><?php esc_html_e("Deactivate","unlimited_elementor_elements")?></a>
 	 		
 	 		<?php endif?>
 		
@@ -1702,8 +1700,8 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	 */
 	protected function putItemsButtons(){
 		
-		$textImport = esc_html__("Import ","unlimited_elements") . $this->textPlural;
-		$textEdit = esc_html__("Edit ","unlimited_elements") . $this->textSingle;
+		$textImport = esc_html__("Import ","unlimited_elementor_elements") . $this->textPlural;
+		$textEdit = esc_html__("Edit ","unlimited_elementor_elements") . $this->textSingle;
 		$textTest = "Test ".$this->textSingle;
 		
 		?>
@@ -1725,9 +1723,9 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 			 UniteProviderFunctionsUC::doAction(UniteCreatorFilters::ACTION_MANAGER_ITEM_BUTTONS2);
 			?>
  							
-		 		<a data-action="remove_item" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Delete","unlimited_elements")?></a>
+		 		<a data-action="remove_item" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Delete","unlimited_elementor_elements")?></a>
 		 		<a data-action="edit_addon" type="button" class="unite-button-primary button-disabled uc-button-item uc-single-item"><?php echo esc_html($textEdit)?> </a>
-		 		<a data-action="preview_addon" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Preview", "unlimited_elements")?> </a>
+		 		<a data-action="preview_addon" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Preview", "unlimited_elementor_elements")?> </a>
 	 		
 		 		<?php if($this->showTestAddon):?>
 		 		<a data-action="test_addon" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php echo esc_html($textTest)?></a>
@@ -1739,21 +1737,21 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 			
 				<?php if($this->enablePreview == true):?>
 		 		
-		 			<a data-action="preview_addon" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Preview", "unlimited_elements")?> </a>
+		 			<a data-action="preview_addon" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Preview", "unlimited_elementor_elements")?> </a>
 				
 				<?php endif?>
 							
 	 		<?php if($this->enableActiveFilter == true):?>
 	 			
-		 		<a data-action="activate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-notactive-item"><?php esc_html_e("Activate","unlimited_elements")?></a>
-		 		<a data-action="deactivate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-active-item"><?php esc_html_e("Deactivate","unlimited_elements")?></a>
+		 		<a data-action="activate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-notactive-item"><?php esc_html_e("Activate","unlimited_elementor_elements")?></a>
+		 		<a data-action="deactivate_addons" type="button" class="unite-button-secondary button-disabled uc-button-item uc-active-item"><?php esc_html_e("Deactivate","unlimited_elementor_elements")?></a>
 	 		
 	 		<?php endif?>
 	 		
 	 		<?php if($this->enableMakeScreenshots == true):?>
 	 		
-	 		<a data-action="make_screenshots" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Make Thumb", "unlimited_elements")?> </a>
-	 		<a data-action="make_screenshots" type="button" class="unite-button-secondary button-disabled uc-button-item uc-multiple-items"><?php esc_html_e("Make Thumbs", "unlimited_elements")?> </a>
+	 		<a data-action="make_screenshots" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Make Thumb", "unlimited_elementor_elements")?> </a>
+	 		<a data-action="make_screenshots" type="button" class="unite-button-secondary button-disabled uc-button-item uc-multiple-items"><?php esc_html_e("Make Thumbs", "unlimited_elementor_elements")?> </a>
 	 		
 	 		<?php endif?>
 		<?php
@@ -1783,7 +1781,7 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 		
 		?>
 		<div class="uc-single-item-related">
-			<div class="uc-filters-set-title"><?php esc_html_e("Shortcode", "unlimited_elements")?>:</div>
+			<div class="uc-filters-set-title"><?php esc_html_e("Shortcode", "unlimited_elementor_elements")?>:</div>
 			<div class="uc-filters-set-content"> <input type="text" readonly class="uc-filers-set-shortcode" data-template="<?php echo esc_attr($shortcodeTemplate)?>" value=""></div>
 		</div>
 		
@@ -1893,26 +1891,26 @@ class UniteCreatorManagerAddonsWork extends UniteCreatorManager{
 	protected function getMenuSingleItemActions(){
 		
 		$arrMenuItem = array();
-		$arrMenuItem["edit_addon_blank"] = esc_html__("Edit In New Tab","unlimited_elements");
+		$arrMenuItem["edit_addon_blank"] = esc_html__("Edit In New Tab","unlimited_elementor_elements");
 		
 		if($this->enableEditGroup)
-			$arrMenuItem["edit_layout_group"] = esc_html__("Edit Template Group","unlimited_elements");
+			$arrMenuItem["edit_layout_group"] = esc_html__("Edit Template Group","unlimited_elementor_elements");
 		
 		if($this->enableViewThumbnail)
-			$arrMenuItem["preview_thumb"] = esc_html__("View Thumbnail","unlimited_elements");
+			$arrMenuItem["preview_thumb"] = esc_html__("View Thumbnail","unlimited_elementor_elements");
 		
 		if($this->enableMakeScreenshots)
-			$arrMenuItem["make_screenshots"] = esc_html__("Make Thumbnail","unlimited_elements");
+			$arrMenuItem["make_screenshots"] = esc_html__("Make Thumbnail","unlimited_elementor_elements");
 		
-		$arrMenuItem["quick_edit"] = esc_html__("Quick Edit","unlimited_elements");
-		$arrMenuItem["remove_item"] = esc_html__("Delete","unlimited_elements");
+		$arrMenuItem["quick_edit"] = esc_html__("Quick Edit","unlimited_elementor_elements");
+		$arrMenuItem["remove_item"] = esc_html__("Delete","unlimited_elementor_elements");
 		
 		if($this->showTestAddon){
-			$arrMenuItem["test_addon"] = esc_html__("Test ","unlimited_elements").$this->textSingle;
-			$arrMenuItem["test_addon_blank"] = esc_html__("Test In New Tab","unlimited_elements");
+			$arrMenuItem["test_addon"] = esc_html__("Test ","unlimited_elementor_elements").$this->textSingle;
+			$arrMenuItem["test_addon_blank"] = esc_html__("Test In New Tab","unlimited_elementor_elements");
 		}	
 		
-		$arrMenuItem["export_addon"] = esc_html__("Export ","unlimited_elements").$this->textSingle;
+		$arrMenuItem["export_addon"] = esc_html__("Export ","unlimited_elementor_elements").$this->textSingle;
 		
 		return($arrMenuItem);
 	}

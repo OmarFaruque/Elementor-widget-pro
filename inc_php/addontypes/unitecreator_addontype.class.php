@@ -5,16 +5,15 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorAddonType{
 	
 	public $textSingle, $textPlural, $typeName, $typeNameDistinct, $typeNameCategory, $textShowType;
-	public $isSVG = false, $isLayout = false, $titlePrefix = "", $isBasicType = true;
+	public $isSVG = false, $isLayout = false, $titlePrefix = "", $isBscType = true;
 	
 	//manager
-	
-	public $enableCategories = true, $enableShortcodes = false;
+	public $enblCategories = true, $enableShortcodes = false;
 	public $allowDuplicateTitle = true, $isAutoScreenshot = false;
 	public $allowNoCategory = true, $defaultCatTitle, $allowWebCatalog = true;
 	public $exportPrefix = null, $requireCatalogPreview = false;
@@ -46,13 +45,11 @@ class UniteCreatorAddonType{
 	 * init the addon type
 	 */
 	protected function init(){
-		
 		$this->typeName = "";
-		
-		$this->textSingle = __("Addon", "unlimited_elements");
-		$this->textPlural = __("Addons", "unlimited_elements");
-		$this->textShowType = __("Regular Addon", "unlimited_elements");
-		$this->defaultCatTitle = __("Main", "unlimited_elements");
+		$this->textSingle = __("Addon", "unlimited_elementor_elements");
+		$this->textPlural = __("Addons", "unlimited_elementor_elements");
+		$this->textShowType = __("Regular Addon", "unlimited_elementor_elements");
+		$this->defaultCatTitle = __("Main", "unlimited_elementor_elements");
 		
 	}
 	
@@ -118,7 +115,7 @@ class UniteCreatorAddonType{
 	 * get addon type object
 	 */
 	public static function getAddonTypeObject($type, $isLayout = false){
-
+		
 		if(empty($type)){
 			
 			if($isLayout == true)
@@ -127,14 +124,17 @@ class UniteCreatorAddonType{
 				$type = GlobalsUC::ADDON_TYPE_REGULAR_ADDON;
 		}
 		
-		
+		// echo 'type omar: ' . $type . '<br/>';	
 		$cacheName = $type;
-		if(empty($type))
+		if(empty($type)){
 			$cacheName = GlobalsUC::ADDON_TYPE_REGULAR_ADDON;
-		
-		if(isset(self::$arrTypesCache[$cacheName]))
+		}
+	
+		if(isset(self::$arrTypesCache[$cacheName])){
 			return(self::$arrTypesCache[$cacheName]);
-				
+		}
+
+		
 		switch($type){
 			case GlobalsUC::ADDON_TYPE_SHAPE_DEVIDER:
 				$objType = new UniteCreatorAddonType_Shape_Divider();

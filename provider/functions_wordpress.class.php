@@ -1,7 +1,7 @@
 <?php
 
 
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 	class UniteFunctionsWPUC{
@@ -422,7 +422,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			}
 			
 			
-			HelperUC::addDebug("Terms Query", $args);
+			EWPHelper::addDebug("Terms Query", $args);
 						
 			$arrTermsObjects = get_terms($args);
 						
@@ -594,7 +594,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$arrCats = array();
 			
 			if($addNotSelected == true)
-				$arrCats["all"] = esc_html__("[All Categories]", "unlimited_elements");
+				$arrCats["all"] = esc_html__("[All Categories]", "unlimited_elementor_elements");
 			
 			if(strpos($taxonomy,",") !== false){
 				$arrTax = explode(",", $taxonomy);
@@ -742,19 +742,19 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function getArrSortBy(){
 			
 			$arr = array();
-			$arr[self::SORTBY_ID] = __("Post ID", "unlimited_elements");
-			$arr[self::SORTBY_DATE] = __("Date", "unlimited_elements");
-			$arr[self::SORTBY_TITLE] = __("Title", "unlimited_elements");
-			$arr[self::SORTBY_SLUC] = __("Slug", "unlimited_elements");
-			$arr[self::SORTBY_AUTHOR] = __("Author", "unlimited_elements");
-			$arr[self::SORTBY_LAST_MODIFIED] = __("Last Modified", "unlimited_elements");
-			$arr[self::SORTBY_COMMENT_COUNT] = __("Number Of Comments", "unlimited_elements");
-			$arr[self::SORTBY_RAND] = __("Random", "unlimited_elements");
-			$arr[self::SORTBY_NONE] = __("Unsorted", "unlimited_elements");
-			$arr[self::SORTBY_MENU_ORDER] = __("Menu Order", "unlimited_elements");
-			$arr[self::SORTBY_PARENT] = __("Parent Post", "unlimited_elements");
-			$arr[self::SORTBY_META_VALUE] = __("Custom Field Value", "unlimited_elements");
-			$arr[self::SORTBY_META_VALUE_NUM] = __("Custom Field Value (numeric)", "unlimited_elements");
+			$arr[self::SORTBY_ID] = __("Post ID", "unlimited_elementor_elements");
+			$arr[self::SORTBY_DATE] = __("Date", "unlimited_elementor_elements");
+			$arr[self::SORTBY_TITLE] = __("Title", "unlimited_elementor_elements");
+			$arr[self::SORTBY_SLUC] = __("Slug", "unlimited_elementor_elements");
+			$arr[self::SORTBY_AUTHOR] = __("Author", "unlimited_elementor_elements");
+			$arr[self::SORTBY_LAST_MODIFIED] = __("Last Modified", "unlimited_elementor_elements");
+			$arr[self::SORTBY_COMMENT_COUNT] = __("Number Of Comments", "unlimited_elementor_elements");
+			$arr[self::SORTBY_RAND] = __("Random", "unlimited_elementor_elements");
+			$arr[self::SORTBY_NONE] = __("Unsorted", "unlimited_elementor_elements");
+			$arr[self::SORTBY_MENU_ORDER] = __("Menu Order", "unlimited_elementor_elements");
+			$arr[self::SORTBY_PARENT] = __("Parent Post", "unlimited_elementor_elements");
+			$arr[self::SORTBY_META_VALUE] = __("Custom Field Value", "unlimited_elementor_elements");
+			$arr[self::SORTBY_META_VALUE_NUM] = __("Custom Field Value (numeric)", "unlimited_elementor_elements");
 			
 			return($arr);
 		}
@@ -767,8 +767,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function getArrSortDirection(){
 			
 			$arr = array();
-			$arr[self::ORDER_DIRECTION_DESC] = __("Descending", "unlimited_elements");
-			$arr[self::ORDER_DIRECTION_ASC] = __("Ascending", "unlimited_elements");
+			$arr[self::ORDER_DIRECTION_DESC] = __("Descending", "unlimited_elementor_elements");
+			$arr[self::ORDER_DIRECTION_ASC] = __("Ascending", "unlimited_elementor_elements");
 			
 			return($arr);
 		}
@@ -779,12 +779,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function getArrTermSortBy(){
 			
 			$arr = array();
-			$arr["name"] = __("Name", "unlimited_elements");
-			$arr["slug"] = __("Slug", "unlimited_elements");
-			$arr["term_group"] = __("Term Group", "unlimited_elements");
-			$arr["term_id"] = __("Term ID", "unlimited_elements");
-			$arr["description"] = __("Description", "unlimited_elements");
-			$arr["parent"] = __("Parent", "unlimited_elements");
+			$arr["name"] = __("Name", "unlimited_elementor_elements");
+			$arr["slug"] = __("Slug", "unlimited_elementor_elements");
+			$arr["term_group"] = __("Term Group", "unlimited_elementor_elements");
+			$arr["term_id"] = __("Term ID", "unlimited_elementor_elements");
+			$arr["description"] = __("Description", "unlimited_elementor_elements");
+			$arr["parent"] = __("Parent", "unlimited_elementor_elements");
 			
 			//$arr["count"] = "Count";
 			
@@ -1192,14 +1192,14 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			}
 			
 				
-			HelperUC::addDebug("Posts Query", $args);
+			EWPHelper::addDebug("Posts Query", $args);
 			
 			$arrPosts = get_posts($args);
 			
 			if(empty($arrPosts))
 				$arrPosts = array();
 			
-			HelperUC::addDebug("posts found: ".count($arrPosts));
+			EWPHelper::addDebug("posts found: ".count($arrPosts));
 			
 			
 			return($arrPosts);
@@ -1589,7 +1589,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 						continue(2);
 						break;
 					case "ug_big":
-						$title = esc_html__("Big", "unlimited_elements");
+						$title = esc_html__("Big", "unlimited_elementor_elements");
 						break;
 				}
 		
@@ -1602,8 +1602,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$arrSizes[$size] = $title;
 			}
 		
-			$arrSizes[self::THUMB_LARGE] = esc_html__("Large (max width 1024)", "unlimited_elements");
-			$arrSizes[self::THUMB_FULL] = esc_html__("Full", "unlimited_elements");
+			$arrSizes[self::THUMB_LARGE] = esc_html__("Large (max width 1024)", "unlimited_elementor_elements");
+			$arrSizes[self::THUMB_FULL] = esc_html__("Full", "unlimited_elementor_elements");
 		
 			return($arrSizes);
 		}

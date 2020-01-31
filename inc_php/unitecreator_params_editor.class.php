@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorParamsEditor{
 	
@@ -46,19 +46,19 @@ class UniteCreatorParamsEditor{
 							<th width="50px">
 							</th>
 							<th width="200px">
-								<?php esc_html_e("Title", "unlimited_elements")?>
+								<?php esc_html_e("Title", "unlimited_elementor_elements")?>
 							</th>
 							<th width="160px">
-								<?php esc_html_e("Name", "unlimited_elements")?>
+								<?php esc_html_e("Name", "unlimited_elementor_elements")?>
 							</th>
 							<th width="100px">
-								<?php esc_html_e("Type", "unlimited_elements")?>
+								<?php esc_html_e("Type", "unlimited_elementor_elements")?>
 							</th>
 							<th width="270px">
-								<?php esc_html_e("Param", "unlimited_elements")?>
+								<?php esc_html_e("Param", "unlimited_elementor_elements")?>
 							</th>
 							<th width="200px">
-								<?php esc_html_e("Operations", "unlimited_elements")?>
+								<?php esc_html_e("Operations", "unlimited_elementor_elements")?>
 							</th>
 						</tr>
 					</thead>
@@ -67,14 +67,14 @@ class UniteCreatorParamsEditor{
 				</table>
 				
 				<div class="uc-text-empty-params mbottom_20" style="display:none">
-						<?php esc_html_e("No Params Found", "unlimited_elements")?>
+						<?php esc_html_e("No Params Found", "unlimited_elementor_elements")?>
 				</div>
 				
-				<a class="uc-button-add-param unite-button-secondary" href="javascript:void(0)"><?php esc_html_e("Add Attribute", "unlimited_elements");?></a>
+				<a class="uc-button-add-param unite-button-secondary" href="javascript:void(0)"><?php esc_html_e("Add Attribute", "unlimited_elementor_elements");?></a>
 				
 				<?php if($this->isItemsType):?>
 				
-				<a class="uc-button-add-imagebase unite-button-secondary mleft_10" href="javascript:void(0)"><?php esc_html_e("Add Image Base Fields", "unlimited_elements");?></a>
+				<a class="uc-button-add-imagebase unite-button-secondary mleft_10" href="javascript:void(0)"><?php esc_html_e("Add Image Base Fields", "unlimited_elementor_elements");?></a>
 				
 				<?php endif?>
 			</div>

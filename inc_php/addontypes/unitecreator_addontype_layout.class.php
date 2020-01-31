@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorAddonType_Layout extends UniteCreatorAddonType{
 	
@@ -34,7 +34,7 @@ class UniteCreatorAddonType_Layout extends UniteCreatorAddonType{
 		$this->textShowType = $this->textSingle;
 		
 		$this->paramsSettingsType = "screenshot";
-		$this->paramSettingsTitle = __("Preview Image Settings", "unlimited_elements");
+		$this->paramSettingsTitle = __("Preview Image Settings", "unlimited_elementor_elements");
 		
 		$this->requireCatalogPreview = true;
 		$this->allowWebCatalog = false;

@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 	class UniteCreatorAddonWork extends UniteElementsBaseUC{
 		
@@ -103,7 +103,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		private function validateName($name){
 			
-			$fieldName = esc_html__("Widget Name", "unlimited_elements");
+			$fieldName = esc_html__("Widget Name", "unlimited_elementor_elements");
 			
 			UniteFunctionsUC::validateNotEmpty($name, $fieldName);
 			UniteFunctionsUC::validateAlphaNumeric($name, $fieldName);
@@ -336,7 +336,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 				$name = UniteFunctionsUC::getVal($param, "name");
 				if(array_key_exists($name, $arrNames) == true)
-					$arrParams[$key]["param_error"] = esc_html__("Double Name, please remove", "unlimited_elements");
+					$arrParams[$key]["param_error"] = esc_html__("Double Name, please remove", "unlimited_elementor_elements");
 				
 				$arrNames[$name] = true;
 			}
@@ -384,7 +384,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 							
 			$pathAbsolute = UniteFunctionsUC::joinPaths($this->pathAssetsBase, $path);
 						
-			$isUnderAssets = HelperUC::isPathUnderAssetsPath($pathAbsolute, $this->objAddonType);
+			$isUnderAssets = EWPHelper::isPathUnderAssetsPath($pathAbsolute, $this->objAddonType);
 			
 			if($isUnderAssets == false)
 				return("");
@@ -419,11 +419,11 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			foreach($arrIncludes as $key => $include){
 				if(is_string($include))
-					$include = HelperUC::URLtoFull($include, $this->urlAssetsBase);
+					$include = EWPHelper::URLtoFull($include, $this->urlAssetsBase);
 				else{
 					$url = UniteFunctionsUC::getVal($include, "url");
 					if(!empty($url))
-						$include["url"] = HelperUC::URLtoFull($url, $this->urlAssetsBase);
+						$include["url"] = EWPHelper::URLtoFull($url, $this->urlAssetsBase);
 				}
 				
 				$arrIncludes[$key] = $include;
@@ -604,8 +604,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			//set assets path
 			$objAddonType = $this->getObjAddonType();
-			$this->pathAssetsBase = HelperUC::getAssetsPath($objAddonType);
-			$this->urlAssetsBase = HelperUC::getAssetsUrl($objAddonType);
+			$this->pathAssetsBase = EWPHelper::getAssetsPath($objAddonType);
+			$this->urlAssetsBase = EWPHelper::getAssetsUrl($objAddonType);
 			
 			$this->pathAssets = $this->initAssetsPath();
 			
@@ -1282,7 +1282,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				
 			//if still empty - get by number of items
 			if($this->isHasItems()){
-				$this->arrAdminLabels[] = array("uc_num_items", esc_html__("Items", "unlimited_elements"));
+				$this->arrAdminLabels[] = array("uc_num_items", esc_html__("Items", "unlimited_elementor_elements"));
 			}
 			
 			
@@ -1598,7 +1598,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			if(!empty($this->params) || $this->hasItems){
 				
-				$objSettings->addSap(esc_html__("General","unlimited_elements"),"config",true);
+				$objSettings->addSap(esc_html__("General","unlimited_elementor_elements"),"config",true);
 				
 				if($this->hasItems == true){
 					
@@ -1619,7 +1619,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			/*
 			 * add repeater
 			if($this->hasItems == true){
-				$objSettings->addSap(esc_html__("Edit Items","unlimited_elements"),"items");
+				$objSettings->addSap(esc_html__("Edit Items","unlimited_elementor_elements"),"items");
 				$objSettings->addItemsPanelRepeater($this, $source);
 			}
 			*/
@@ -1634,7 +1634,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			if($isFontsPanelEnabled == true){
 				
-				$objSettings->addSap(esc_html__("Fonts","unlimited_elements"),"fonts");
+				$objSettings->addSap(esc_html__("Fonts","unlimited_elementor_elements"),"fonts");
 												
 				$arrFontsData = $this->getArrFonts();
 				
@@ -1650,7 +1650,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$numSettings = $objSettings->getNumSettings();
 			
 			if($numSettings == 0){
-				$textEmpty = esc_html__("no settings for this addon", "unlimited_elements");
+				$textEmpty = esc_html__("no settings for this addon", "unlimited_elementor_elements");
 				
 				$objSettings->addStaticText($textEmpty);
 			}
@@ -1809,8 +1809,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			$urlAssetsKey = "[url_assets]/";
 			
-			$urlAssetsFull = HelperUC::URLtoFull($this->urlAssets);
-			$urlAssetsRelative = HelperUC::URLtoRelative($this->urlAssets);
+			$urlAssetsFull = EWPHelper::URLtoFull($this->urlAssets);
+			$urlAssetsRelative = EWPHelper::URLtoRelative($this->urlAssets);
 			
 			//a little hack
 			$val = str_replace("com_addonlibrary", "com_blox", $val);
@@ -1844,7 +1844,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			
 			if(is_string($arrData)){
-				$arrData = HelperUC::URLtoRelative($arrData);
+				$arrData = EWPHelper::URLtoRelative($arrData);
 				$arrData = $this->convertToUrlAssets($arrData);
 			}
 			
@@ -1853,7 +1853,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			foreach($arrData as $key=>$val){
 				
-				$val = HelperUC::URLtoRelative($val);
+				$val = EWPHelper::URLtoRelative($val);
 				
 				if(!empty($this->urlAssets))
 					$val = $this->convertToUrlAssets($val);
@@ -2215,8 +2215,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$arrJsLib = $this->normalizeIncludeArray($arrJsLib);
 				$arrCssIncludes = $this->normalizeIncludeArray($arrCssIncludes);
 				
-				$arrJsIncludes = HelperUC::arrUrlsToRelative($arrJsIncludes, true);
-				$arrCssIncludes = HelperUC::arrUrlsToRelative($arrCssIncludes, true);
+				$arrJsIncludes = EWPHelper::arrUrlsToRelative($arrJsIncludes, true);
+				$arrCssIncludes = EWPHelper::arrUrlsToRelative($arrCssIncludes, true);
 				
 				$includes = array("js"=>$arrJsIncludes, "jslib"=>$arrJsLib, "css"=>$arrCssIncludes);
 			}

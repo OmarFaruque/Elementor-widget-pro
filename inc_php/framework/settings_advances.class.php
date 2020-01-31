@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 	// advanced settings class. adds some advanced features
@@ -189,9 +189,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public function updateSelectToAlignHor($name, $default = null){
 		
 			$arrItems = array(
-					"left"=>__("Left","unlimited_elements"),
-					"center"=>__("Center", "unlimited_elements"),
-					"right"=>__("Right", "unlimited_elements")
+					"left"=>__("Left","unlimited_elementor_elements"),
+					"center"=>__("Center", "unlimited_elementor_elements"),
+					"right"=>__("Right", "unlimited_elementor_elements")
 			);
 			
 			$this->updateSettingItems($name, $arrItems, $default);
@@ -203,9 +203,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public function updateSelectToAlignVert($name, $default = null){
 		
 			$arrItems = array(
-					"top"=>__("Top","unlimited_elements"),
-					"middle"=>__("Middle", "unlimited_elements"),
-					"bottom"=>__("Bottom", "unlimited_elements")
+					"top"=>__("Top","unlimited_elementor_elements"),
+					"middle"=>__("Middle", "unlimited_elementor_elements"),
+					"bottom"=>__("Bottom", "unlimited_elementor_elements")
 			);
 		
 			$this->updateSettingItems($name, $arrItems, $default);
@@ -218,12 +218,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public function updateSelectToAlignCombo($name, $default = null){
 		
 			$arrItems = array(
-					"left"=>__("Left","unlimited_elements"),
-					"center"=>__("Center", "unlimited_elements"),
-					"right"=>__("Right", "unlimited_elements"),					
-					"top"=>__("Top","unlimited_elements"),
-					"middle"=>__("Middle", "unlimited_elements"),
-					"bottom"=>__("Bottom", "unlimited_elements")
+					"left"=>__("Left","unlimited_elementor_elements"),
+					"center"=>__("Center", "unlimited_elementor_elements"),
+					"right"=>__("Right", "unlimited_elementor_elements"),					
+					"top"=>__("Top","unlimited_elementor_elements"),
+					"middle"=>__("Middle", "unlimited_elementor_elements"),
+					"bottom"=>__("Bottom", "unlimited_elementor_elements")
 			);
 		
 			$this->updateSettingItems($name, $arrItems, $default);
@@ -287,12 +287,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 						$params = array(
 								UniteSettingsUC::PARAM_CLASSADD=>"unite-content-title");
 						
-						$this->addTextBox($name."_title", "", __("&nbsp;Title","unlimited_elements"), $params);
+						$this->addTextBox($name."_title", "", __("&nbsp;Title","unlimited_elementor_elements"), $params);
 						
 						$params = array(
 								UniteSettingsUC::PARAM_CLASSADD=>"unite-content-intro");
 						
-						$this->addTextArea($name."_intro", "", __("&nbsp;Custom Intro","unlimited_elements"), $params);
+						$this->addTextArea($name."_intro", "", __("&nbsp;Custom Intro","unlimited_elementor_elements"), $params);
 						*/
 					    
 						$params = array(
@@ -303,13 +303,13 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 						else
 						  $value = UniteFunctionsUC::getVal($defaultValue, $name."_content");
 						
-						$this->addEditor($name."_content", $value, __("&nbsp;Custom Content","unlimited_elements"), $params);
+						$this->addEditor($name."_content", $value, __("&nbsp;Custom Content","unlimited_elementor_elements"), $params);
 						
 						/*
 						$params = array(
 								UniteSettingsUC::PARAM_CLASSADD=>"unite-content-link");
 						
-						$this->addTextBox($name."_link", "", __("&nbsp;Link","unlimited_elements"), $params);
+						$this->addTextBox($name."_link", "", __("&nbsp;Link","unlimited_elementor_elements"), $params);
 						*/
 						
 					break;

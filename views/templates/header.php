@@ -5,12 +5,12 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 	
 	if(!isset($headerTitle))
 		UniteFunctionsUC::throwError("header template error: \$headerTitle variable not defined"); 
 	
-	$headerPrefix = HelperUC::getText("addon_library");
+	$headerPrefix = EWPHelper::getText("addon_library");
 	if(!empty(GlobalsUC::$alterViewHeaderPrefix))
 		$headerPrefix = GlobalsUC::$alterViewHeaderPrefix;
 	

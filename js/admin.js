@@ -2058,13 +2058,14 @@ function UniteAdminUC(){
 		hideErrorMessage();
 		showAjaxLoader();
 		hideAjaxButton();
-		
+		console.log(objData);
 		var ajaxOptions = {
 				type:"post",
 				url:g_urlAjaxActionsUC,
 				dataType: 'json',
 				data:objData,
 				success:function(response){
+					// console.log(response);
 					hideAjaxLoader();
 					
 					t.ajaxReturnCheck(response, successFunction);
@@ -2430,16 +2431,15 @@ function UniteAdminUC(){
 	 * handle catalog check
 	 */
 	function handleCheckCatalog(){
-		
 		//don't check inside iframe
-		if(window.top != window)
-			return(false);
-		
-		if(typeof g_ucCheckCatalog === "undefined")
-			return(false);
-		
-		if(g_ucCheckCatalog !== true)
-			return(false);
+		// if(window.top != window)
+		// 	return(false);
+
+		// if(typeof g_ucCheckCatalog === "undefined")
+		// 	return(false);
+			
+		// if(g_ucCheckCatalog !== true)
+		// 	return(false);
 		
 		//don't show error on page refresh
 		t.setErrorMessageID(function(){});
@@ -2447,10 +2447,12 @@ function UniteAdminUC(){
 		var data = {};
 		if(g_ucCatalogAddonType)
 			data["addontype"] = g_ucCatalogAddonType;
-				
-		setTimeout(function(){
-			t.ajaxRequest("check_catalog", data, function(response){});
-		}, 5000);
+		
+		// setTimeout(function(){
+			t.ajaxRequest("check_catalog", data, function(response){
+				console.log('response ajax check catelog');
+			});
+		// }, 5000);
 		
 	}
 	

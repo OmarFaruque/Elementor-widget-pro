@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorLibraryWork{
 	
@@ -28,7 +28,7 @@ class UniteCreatorLibraryWork{
 		switch($condition){
 			case "fa5":
 			case "fa4":
-				$faVersion = HelperUC::getGeneralSetting("font_awesome_version");
+				$faVersion = EWPHelper::getGeneralSetting("ewp_font_awesome_version");
 				if($faVersion == $condition)
 					return(true);
 				else

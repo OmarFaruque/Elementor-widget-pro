@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 /**
@@ -13,7 +13,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
  * creator helper functions class
  *
  */
-	class HelperUC extends UniteHelperBaseUC{
+	class EWPHelper extends UniteHelperBaseUC{
 		
 		private static $db;
 		public static $operations;
@@ -685,7 +685,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function getUrlHandle($url, $addonName = null){
 			
-			$urlNew = HelperUC::URLtoAssetsRelative($url);
+			$urlNew = EWPHelper::URLtoAssetsRelative($url);
 			
 			
 			if($urlNew != $url){	//is inside assets
@@ -703,7 +703,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				}
 				
 			}else{
-				$urlNew = HelperUC::URLtoRelative($url);
+				$urlNew = EWPHelper::URLtoRelative($url);
 				if($urlNew != $url)
 					$urlNew = "uc_".$urlNew;
 				else
@@ -1006,7 +1006,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$addParams .= "outputmode=".$outputMode;
 			}
 						
-			$url = HelperUC::getViewUrl_LayoutPreview($layoutID, true, $addParams, true);
+			$url = EWPHelper::getViewUrl_LayoutPreview($layoutID, true, $addParams, true);
 			
 			$url = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_MODIFY_URL_LAYOUT_PREVIEW_FRONT, $url, $layoutID, $addParams);
 			
@@ -1149,7 +1149,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function getUrlFontAwesome($version = null){
 			
 			if(empty($version))
-				$version = self::getGeneralSetting("font_awesome_version");
+				$version = self::getGeneralSetting("ewp_font_awesome_version");
 			
 			if($version == "fa4")
 				$url = GlobalsUC::$url_assets_libraries."font-awsome/css/font-awesome.min.css";
@@ -1169,7 +1169,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function putSmoothScrollIncludes($putJSInit = false){
 			
 			$urlSmoothScroll = GlobalsUC::$url_assets_libraries."smooth-scroll/smooth-scroll.min.js";
-			HelperUC::addScriptAbsoluteUrl($urlSmoothScroll, "smooth-scroll");
+			EWPHelper::addScriptAbsoluteUrl($urlSmoothScroll, "smooth-scroll");
 			
 			if($putJSInit == false)
 				return(false);
@@ -1180,7 +1180,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				});
 			";
 			
-			HelperUC::putCustomScript($script);
+			EWPHelper::putCustomScript($script);
 			
 		}
 		
@@ -1334,7 +1334,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function getHtmlErrorMessage($message, $trace="", $prefix=null){
 			
 			if(empty($prefix))
-				$prefix = HelperUC::getText("addon_library")." Error: ";
+				$prefix = EWPHelper::getText("addon_library")." Error: ";
 			
 			$message = $prefix.$message;
 			
@@ -1494,7 +1494,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			if(empty($objLayout)){
 				
 				$typeTitle = $objLayouts->getLayoutTypeTitle($layoutType);
-				$message = esc_html__("Template part","unlimited_elements") .": ". $typeTitle .esc_html__(" not found. Please create one in template parts page", "unlimited_elements");
+				$message = esc_html__("Template part","unlimited_elementor_elements") .": ". $typeTitle .esc_html__(" not found. Please create one in template parts page", "unlimited_elementor_elements");
 				$html = HelperHtmlUC::getErrorMessageHtml($message);
 				echo UniteProviderFunctionsUC::escCombinedHtml($html);
 				return(false);
@@ -1549,7 +1549,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					throw $e;
 				}
 				else
-					HelperHtmlUC::outputExceptionBox($e, HelperUC::getText("addon_library"). " Error");
+					HelperHtmlUC::outputExceptionBox($e, EWPHelper::getText("addon_library"). " Error");
 			}
 			
 		}
@@ -1557,7 +1557,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 	}
 	
 	//init the operations
-	HelperUC::$operations = new UCOperations();
+	EWPHelper::$operations = new UCOperations();
 	
 	
 ?>

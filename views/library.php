@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorLibraryView{
@@ -30,20 +30,20 @@ class UniteCreatorLibraryView{
 	 */
 	protected function init(){
 		
-		$urlAddons = helperUC::getViewUrl_Addons();
-		$urlDividers = helperUC::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPE_DEVIDER);
-		$urlShapes = helperUC::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPES);
-		$urlBGAddons = helperUC::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_BGADDON);
+		$urlAddons = EWPHelper::getViewUrl_Addons();
+		$urlDividers = EWPHelper::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPE_DEVIDER);
+		$urlShapes = EWPHelper::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPES);
+		$urlBGAddons = EWPHelper::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_BGADDON);
 		
 		
-		$urlSections = HelperUC::getViewUrl_LayoutsList(array(), GlobalsUC::ADDON_TYPE_LAYOUT_SECTION);
+		$urlSections = EWPHelper::getViewUrl_LayoutsList(array(), GlobalsUC::ADDON_TYPE_LAYOUT_SECTION);
 		
-		$textAddons = esc_html__("My Addons", "unlimited_elements");
-		$textDividers = esc_html__("Dividers", "unlimited_elements");
-		$textShapes = esc_html__("Shapes", "unlimited_elements");
-		$textSection = esc_html__("Sections", "unlimited_elements");
-		$textPageTemplates = esc_html__("Page Templates", "unlimited_elements");
-		$textBackgroundAddons = esc_html__("Background Addons", "unlimited_elements");
+		$textAddons = esc_html__("My Addons", "unlimited_elementor_elements");
+		$textDividers = esc_html__("Dividers", "unlimited_elementor_elements");
+		$textShapes = esc_html__("Shapes", "unlimited_elementor_elements");
+		$textSection = esc_html__("Sections", "unlimited_elementor_elements");
+		$textPageTemplates = esc_html__("Page Templates", "unlimited_elementor_elements");
+		$textBackgroundAddons = esc_html__("Background Addons", "unlimited_elementor_elements");
 		
 		$defaultIcon = "puzzle-piece";
 		
@@ -62,7 +62,7 @@ class UniteCreatorLibraryView{
 	 * @return unknown
 	 */
 	protected function getHeaderText(){
-		$headerTitle = esc_html__("My Library", "unlimited_elements");
+		$headerTitle = esc_html__("My Library", "unlimited_elementor_elements");
 		return($headerTitle);
 	}
 	
@@ -83,13 +83,13 @@ class UniteCreatorLibraryView{
 	 */
 	protected function putHtmlButtonsPanel(){
 		
-		$urlLayouts = HelperUC::getViewUrl_LayoutsList();
-		$urlAddons = HelperUC::getViewUrl_Addons();
+		$urlLayouts = EWPHelper::getViewUrl_LayoutsList();
+		$urlAddons = EWPHelper::getViewUrl_Addons();
 		
 		?>
 		<div class="uc-buttons-panel unite-clearfix">
-			<a href="<?php echo esc_attr($urlLayouts)?>" class="unite-float-right mleft_20 unite-button-secondary"><?php HelperUC::putText("my_layouts")?></a>
-			<a href="<?php echo esc_attr($urlAddons)?>" class="unite-float-right mleft_20 unite-button-secondary"><?php esc_html_e("My Addons", "unlimited_elements")?></a>
+			<a href="<?php echo esc_attr($urlLayouts)?>" class="unite-float-right mleft_20 unite-button-secondary"><?php EWPHelper::putText("my_layouts")?></a>
+			<a href="<?php echo esc_attr($urlAddons)?>" class="unite-float-right mleft_20 unite-button-secondary"><?php esc_html_e("My Addons", "unlimited_elementor_elements")?></a>
 			
 		</div>
 		
@@ -106,9 +106,9 @@ class UniteCreatorLibraryView{
 			
 			$headerTitle = $this->getHeaderText();
 			
-			require HelperUC::getPathTemplate("header");
+			require EWPHelper::getPathTemplate("header");
 		}else
-			require HelperUC::getPathTemplate("header_missing");
+			require EWPHelper::getPathTemplate("header_missing");
 		
 		if($this->showButtons == true)
 			$this->putHtmlButtonsPanel();

@@ -71,17 +71,17 @@ class HelperProviderUC{
      */
     public static function getWhiteLabelSettings(){
         
-        $activateWhiteLabel = HelperUC::getGeneralSetting("activate_white_label");
+        $activateWhiteLabel = EWPHelper::getGeneralSetting("activate_white_label");
         $activateWhiteLabel = UniteFunctionsUC::strToBool($activateWhiteLabel);
         
         if($activateWhiteLabel == false)
             return(null);
             
-        $whiteLabelText = HelperUC::getGeneralSetting("white_label_page_builder");
+        $whiteLabelText = EWPHelper::getGeneralSetting("white_label_page_builder");
         if(empty($whiteLabelText))
             return(null);
                 
-            $whiteLabelSingle = HelperUC::getGeneralSetting("white_label_single");
+            $whiteLabelSingle = EWPHelper::getGeneralSetting("white_label_single");
             if(empty($whiteLabelSingle))
                 return(null);
                     
@@ -151,8 +151,8 @@ class HelperProviderUC{
 		//update memory limit
 		
 		//update fa4 as default
-		$objSettings->updateSettingProperty("font_awesome_version", "default_value", "fa4");
-		$objSettings->updateSettingProperty("font_awesome_version", "value", "fa4");
+		$objSettings->updateSettingProperty("ewp_font_awesome_version", "default_value", "fa4");
+		$objSettings->updateSettingProperty("ewp_font_awesome_version", "value", "fa4");
 				
 		$objSettings = self::modifyGeneralSettings_postType($objSettings);
 		
@@ -219,7 +219,7 @@ class HelperProviderUC{
 
 		//dmp(GlobalsUC::$pathWPLanguages);exit();
 		
-		load_plugin_textdomain( "unlimited_elements", FALSE, GlobalsUC::$pathWPLanguages );
+		load_plugin_textdomain( "unlimited_elementor_elements", FALSE, GlobalsUC::$pathWPLanguages );
 		
 	}
 	

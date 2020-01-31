@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 $bottomLineClass = "";
 if($view == "layout")
@@ -61,10 +61,10 @@ if($view == "layout")
 <?php HelperHtmlUC::putFooterAdminNotices() ?>
 
 
-<div id="uc_dialog_version" title="<?php esc_html_e("Version Release Log. Current Version: ".UNLIMITED_ELEMENTS_VERSION." ", "unlimited_elements")?>" style="display:none;">
+<div id="uc_dialog_version" title="<?php esc_html_e("Version Release Log. Current Version: ".unlimited_elementor_elements_VERSION." ", "unlimited_elementor_elements")?>" style="display:none;">
 	<div class="unite-dialog-inside">
 		<div id="uc_dialog_version_content" class="unite-dialog-version-content">
-			<div id="uc_dialog_loader" class="loader_text"><?php esc_html_e("Loading...", "unlimited_elements")?></div>
+			<div id="uc_dialog_loader" class="loader_text"><?php esc_html_e("Loading...", "unlimited_elementor_elements")?></div>
 		</div>
 	</div>
 </div>
@@ -73,9 +73,9 @@ if($view == "layout")
 
 <div class="unite-plugin-version-line unite-admin <?php echo esc_attr($bottomLineClass)?>">
 	<?php UniteProviderFunctionsUC::putFooterTextLine() ?>
-	<?php esc_html_e("Plugin version", "unlimited_elements")?> <?php echo UNLIMITED_ELEMENTS_VERSION?>, 
+	<?php esc_html_e("Plugin version", "unlimited_elementor_elements")?> <?php echo unlimited_elementor_elements_VERSION?>, 
 	<a id="uc_version_link" href="javascript:void(0)" class="unite-version-link">
-		<?php esc_html_e("view change log", "unlimited_elements")?>
+		<?php esc_html_e("view change log", "unlimited_elementor_elements")?>
 	</a>
 	
 	

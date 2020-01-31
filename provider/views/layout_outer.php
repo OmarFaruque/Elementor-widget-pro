@@ -9,10 +9,10 @@ class BloxViewLayoutOuterProvider extends BloxViewLayoutOuter{
 	public function setPageTitle(){
 		
 		if(!$this->layoutID)
-			$title = esc_html__("New Page", "unlimited_elements");
+			$title = esc_html__("New Page", "unlimited_elementor_elements");
 		else{
 			$title = $this->objLayout->getTitle(true);
-			$title .= " - ".esc_html__("Edit Page", "unlimited_elements")."";
+			$title .= " - ".esc_html__("Edit Page", "unlimited_elementor_elements")."";
 		}
 		
 		UniteProviderFunctionsUC::setAdminTitle($title);

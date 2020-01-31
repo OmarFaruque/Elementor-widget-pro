@@ -303,7 +303,7 @@ function UniteCreatorGridBuilder(){
 		else{
 			
 			if(g_objWrapper && g_objWrapper.length){
-				g_objWrapper.html("<div class='unite_error_message'>"+message+"</div>");
+				g_objWrapper.html("<div class='unite_error_message omar'>"+message+"</div>");
 			}else
 				alert(message);
 		}

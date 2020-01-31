@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 	
@@ -42,8 +42,8 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 	public function __construct(){
 		
 		$this->webAPI = new UniteCreatorWebAPI();
-		$this->textBuy = esc_html__("Buy PRO", "unlimited_elements");
-		$this->textHoverProAddon = esc_html__("This addon is available<br>for Blox PRO users only.", "unlimited_elements");
+		$this->textBuy = esc_html__("Buy PRO", "unlimited_elementor_elements");
+		$this->textHoverProAddon = esc_html__("This addon is available<br>for Blox PRO users only.", "unlimited_elementor_elements");
 		$this->urlBuy = GlobalsUC::URL_BUY;
 		
 		self::$serial++;
@@ -241,19 +241,19 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 		
 		$html = "";
 		
-		$textBlox = esc_html__("Blox", "unlimited_elements");
-		$textShowAll = esc_html__("Show All", "unlimited_elements");
-		$textInstalled = esc_html__("Installed", "unlimited_elements");
-		$textFree = esc_html__("Free", "unlimited_elements");
-		$textPro = esc_html__("Pro", "unlimited_elements");
+		$textBlox = esc_html__("Blox", "unlimited_elementor_elements");
+		$textShowAll = esc_html__("Show All", "unlimited_elementor_elements");
+		$textInstalled = esc_html__("Installed", "unlimited_elementor_elements");
+		$textFree = esc_html__("Free", "unlimited_elementor_elements");
+		$textPro = esc_html__("Pro", "unlimited_elementor_elements");
 		
 		$textBuy = $this->textBuy;
 		
-		$textAlreadyBought = esc_html__("Already bought Blox PRO?", "unlimited_elements");
-		$textTheProductActive = esc_html__("The product is Active!", "unlimited_elements");
-		$textDeactivate = esc_html__("Deactivate", "unlimited_elements");
-		$textCheckUpdate = esc_html__("Check Catalog Update", "unlimited_elements");
-		$textClear = esc_html__("Clear", "unlimited_elements");
+		$textAlreadyBought = esc_html__("Already bought Blox PRO?", "unlimited_elementor_elements");
+		$textTheProductActive = esc_html__("The product is Active!", "unlimited_elementor_elements");
+		$textDeactivate = esc_html__("Deactivate", "unlimited_elementor_elements");
+		$textCheckUpdate = esc_html__("Check Catalog Update", "unlimited_elementor_elements");
+		$textClear = esc_html__("Clear", "unlimited_elementor_elements");
 				
 		$urlBuy = $this->urlBuy;
 		
@@ -362,7 +362,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 				if(empty($id))
 					$id = $counter;
 				
-				$catTitle = esc_html__("Category", "unlimited_elements")." {$id}";
+				$catTitle = esc_html__("Category", "unlimited_elementor_elements")." {$id}";
 			}
 			
 			$catShowTitle = $catTitle;
@@ -380,7 +380,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 			$htmlTabs .= self::TAB5."<div class='uc-tab-item' data-catid='{$counter}' data-title='{$catTitle}'><a href=\"javascript:void(0)\" onfocus=\"this.blur()\" class=\"uc-browser-tab{$addClass}\" data-catid=\"{$counter}\">{$catShowTitle}</a></div>".self::BR;
 		}
 
-		$htmlTitleCategories = esc_html__("Categories", "unlimited_elements");
+		$htmlTitleCategories = esc_html__("Categories", "unlimited_elementor_elements");
 		if(!empty($totalItems))
 			$htmlTitleCategories .= " ($totalItems)";
 		
@@ -439,9 +439,9 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 			if(empty($arrItems)){
 				
 				if($this->isPages == false)
-					$html .= esc_html__("No addons in this category", "unlimited_elements");
+					$html .= esc_html__("No addons in this category", "unlimited_elementor_elements");
 				else 
-					$html .= esc_html__("No pages in this category", "unlimited_elements");
+					$html .= esc_html__("No pages in this category", "unlimited_elementor_elements");
 				
 			}
 			else{
@@ -569,28 +569,28 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 		
 		$iconCloudDownload = $this->getIcon("cloud_download");
 		$iconLock = $this->getIcon("lock");
-		$actionPreview = __("Preview", "unlimited_elements");
+		$actionPreview = __("Preview", "unlimited_elementor_elements");
 		
 		
         //installed
         switch($state){
         	case self::STATE_FREE:
         		$label = 'free';
-        		$labelText = __('Free',"unlimited_elements");
-        		$hoverText = __("This ","unlimited_elements"). $textItemHigh .__(" Is Free","unlimited_elements")."<br>".__("To use it click install","unlimited_elements");
+        		$labelText = __('Free',"unlimited_elementor_elements");
+        		$hoverText = __("This ","unlimited_elementor_elements"). $textItemHigh .__(" Is Free","unlimited_elementor_elements")."<br>".__("To use it click install","unlimited_elementor_elements");
         		$hoverIcon = '<i class="'.$iconCloudDownload.'" aria-hidden="true"></i>';
         		$action = "Install";
         		
         		if(GlobalsUC::$isProductActive){
-        			$labelText = __('Web',"unlimited_elements");
-        			$hoverText = __("You can install this ","unlimited_elements").$textItem ."<br>".__("To use it click install","unlimited_elements");        			
+        			$labelText = __('Web',"unlimited_elementor_elements");
+        			$hoverText = __("You can install this ","unlimited_elementor_elements").$textItem ."<br>".__("To use it click install","unlimited_elementor_elements");        			
         		}
         		        		
         	break;
         	case self::STATE_PRO:
         		
         		$label = 'pro';
-        		$labelText = __('Pro',"unlimited_elements");
+        		$labelText = __('Pro',"unlimited_elementor_elements");
         		
         		if($isPage == true)
         			$hoverText = "This {$textItemSmall} is available<br>for Blox PRO users only.";
@@ -643,7 +643,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 					<a data-url-link='{$urlPreview}' href='javascript:void(0)' class=\"uc-addon-button uc-button-preview uc-button-preview-{$label}\">{$actionPreview}</a>
 				</div>";
 		
-		$textInstalling = esc_html__("Installing", "unlimited_elements");
+		$textInstalling = esc_html__("Installing", "unlimited_elementor_elements");
 		
 		$iconSpinner = $this->getIcon("spinner");
 		
@@ -790,7 +790,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 	protected function getHtmlEmptyItem(){
 		
 		$state = self::STATE_INSTALLED;
-		$title = esc_html__("Not Selected", "unlimited_elements");
+		$title = esc_html__("Not Selected", "unlimited_elementor_elements");
 		
 		$html = "";
 		$html .= self::TAB4."<div class=\"uc-browser-addon uc-addon-thumbnail\" href=\"javascript:void(0)\" data-state=\"{$state}\">".self::BR;
@@ -907,7 +907,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 	 * get addons items
 	 */
 	private function getArrCats_pages(){
-		
+		echo 'test omar';
 		if($this->isFromWebOnly == true){
 			
 			//get only catalog meanwhile, later merge
@@ -924,7 +924,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 		$objLayouts = new UniteCreatorLayouts();
 		$arrCats = $objLayouts->getLayoutsWithCategories($this->addonType, true);
 		
-		
+		echo 'unable web catelog: ' . GlobalsUC::$enableWebCatalog . '<br/>';
 		if(GlobalsUC::$enableWebCatalog == true)
 			$arrCats = $this->webAPI->mergeCatsAndLayoutsWithCatalog($arrCats, $this->objAddonType);
 					
@@ -942,7 +942,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 	 */
 	private function getHtmlCatalog($putMode = false){
 		
-		
+		echo 'get html';
 		if($this->isPages == false)
 			$arrCats = $this->getArrCats_addons();
 		else
@@ -1127,7 +1127,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 			if(GlobalsUC::SHOW_TRACE == true)
 				$trace = $e->getTraceAsString();
 			
-			$htmlError = HelperUC::getHtmlErrorMessage($message, $trace);
+			$htmlError = EWPHelper::getHtmlErrorMessage($message, $trace);
 			
 			return($htmlError);
 		}
@@ -1140,7 +1140,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 	 */
 	private function putActivateProDialog() {
 		
-		$path = HelperUC::getPathViewObject("activation_view.class");
+		$path = EWPHelper::getPathViewObject("activation_view.class");
 		require_once $path;
 		
 		$objActivationView = new UniteCreatorActivationView();
@@ -1159,7 +1159,7 @@ class UniteCreatorBrowserWork extends HtmlOutputBaseUC{
 				<div class="unite-dialog-inside">
 					
 					<span id="uc_dialog_catalog_update_loader" class="loader_text">
-						<?php esc_html_e("Checking Update", "unlimited_elements")?>...
+						<?php esc_html_e("Checking Update", "unlimited_elementor_elements")?>...
 					</span>
 					
 					<div id="uc_dialog_catalog_update_error" class="error-message"></div>

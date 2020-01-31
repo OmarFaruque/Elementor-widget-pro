@@ -1,6 +1,6 @@
 <?php
 
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 	
    class UniteProviderAdminUC extends UniteCreatorAdmin{
    	
@@ -104,7 +104,6 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * create the tables if not exists
 		 */
 		public function createTables(){
-			
 			$this->createTable(GlobalsUC::TABLE_ADDONS_NAME);
 			$this->createTable(GlobalsUC::TABLE_CATEGORIES_NAME);
 		}
@@ -274,7 +273,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			if(!empty($this->arrAllowedViews) && in_array(self::$view, $this->arrAllowedViews) == false){
 				
-				echo esc_html__("this view not allowed in the plugin", "unlimited_elements");
+				echo esc_html__("this view not allowed in the plugin", "unlimited_elementor_elements");
 				return(false);
 			}
 
@@ -290,7 +289,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public function addScriptsToAllAdminPages(){
 			
-			HelperUC::addStyleAbsoluteUrl( GlobalsUC::$url_provider."assets/provider_admin.css", "uc_provider_admin");
+			EWPHelper::addStyleAbsoluteUrl( GlobalsUC::$url_provider."assets/provider_admin.css", "uc_provider_admin");
 		}
 		
 		
@@ -359,7 +358,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			foreach($arrMenuPages as $mainMenu){
 					
 				$title = $mainMenu["title"];
-				$pageFunctionName = $mainMenu["pageFunction"];
+				$pageFunctionName = $mainMenu["pageFunction"];	
 				$pluginName = UniteFunctionsUC::getVal($mainMenu, "plugin_name");
 				
 				$menuSlug = UniteFunctionsUC::getVal($mainMenu, "slug");
@@ -566,7 +565,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				return(false);
 			
 			//redirect to main view
-			$urlRedirect = HelperUC::getViewUrl_Default();
+			$urlRedirect = EWPHelper::getViewUrl_Default();
 			
 			dmp("addons installed, redirecting...");
 			echo "<script>location.href='$urlRedirect'</script>";
@@ -675,7 +674,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$htmlBody = $this->getAdminPageBody();
 			$title = UniteFunctionsWPUC::getAdminTitle(self::$adminTitle);
 			
-			HelperUC::addStyle("blank_page_preview","uc_blank_page_preview");
+			EWPHelper::addStyle("blank_page_preview","uc_blank_page_preview");
 			
 			$arrCustomStyles = UniteProviderFunctionsUC::getCustomStyles();
 			$htmlCustomCssStyles = HelperHtmlUC::getHtmlCustomStyles($arrCustomStyles);

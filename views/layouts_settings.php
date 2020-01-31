@@ -5,9 +5,9 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
-require	HelperUC::getPathViewObject("settings_view.class");
+require	EWPHelper::getPathViewObject("settings_view.class");
 
 class UniteCreatorViewLayoutsSettings extends UniteCreatorSettingsView{
 	
@@ -17,9 +17,9 @@ class UniteCreatorViewLayoutsSettings extends UniteCreatorSettingsView{
 	 */
 	public function __construct(){
 
-		$this->headerTitle = HelperUC::getText("layouts_global_settings");
+		$this->headerTitle = EWPHelper::getText("layouts_global_settings");
 		$this->saveAction = "update_global_layout_settings";
-		$this->textButton = HelperUC::getText("save_layout_settings");
+		$this->textButton = EWPHelper::getText("save_layout_settings");
 		
 		//set settings object
 		$this->objSettings = UniteCreatorLayout::getGlobalSettingsObject();

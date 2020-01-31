@@ -8,8 +8,8 @@ try{
 	
 	$pathCorePlugins = dirname(__FILE__)."/plugins/";
 			
-	$pathUnlimitedElementsPlugin = $pathCorePlugins."unlimited_elements/plugin.php";
-		require_once $pathUnlimitedElementsPlugin;
+	$pathelementwidgetproPlugin = $pathCorePlugins."unlimited_elementor_elements/plugin.php";
+		require_once $pathelementwidgetproPlugin;
 	
 	$pathCreateAddonsPlugin = $pathCorePlugins."create_addons/plugin.php";
 		require_once $pathCreateAddonsPlugin;

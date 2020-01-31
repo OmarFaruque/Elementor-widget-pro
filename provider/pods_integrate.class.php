@@ -8,7 +8,7 @@
 */
 
 //no direct accees
-defined ('UNLIMITED_ELEMENTS_INC') or die ('restricted aceess');
+defined ('ELEMENTOR_WIDGET_PRO_INC') or die ('restricted aceess');
 
 class UniteCreatorPodsIntegrate{
 	

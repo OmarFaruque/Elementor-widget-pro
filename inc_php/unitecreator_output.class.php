@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 	
@@ -185,10 +185,10 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		
 			if(is_numeric($handle) || empty($handle)){
 				$addonName = $this->addon->getName();
-				$handle = HelperUC::getUrlHandle($urlInclude, $addonName);
+				$handle = EWPHelper::getUrlHandle($urlInclude, $addonName);
 			}
 			
-			$urlInclude = HelperUC::urlToSSLCheck($urlInclude);
+			$urlInclude = EWPHelper::urlToSSLCheck($urlInclude);
 			
 			$arrIncludeNew = array();
 			$arrIncludeNew["url"] = $urlInclude;
@@ -297,7 +297,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			$handle = UniteFunctionsUC::getVal($include, "handle");
 			
 			if(empty($handle))
-				$handle = HelperUC::getUrlHandle($url, $addonName);
+				$handle = EWPHelper::getUrlHandle($url, $addonName);
 			
 			$isInCache = $this->isIncludeInCache($url, $handle, $type);
 			if($isInCache == true)
@@ -345,7 +345,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			$handle = UniteFunctionsUC::getVal($include, "handle");
 			
 			if(empty($handle))
-				$handle = HelperUC::getUrlHandle($url, $addonName);
+				$handle = EWPHelper::getUrlHandle($url, $addonName);
 			
 			$isInCache = $this->isIncludeInCache($url, $handle, $type);
 			if($isInCache == true){
@@ -409,7 +409,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 		$outputs = "";
 		
 		$title = $this->addon->getTitle();
-		$title .= " ". esc_html__("Preview","unlimited_elements");
+		$title .= " ". esc_html__("Preview","unlimited_elementor_elements");
 		$title = htmlspecialchars($title);
 				
 		//get libraries, but not process provider
@@ -660,7 +660,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 				if($putCssInline == true)
 					$output .= "\n			<style type=\"text/css\">{$css}</style>";
 				else
-					HelperUC::putInlineStyle($css);
+					EWPHelper::putInlineStyle($css);
 			}
 			
 			
@@ -1008,7 +1008,7 @@ class UniteCreatorOutputWork extends HtmlOutputBaseUC{
 			UniteFunctionsUC::throwError("Wrong addon given");
 		
 		//debug data
-		HelperUC::clearDebug();				
+		EWPHelper::clearDebug();				
 		
 		$this->isInited = true;
 			

@@ -6,13 +6,13 @@
 * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 **/
 
-if(!defined('UNLIMITED_ELEMENTS_INC'))
-    define('UNLIMITED_ELEMENTS_INC', true);
+if(!defined('ELEMENTOR_WIDGET_PRO_INC'))
+    define('ELEMENTOR_WIDGET_PRO_INC', true);
 
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
-if(!defined("UNLIMITED_ELEMENTS_VERSION"))
-	define("UNLIMITED_ELEMENTS_VERSION", "1.4.14");
+if(!defined("unlimited_elementor_elements_VERSION"))
+	define("unlimited_elementor_elements_VERSION", "1.4.14");
 
 
 $currentFile = __FILE__;

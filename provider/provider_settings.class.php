@@ -5,7 +5,7 @@
  * @copyright (C) 2012 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorSettings extends UniteCreatorSettingsWork{
 
@@ -63,7 +63,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 			return($array);
 
 		$arrAllCats = array();
-		$arrAllCats[__("All Categories", "unlimited_elements")] = "all";
+		$arrAllCats[__("All Categories", "unlimited_elementor_elements")] = "all";
 		
 		foreach($arrPostTypes as $name => $arrType){
 		
@@ -186,7 +186,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		$params["datasource"] = "post_type";
 		$params["origtype"] = "uc_select_special";
 		
-		$this->addSelect($name."_posttype", $arrPostTypes, __("Select Post Type", "unlimited_elements"), $postType, $params);
+		$this->addSelect($name."_posttype", $arrPostTypes, __("Select Post Type", "unlimited_elementor_elements"), $postType, $params);
 		
 		//---------- add taxonomy ---------
 				
@@ -204,7 +204,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		if(empty($taxonomy))
 			$taxonomy = UniteFunctionsUC::getArrFirstValue($arrTax);
 				
-		$this->addSelect($name."_taxonomy", $arrTaxonomiesSimple, __("Select Taxonomy", "unlimited_elements"), $taxonomy, $params);
+		$this->addSelect($name."_taxonomy", $arrTaxonomiesSimple, __("Select Taxonomy", "unlimited_elementor_elements"), $taxonomy, $params);
 		
 		
 		
@@ -218,7 +218,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		$params = array();
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
 		
-		$this->addSelect($name."_orderby", $arrOrderBy, __("Order By", "unlimited_elements"), $orderBy, $params);
+		$this->addSelect($name."_orderby", $arrOrderBy, __("Order By", "unlimited_elementor_elements"), $orderBy, $params);
 		
 		//--------- add order direction -------------
 		
@@ -231,7 +231,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		$params = array();
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
 		
-		$this->addSelect($name."_orderdir", $arrOrderDir, __("Order Direction", "unlimited_elements"), $orderDir, $params);
+		$this->addSelect($name."_orderdir", $arrOrderDir, __("Order Direction", "unlimited_elementor_elements"), $orderDir, $params);
 		
 		//--------- add hide empty -------------
 		
@@ -246,7 +246,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		$params = array();
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
 		
-		$this->addSelect($name."_hideempty", $arrHide, __("Hide Empty", "unlimited_elements"), $hideEmpty, $params);
+		$this->addSelect($name."_hideempty", $arrHide, __("Hide Empty", "unlimited_elementor_elements"), $hideEmpty, $params);
 		
 		
 		//add hr
@@ -305,14 +305,14 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 			
 			$params = array();
 			$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
-			$params["description"] = esc_html__("Choose the source of the posts list", "unlimited_elements");
+			$params["description"] = esc_html__("Choose the source of the posts list", "unlimited_elementor_elements");
 			
 			$source = UniteFunctionsUC::getVal($value, $name."_source", "custom");
 			$arrSourceOptions = array();
-			$arrSourceOptions[__("Current Posts", "unlimited_elements")] = "current";
-			$arrSourceOptions[__("Custom Posts", "unlimited_elements")] = "custom";
+			$arrSourceOptions[__("Current Posts", "unlimited_elementor_elements")] = "current";
+			$arrSourceOptions[__("Custom Posts", "unlimited_elementor_elements")] = "custom";
 			
-			$this->addSelect($name."_source", $arrSourceOptions, esc_html__("Posts Source", "unlimited_elements"), $source, $params);
+			$this->addSelect($name."_source", $arrSourceOptions, esc_html__("Posts Source", "unlimited_elementor_elements"), $source, $params);
 			
 			$arrGlobalElementorCondition = array();
 			
@@ -338,13 +338,13 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		}
 		
 		$params["origtype"] = "uc_select_special";
-		$params["description"] = esc_html__("Select which Post Type or Custom Post Type you wish to display", "unlimited_elements");
+		$params["description"] = esc_html__("Select which Post Type or Custom Post Type you wish to display", "unlimited_elementor_elements");
 		
 		if(!empty($arrGlobalElementorCondition))
 			$params["elementor_condition"] = $arrGlobalElementorCondition;
 		
 		
-		$this->addSelect($name."_posttype", $arrTypesSimple, esc_html__("Post Type", "unlimited_elements"), $postType, $params);
+		$this->addSelect($name."_posttype", $arrTypesSimple, esc_html__("Post Type", "unlimited_elementor_elements"), $postType, $params);
 		
 		//----- add categories -------
 		
@@ -380,24 +380,24 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
 		$params["is_multiple"] = true;
 		
-		$params["description"] = esc_html__("Filter Posts by Specific Term", "unlimited_elements");
+		$params["description"] = esc_html__("Filter Posts by Specific Term", "unlimited_elementor_elements");
 		
 		if(!empty($arrGlobalElementorCondition))
 			$params["elementor_condition"] = $arrGlobalElementorCondition;
 		
 		
-		$this->addMultiSelect($name."_category", $arrCats, esc_html__("Include By Term", "unlimited_elements"), $category, $params);
+		$this->addMultiSelect($name."_category", $arrCats, esc_html__("Include By Term", "unlimited_elementor_elements"), $category, $params);
 		
 		
 		// --------- add exclude by -------------
 		$arrExclude = array();
-		$arrExclude["current_post"] = __("Current Post", "unlimited_elements");
+		$arrExclude["current_post"] = __("Current Post", "unlimited_elementor_elements");
 		
 		$params = array();
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
 		$params["is_multiple"] = true;
 		
-		$params["description"] = esc_html__("Exclude Posts By", "unlimited_elements");
+		$params["description"] = esc_html__("Exclude Posts By", "unlimited_elementor_elements");
 		
 		$arrExclude = array_flip($arrExclude);
 		
@@ -405,7 +405,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		
 		$category = UniteFunctionsUC::getVal($value, $name."_category", $firstItemValue);
 		
-		$this->addMultiSelect($name."_excludeby", $arrExclude, __("Exclude By", "unlimited_elements"), $arrExcludeValues, $params);
+		$this->addMultiSelect($name."_excludeby", $arrExclude, __("Exclude By", "unlimited_elementor_elements"), $arrExcludeValues, $params);
 		
 		
 		//------- max items --------
@@ -419,7 +419,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		if(!empty($arrGlobalElementorCondition))
 			$params["elementor_condition"] = $arrGlobalElementorCondition;
 		
-		$this->addTextBox($name."_maxitems", $maxItems, esc_html__("Max Posts", "unlimited_elements"), $params);
+		$this->addTextBox($name."_maxitems", $maxItems, esc_html__("Max Posts", "unlimited_elementor_elements"), $params);
 		
 		
 		//----- orderby --------
@@ -438,13 +438,13 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		
 		$orderBY = UniteFunctionsUC::getVal($value, $name."_orderby", UniteFunctionsWPUC::SORTBY_ID);
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
-		$params["description"] = esc_html__("Select how you wish to order posts", "unlimited_elements");
+		$params["description"] = esc_html__("Select how you wish to order posts", "unlimited_elementor_elements");
 		
 		if(!empty($arrGlobalElementorCondition))
 			$params["elementor_condition"] = $arrGlobalElementorCondition;
 		
 		
-		$this->addSelect($name."_orderby", $arrOrder, __("Order By", "unlimited_elements"), $orderBY, $params);
+		$this->addSelect($name."_orderby", $arrOrder, __("Order By", "unlimited_elementor_elements"), $orderBY, $params);
 		
 		
 		
@@ -459,7 +459,7 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		
 		$params["elementor_condition"] = $arrCondition;
 		
-		$this->addTextBox($name."_orderby_meta_key1", "" , __("&nbsp;&nbsp;Custom Field Name","unlimited_elements"), $params);
+		$this->addTextBox($name."_orderby_meta_key1", "" , __("&nbsp;&nbsp;Custom Field Name","unlimited_elementor_elements"), $params);
 
 		$this->addControl($name."_orderby", $name."_orderby_meta_key1", "show", UniteFunctionsWPUC::SORTBY_META_VALUE.",".UniteFunctionsWPUC::SORTBY_META_VALUE_NUM);
 		
@@ -467,13 +467,13 @@ class UniteCreatorSettings extends UniteCreatorSettingsWork{
 		
 		$params = array();
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_DROPDOWN;
-		$params["description"] = esc_html__("Select order direction. Descending A-Z or Accending Z-A", "unlimited_elements");
+		$params["description"] = esc_html__("Select order direction. Descending A-Z or Accending Z-A", "unlimited_elementor_elements");
 		
 		if(!empty($arrGlobalElementorCondition))
 			$params["elementor_condition"] = $arrGlobalElementorCondition;
 		
 		$orderDir1 = UniteFunctionsUC::getVal($value, $name."_orderdir1", UniteFunctionsWPUC::ORDER_DIRECTION_DESC );
-		$this->addSelect($name."_orderdir1", $arrDir, __("&nbsp;&nbsp;Order By Direction", "unlimited_elements"), $orderDir1, $params);
+		$this->addSelect($name."_orderdir1", $arrDir, __("&nbsp;&nbsp;Order By Direction", "unlimited_elementor_elements"), $orderDir1, $params);
 		
 		
 		$params = array();

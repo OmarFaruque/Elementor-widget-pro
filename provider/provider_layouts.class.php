@@ -5,7 +5,7 @@
  * @copyright (C) 2012 Unite CMS, All Rights Reserved.
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorLayouts extends UniteCreatorLayoutsWork{
 	
@@ -219,7 +219,7 @@ class UniteCreatorLayouts extends UniteCreatorLayoutsWork{
 		if($addEmpty == true){
 			$arrItem = array("id"=>"empty", "title"=>"[Not Selected]");
 			$arrAdd = array();
-			$arrAdd["empty"] = esc_html__("[Not Selected]", "unlimited_elements");
+			$arrAdd["empty"] = esc_html__("[Not Selected]", "unlimited_elementor_elements");
 			
 			$arrShort = array_merge($arrAdd, $arrShort);
 		}

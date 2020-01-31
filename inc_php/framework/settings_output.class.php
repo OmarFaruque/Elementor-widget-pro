@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 	class UniteSettingsOutputUCWork extends HtmlOutputBaseUC{
 		
@@ -359,13 +359,13 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$urlBase = UniteFunctionsUC::getVal($setting, "url_base", null);
 			
 			if(!empty($value) && is_numeric($value) == false)
-				$value = HelperUC::URLtoFull($value, $urlBase);
+				$value = EWPHelper::URLtoFull($value, $urlBase);
 			
 			$defaultValue = UniteFunctionsUC::getVal($setting, "default_value");
 			$defaultValue = trim($defaultValue);
 			
 			if(!empty($defaultValue) && is_numeric($defaultValue) == false)
-				$defaultValue = HelperUC::URLtoFull($defaultValue, $urlBase);
+				$defaultValue = EWPHelper::URLtoFull($defaultValue, $urlBase);
 			
 			$setting["value"] = $value;
 			$setting["default_value"] = $defaultValue;
@@ -397,8 +397,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$urlImage = UniteProviderFunctionsUC::getImageUrlFromImageID($imageID);
 				$urlThumb = UniteProviderFunctionsUC::getThumbUrlFromImageID($imageID);
 				
-				$urlImage = HelperUC::URLtoFull($urlImage);
-				$urlThumb = HelperUC::URLtoFull($urlThumb);
+				$urlImage = EWPHelper::URLtoFull($urlImage);
+				$urlThumb = EWPHelper::URLtoFull($urlThumb);
 				
 				$setting["value"] = $urlImage;		//for initval
 			}
@@ -409,7 +409,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					try{
 						$operations = new UCOperations();
 						$urlThumb = $operations->getThumbURLFromImageUrl($value);
-						$urlThumb = HelperUC::URLtoFull($urlThumb);
+						$urlThumb = EWPHelper::URLtoFull($urlThumb);
 						
 					}catch(Exception $e){
 						$urlThumb = $urlImage;
@@ -466,12 +466,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 						<div class="unite-no-image">
 					        <i class="fa fa-plus-circle"></i>
 					        <br>
-					        <?php esc_html_e("Select Image", "unlimited_elements")?>
+					        <?php esc_html_e("Select Image", "unlimited_elementor_elements")?>
 					     </div>
 					     
 					    <div class="unite-image-actions">
-					      <span class="unite-button-clear"><?php esc_html_e("Clear", "unlimited_elements")?></span>
-					      <span class="unite-button-choose"><?php esc_html_e("Change", "unlimited_elements")?></span>
+					      <span class="unite-button-clear"><?php esc_html_e("Clear", "unlimited_elementor_elements")?></span>
+					      <span class="unite-button-choose"><?php esc_html_e("Change", "unlimited_elementor_elements")?></span>
 					    </div>
       					
 					</div>
@@ -508,7 +508,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			?>
 				<div class="unite-setting-mp3">
 					<input type="text" id="<?php echo esc_attr($setting["id"])?>" name="<?php echo esc_attr($setting["name"])?>" <?php echo UniteProviderFunctionsUC::escAddParam($class)?> value="<?php echo esc_attr($value)?>" <?php echo UniteProviderFunctionsUC::escAddParam($addHtml)?> />
-					<a href="javascript:void(0)" class="unite-button-secondary unite-button-choose"><?php esc_html_e("Choose", "unlimited_elements")?></a>
+					<a href="javascript:void(0)" class="unite-button-secondary unite-button-choose"><?php esc_html_e("Choose", "unlimited_elementor_elements")?></a>
 				</div>
 			<?php
 		}
@@ -639,11 +639,11 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			  		<?php endif?>
 			  		
 			  		<?php if($addClearButton == true):?>
-			  		<a href="javascript:void(0)" class="unite-button-secondary uc-action-button" data-action="clear" ><?php esc_html_e("Clear", "unlimited_elements")?></a>
+			  		<a href="javascript:void(0)" class="unite-button-secondary uc-action-button" data-action="clear" ><?php esc_html_e("Clear", "unlimited_elementor_elements")?></a>
 			  		<?php endif?>
 			  		
 			  		<?php if($addConfigureButton == true):?>
-			  		<a href="javascript:void(0)" class="unite-button-secondary uc-action-button" data-action="configure" data-configureaction="<?php echo esc_attr($configureButtonAction)?>" ><?php esc_html_e("Configure", "unlimited_elements")?></a>
+			  		<a href="javascript:void(0)" class="unite-button-secondary uc-action-button" data-action="configure" data-configureaction="<?php echo esc_attr($configureButtonAction)?>" ><?php esc_html_e("Configure", "unlimited_elementor_elements")?></a>
 			  		<?php endif?>
 			  		
 			  </div>
@@ -666,7 +666,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			$value = UniteFunctionsUC::getVal($setting, "value");
 						
-			$dialogTitle = esc_html__("Select Map","unlimited_elements");
+			$dialogTitle = esc_html__("Select Map","unlimited_elementor_elements");
 			
 			$filepathPickerObject = GlobalsUC::$pathViewsObjects."mappicker_view.class.php";
 			require_once $filepathPickerObject;
@@ -716,7 +716,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$disabled = 'disabled="disabled"';
 			}
 			
-			$pickerType = HelperUC::getGeneralSetting("color_picker_type");
+			$pickerType = EWPHelper::getGeneralSetting("color_picker_type");
 			
 			$bgcolor = $setting["value"];
 			$bgcolor = str_replace("0x","#",$bgcolor);			
@@ -926,13 +926,13 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			$addItemText = UniteFunctionsUC::getVal($setting, "add_button_text");
 			if(empty($addItemText))
-				$addItemText = esc_html__("Add Item", "unlimited_elements");
+				$addItemText = esc_html__("Add Item", "unlimited_elementor_elements");
 			
 			//get empty text
 			$emptyText = UniteFunctionsUC::getVal($setting, "empty_text");
 			
 			if(empty($emptyText))
-				$emptyText = esc_html__("No Items Found", "unlimited_elements");
+				$emptyText = esc_html__("No Items Found", "unlimited_elementor_elements");
 			
 			$objSettingsItems = UniteFunctionsUC::getVal($setting, "settings_items");
 			UniteFunctionsUC::validateNotEmpty($objSettingsItems, "settings items");
@@ -954,18 +954,18 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			//get item title
 			$itemTitle = UniteFunctionsUC::getVal($setting, "item_title");
 			if(empty($itemTitle))
-				$itemTitle = esc_html__("Item", "unlimited_elements");
+				$itemTitle = esc_html__("Item", "unlimited_elementor_elements");
 				
 			$itemTitle = htmlspecialchars($itemTitle);
 			
 			//delete button text
 			$deleteButtonText = UniteFunctionsUC::getVal($setting, "delete_button_text");
 			if(empty($deleteButtonText))
-				$deleteButtonText = esc_html__("Delete Item","unlimited_elements");
+				$deleteButtonText = esc_html__("Delete Item","unlimited_elementor_elements");
 			
 			$duplicateButtonText = UniteFunctionsUC::getVal($setting, "duplicate_button_text");
 			if(empty($duplicateButtonText))
-				$duplicateButtonText = esc_html__("Duplicate Item","unlimited_elements");
+				$duplicateButtonText = esc_html__("Duplicate Item","unlimited_elementor_elements");
 			
 			$deleteButtonText = htmlspecialchars($deleteButtonText);
 			$duplicateButtonText = htmlspecialchars($duplicateButtonText);
@@ -1097,7 +1097,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$gotoView = UniteFunctionsUC::getVal($setting, "gotoview");
 			
 			if(!empty($gotoView))
-				$href = HelperUC::getViewUrl($gotoView);
+				$href = EWPHelper::getViewUrl($gotoView);
 			
 			?>
 			<a id="<?php echo esc_attr($id)?>" href="<?php echo esc_attr($href)?>" name="<?php echo esc_attr($name)?>" class="unite-button-secondary"><?php echo esc_html($value)?></a>
@@ -1376,7 +1376,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		protected function drawTypographySetting($setting){
 			?>
-			<?php _e("The typography setting will be visible in Elementor Page Builder","unlimited_elements");?>
+			<?php _e("The typography setting will be visible in Elementor Page Builder","unlimited_elementor_elements");?>
 			<?php 
 		}
 		

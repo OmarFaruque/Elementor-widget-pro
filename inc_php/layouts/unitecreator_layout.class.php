@@ -6,7 +6,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved.
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 	
@@ -96,7 +96,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 	 */
 	private function validateName($name){
 		
-		$fieldName = $this->objLayoutType->textSingle.esc_html__(" Name", "unlimited_elements");
+		$fieldName = $this->objLayoutType->textSingle.esc_html__(" Name", "unlimited_elementor_elements");
 		
 		UniteFunctionsUC::validateNotEmpty($name, $fieldName);
 		UniteFunctionsUC::validateUrlAlias($name, $fieldName);
@@ -416,7 +416,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 			$layoutType = $this->layoutType;
 		}
 		
-		$alias = HelperUC::convertTitleToAlias($title);
+		$alias = EWPHelper::convertTitleToAlias($title);
 		
 		$isExists = $this->isLayoutExistsByName($alias, $layoutType);
 			
@@ -1190,7 +1190,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		   if(is_numeric($urlPreview))
 		            $urlPreview = UniteProviderFunctionsUC::getImageUrlFromImageID($urlPreview);
 		           
-		   $urlPreview = HelperUC::URLtoFull($urlPreview);
+		   $urlPreview = EWPHelper::URLtoFull($urlPreview);
 		   
 		   return($urlPreview);
 		}
@@ -1209,7 +1209,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		if(empty($urlPreview))
 			return(null);
 		
-		$pathImage = HelperUC::urlToPath($urlPreview);
+		$pathImage = EWPHelper::urlToPath($urlPreview);
 		if(empty($pathImage))
 			return(null);
 		
@@ -1447,7 +1447,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		if(empty($title))
 			$title = $this->getNewLayoutTitle();
 		
-		$name = HelperUC::convertTitleToAlias($title);
+		$name = EWPHelper::convertTitleToAlias($title);
 		
 		return($name);
 	}
@@ -1602,7 +1602,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 	 */
 	public function getInfoText(){
 				
-		$textEmpty = esc_html__("empty layout", "unlimited_elements");
+		$textEmpty = esc_html__("empty layout", "unlimited_elementor_elements");
 		
 		
 		if(empty($this->id))
@@ -1618,7 +1618,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		
 		$numRows = count($rows);
 		
-		$text = esc_html__("layout with","unlimited_elements")." ". $numRows. " " . __("sections", "unlimited_elements");
+		$text = esc_html__("layout with","unlimited_elementor_elements")." ". $numRows. " " . __("sections", "unlimited_elementor_elements");
 		
 		return($text);
 	}
@@ -1750,7 +1750,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		
 		$title = $this->getTitle(true);
 		
-		$prefix = esc_html__("Error in ","unlimited_elements").$title." :";
+		$prefix = esc_html__("Error in ","unlimited_elementor_elements").$title." :";
 		
 		return($prefix);
 	}
@@ -2034,7 +2034,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		if(empty($name))
 			$name = $this->generateName($title);
 		
-		$name = HelperUC::convertTitleToAlias($name);
+		$name = EWPHelper::convertTitleToAlias($name);
 		
 		$this->validateName($name);
 		
@@ -2087,7 +2087,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		
 		unset($data["title"]);
 		unset($data["layoutid"]);
-		UniteFunctionsUC::validateNotEmpty($title, HelperUC::getText("layout_title"));
+		UniteFunctionsUC::validateNotEmpty($title, EWPHelper::getText("layout_title"));
 
 		$layoutType = UniteFunctionsUC::getVal($data, "layout_type");
 		$objLayoutType = UniteCreatorAddonType::getAddonTypeObject($layoutType, true);
@@ -2096,7 +2096,7 @@ class UniteCreatorLayoutWork extends UniteElementsBaseUC{
 		
 		$pageName = UniteFunctionsUC::getVal($data, "name");
 		if(!empty($pageName)){
-			$pageName = HelperUC::convertTitleToAlias($pageName);
+			$pageName = EWPHelper::convertTitleToAlias($pageName);
 			
 			$isExists = $this->isLayoutExistsByName($pageName, $layoutType);
 			if($isExists)

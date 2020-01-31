@@ -5,7 +5,7 @@
  * @copyright (C) 2012 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 	
@@ -285,7 +285,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 						
 						$arrCategory = $this->getPostCategoryFields($postID, $post);
 						
-						//HelperUC::addDebug("Get Category For Post: $postID ", $arrCategory);
+						//EWPHelper::addDebug("Get Category For Post: $postID ", $arrCategory);
 						
 						$arrData = array_merge($arrData, $arrCategory);
 						
@@ -298,7 +298,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 		}catch(Exception $e){
 			
 			$message = $e->getMessage();
-			HelperUC::addDebug("Get Post Exception: ($postID) ".$message);
+			EWPHelper::addDebug("Get Post Exception: ($postID) ".$message);
 			
 			return(null);
 		}
@@ -361,7 +361,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 		}
 		
 		//add debug for further use
-		HelperUC::addDebug("Post Filters", $filters);
+		EWPHelper::addDebug("Post Filters", $filters);
 		
 		$arrPosts = UniteFunctionsWPUC::getPosts($filters);
 		
@@ -391,7 +391,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 	private function getPostListData_currentPosts(){
 		
 		//add debug for further use
-		HelperUC::addDebug("Getting Current Posts");
+		EWPHelper::addDebug("Getting Current Posts");
 		
 		global $wp_query;
 		$currentQueryVars = $wp_query->query_vars;
@@ -402,14 +402,14 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 			$query = new WP_Query( $currentQueryVars );
 		
 		
-		HelperUC::addDebug("Query Vars", $currentQueryVars);
+		EWPHelper::addDebug("Query Vars", $currentQueryVars);
 		
 		$arrPosts = $query->posts;
 				
 		if(empty($arrPosts))
 			$arrPosts = array();
 		
-		HelperUC::addDebug("Posts Found: ". count($arrPosts));
+		EWPHelper::addDebug("Posts Found: ". count($arrPosts));
 			
 		return($arrPosts);
 	}
@@ -423,8 +423,8 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 		if($processType != self::PROCESS_TYPE_OUTPUT && $processType != self::PROCESS_TYPE_OUTPUT_BACK)
 			return(null);
 
-		HelperUC::addDebug("getPostList values", $value);
-		HelperUC::addDebug("getPostList param", $param);
+		EWPHelper::addDebug("getPostList values", $value);
+		EWPHelper::addDebug("getPostList param", $param);
 		
 		$source = UniteFunctionsUC::getVal($value, "{$name}_source");
 		
@@ -457,7 +457,7 @@ class UniteCreatorParamsProcessor extends UniteCreatorParamsProcessorWork{
 		
 		$arrPostAdditions = HelperProviderUC::getPostDataAdditions($useCustomFields, $useCategory);
 		
-		HelperUC::addDebug("post additions", $arrPostAdditions);
+		EWPHelper::addDebug("post additions", $arrPostAdditions);
 		
 		$arrData = array();
 		foreach($arrPosts as $post){

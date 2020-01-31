@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 require_once 'addon_view_childparams.class.php';
 
@@ -84,7 +84,7 @@ class UniteCreatorAddonView{
 		
 		//items editor - settings
 		$settingsItem = new UniteCreatorSettings();
-		$settingsItem->addRadioBoolean("enable_items", esc_html__("Enable Items", "unlimited_elements"), false);
+		$settingsItem->addRadioBoolean("enable_items", esc_html__("Enable Items", "unlimited_elementor_elements"), false);
 	
 		$settingsItem->setStoredValues($options);
 	
@@ -210,7 +210,7 @@ class UniteCreatorAddonView{
 		$title = $this->objAddon->getTitle(true);
 		$addonID = $this->objAddon->getID();
 		
-		$headerTitle = esc_html__("Edit ","unlimited_elements").$this->textSingle;
+		$headerTitle = esc_html__("Edit ","unlimited_elementor_elements").$this->textSingle;
 		$headerTitle .= " - " . $title;
 		
 		return($headerTitle);
@@ -224,7 +224,7 @@ class UniteCreatorAddonView{
 		
 		$headerTitle = $this->getHeaderTitle();
 		
-		require HelperUC::getPathTemplate("header");
+		require EWPHelper::getPathTemplate("header");
 	}
 	
 	/**
@@ -307,7 +307,7 @@ class UniteCreatorAddonView{
 		
 			<span id="addon_id" data-addonid="<?php echo esc_attr($addonID)?>" style="display:none"></span>
 			
-			<?php echo $this->textSingle.esc_html__(" Title", "unlimited_elements"); ?>:
+			<?php echo $this->textSingle.esc_html__(" Title", "unlimited_elementor_elements"); ?>:
 			
 			<div class="vert_sap5"></div>
 			
@@ -317,7 +317,7 @@ class UniteCreatorAddonView{
 			
 			<div class="vert_sap15"></div>
 			
-			<?php echo $this->textSingle.esc_html__(" Name", "unlimited_elements"); ?>:
+			<?php echo $this->textSingle.esc_html__(" Name", "unlimited_elementor_elements"); ?>:
 			
 			<div class="vert_sap5"></div>
 			
@@ -327,7 +327,7 @@ class UniteCreatorAddonView{
 			<!-- TYPE -->
 			<div class="vert_sap15"></div>
 			
-			<?php esc_html_e("Addon Type", "unlimited_elements");?>: <b> <?php echo esc_html($addonTypeTitle)?> </b>
+			<?php esc_html_e("Addon Type", "unlimited_elementor_elements");?>: <b> <?php echo esc_html($addonTypeTitle)?> </b>
 			
 			
 			<?php UniteProviderFunctionsUC::doAction(UniteCreatorFilters::ACTION_EDIT_ADDON_ADDSETTINGS, $arrOptions)?>
@@ -380,9 +380,9 @@ class UniteCreatorAddonView{
 		$isPut_includes = $this->isPutTab("includes");
 		$isPut_assets = $this->isPutTab("assets");
 		
-		$htmlTabTitle = esc_html__("HTML","unlimited_elements");
+		$htmlTabTitle = esc_html__("HTML","unlimited_elementor_elements");
 		if($this->isSVG == true)
-			$htmlTabTitle = esc_html__("SVG Content","unlimited_elements");
+			$htmlTabTitle = esc_html__("SVG Content","unlimited_elementor_elements");
 		else{
 			
 			if(!empty($this->tabHtmlTitle))
@@ -396,19 +396,19 @@ class UniteCreatorAddonView{
 			
 			<?php if($isPut_general):?>
 			<a id="uc_tablink_general" href="javascript:void(0)" data-contentid="uc_tab_general">
-				<?php esc_html_e("General", "unlimited_elements")?> 
+				<?php esc_html_e("General", "unlimited_elementor_elements")?> 
 			</a>
 			<?php endif?>
 			
 			<?php if($isPut_attr):?>
 			<a id="uc_tablink_attr" href="javascript:void(0)" data-contentid="uc_tab_attr">
-				<?php esc_html_e("Attributes", "unlimited_elements")?> 
+				<?php esc_html_e("Attributes", "unlimited_elementor_elements")?> 
 			</a>
 			<?php endif?>
 			
 			<?php if($isPut_itemattr):?>
 			<a id="uc_tablink_itemattr" href="javascript:void(0)" data-contentid="uc_tab_itemattr">
-				<?php esc_html_e("Item Attributes", "unlimited_elements")?> 
+				<?php esc_html_e("Item Attributes", "unlimited_elementor_elements")?> 
 			</a>
 			<?php endif?>
 			
@@ -420,25 +420,25 @@ class UniteCreatorAddonView{
 			
 			<?php if($isPut_css):?>
 			<a id="uc_tablink_css" href="javascript:void(0)" data-contentid="uc_tab_css">
-				<?php esc_html_e("CSS", "unlimited_elements")?>
+				<?php esc_html_e("CSS", "unlimited_elementor_elements")?>
 			</a>
 			<?php endif?>
 			
 			<?php if($isPut_js):?>
 			<a id="uc_tablink_js" href="javascript:void(0)" data-contentid="uc_tab_js">
-				<?php esc_html_e("Javascript", "unlimited_elements")?>
+				<?php esc_html_e("Javascript", "unlimited_elementor_elements")?>
 			</a>
 			<?php endif?>
 			
 			<?php if($isPut_includes):?>
 			<a id="uc_tablink_includes" href="javascript:void(0)" data-contentid="uc_tab_includes">
-				<?php esc_html_e("js/css Includes", "unlimited_elements")?>
+				<?php esc_html_e("js/css Includes", "unlimited_elementor_elements")?>
 			</a>
 			<?php endif?>
 			
 			<?php if($isPut_assets):?>
 			<a id="uc_tablink_assets" href="javascript:void(0)" data-contentid="uc_tab_assets">
-				<?php esc_html_e("Assets", "unlimited_elements")?>
+				<?php esc_html_e("Assets", "unlimited_elementor_elements")?>
 			</a>
 			<?php endif?>
 			
@@ -525,12 +525,12 @@ class UniteCreatorAddonView{
 					<tr>
 						<th class="uc-table-includes-left">
 							<b>
-							<?php esc_html_e("Choose From Browser", "unlimited_elements")?>
+							<?php esc_html_e("Choose From Browser", "unlimited_elementor_elements")?>
 							</b>
 						</th>
 						<th class="uc-table-includes-right">
 							<b>
-							<?php esc_html_e("JS / Css Includes", "unlimited_elements")?>
+							<?php esc_html_e("JS / Css Includes", "unlimited_elementor_elements")?>
 							</b>
 						</th>
 					</tr>
@@ -544,7 +544,7 @@ class UniteCreatorAddonView{
 							
 							<ul id="uc-js-libraries" class="unite-list-hor">
 								<li class="pright_10">
-									<span class="unite-title2"><?php esc_html_e("Libraries", "unlimited_elements")?>:</span> </b>
+									<span class="unite-title2"><?php esc_html_e("Libraries", "unlimited_elementor_elements")?>:</span> </b>
 								</li>
 								<?php $this->putHtml_LibraryIncludes($arrJsLibIncludes)?>
 							</ul>
@@ -571,7 +571,7 @@ class UniteCreatorAddonView{
 			<div id="uc_dialog_unclude_settings" title="<?php esc_html_e("Include Settings")?>" class="unite-inputs" style="display:none">
 				<div class="unite-dialog-inside">
 				
-					<?php esc_html_e("Include When:", "unlimited_elements")?>
+					<?php esc_html_e("Include When:", "unlimited_elementor_elements")?>
 					
 					<span class="hor_sap"></span>
 					
@@ -581,7 +581,7 @@ class UniteCreatorAddonView{
 					
 						<span class="hor_sap5"></span>
 						
-						<?php esc_html_e("equals", "unlimited_elements")?>
+						<?php esc_html_e("equals", "unlimited_elementor_elements")?>
 						
 						<span class="hor_sap5"></span>
 						
@@ -607,7 +607,7 @@ class UniteCreatorAddonView{
 		$path = $this->objAddon->getPathAssets();
 		$pathAbsolute = $this->objAddon->getPathAssetsFull();
 		
-		$textNotSet = esc_html__("[not set]", "unlimited_elements");
+		$textNotSet = esc_html__("[not set]", "unlimited_elementor_elements");
 		
 		$unsetAddHtml = "style='display:none'";
 		$htmlPath = $textNotSet;
@@ -620,10 +620,10 @@ class UniteCreatorAddonView{
 		
 		?>
 			<div class="uc-assets-folder-wrapper">
-				<span class="uc-assets-folder-label"><?php echo $this->textSingle.esc_html__(" Assets Path: ", "unlimited_elements")?></span>
+				<span class="uc-assets-folder-label"><?php echo $this->textSingle.esc_html__(" Assets Path: ", "unlimited_elementor_elements")?></span>
 				<span id="uc_assets_path" class="uc-assets-folder-folder" data-path="<?php echo esc_attr($dataPath)?>" data-textnotset="<?php echo esc_attr($textNotSet)?>"><?php echo esc_html($htmlPath)?></span>
-				<a id="uc_button_set_assets_folder" href="javascript:void(0)" class="unite-button-secondary"><?php esc_html_e("Set", "unlimited_elements")?></a>
-				<a id="uc_button_set_assets_unset" href="javascript:void(0)" class="unite-button-secondary" <?php echo UniteProviderFunctionsUC::escAddParam($unsetAddHtml)?>><?php esc_html_e("Unset", "unlimited_elements")?></a>
+				<a id="uc_button_set_assets_folder" href="javascript:void(0)" class="unite-button-secondary"><?php esc_html_e("Set", "unlimited_elementor_elements")?></a>
+				<a id="uc_button_set_assets_unset" href="javascript:void(0)" class="unite-button-secondary" <?php echo UniteProviderFunctionsUC::escAddParam($unsetAddHtml)?>><?php esc_html_e("Unset", "unlimited_elementor_elements")?></a>
 			</div>
 		<?php 
 		
@@ -639,7 +639,7 @@ class UniteCreatorAddonView{
 	 */
 	private function putLinkExpand(){
 		?>
-			<a class="uc-tabcontent-link-expand" href="javascript:void(0)"><?php esc_html_e("expand", "unlimited_elements");?></a>
+			<a class="uc-tabcontent-link-expand" href="javascript:void(0)"><?php esc_html_e("expand", "unlimited_elementor_elements");?></a>
 		<?php 
 	}
 	
@@ -700,15 +700,15 @@ class UniteCreatorAddonView{
 
 							<?php if($isItemsRelated == true):?>
 								<div class="uc-params-panel-filters">
-									<a href="javascript:void(0)" class="uc-filter-active" data-filter="item" onfocus="this.blur()"><?php esc_html_e("Item", "unlimited_elements")?></a>
-									<a href="javascript:void(0)" data-filter="main" onfocus="this.blur()"><?php esc_html_e("Main", "unlimited_elements")?></a>
+									<a href="javascript:void(0)" class="uc-filter-active" data-filter="item" onfocus="this.blur()"><?php esc_html_e("Item", "unlimited_elementor_elements")?></a>
+									<a href="javascript:void(0)" data-filter="main" onfocus="this.blur()"><?php esc_html_e("Main", "unlimited_elementor_elements")?></a>
 								</div>
 							<?php endif?>
 						
 							<div id="<?php echo esc_attr($paramsPanelID)?>" class="uc-params-panel<?php echo esc_attr($paramsPanelClassAdd)?>"></div>
 							
 							<?php if(!empty($addVariableID)):?>
-						    <a id="<?php echo esc_attr($addVariableID)?>" type="button" href="javascript:void(0)" class="unite-button-secondary mleft_20"><?php esc_html_e("Add Variable", "unlimited_elements")?></a>
+						    <a id="<?php echo esc_attr($addVariableID)?>" type="button" href="javascript:void(0)" class="unite-button-secondary mleft_20"><?php esc_html_e("Add Variable", "unlimited_elementor_elements")?></a>
 							<?php endif?>
 							
 						</td>
@@ -752,18 +752,18 @@ class UniteCreatorAddonView{
 		
 		?>
 		<div class="uc-tab-overview">
-			<div class="uc-section-inline"><?php esc_html_e("Widget Title", "unlimited_elements")?>: <span id="uc_overview_title" class="unite-bold"><?php echo esc_html($title)?></span></div>
-			<div class="uc-section-inline"><?php esc_html_e("Widget Name", "unlimited_elements")?>: <span id="uc_overview_name" class="unite-bold"><?php echo esc_html($name)?></span></div>
+			<div class="uc-section-inline"><?php esc_html_e("Widget Title", "unlimited_elementor_elements")?>: <span id="uc_overview_title" class="unite-bold"><?php echo esc_html($title)?></span></div>
+			<div class="uc-section-inline"><?php esc_html_e("Widget Name", "unlimited_elementor_elements")?>: <span id="uc_overview_name" class="unite-bold"><?php echo esc_html($name)?></span></div>
 			<div class="uc-section">
-				<div class="uc-section-title"><?php esc_html_e("Addon Description", "unlimited_elements")?>:</div>
+				<div class="uc-section-title"><?php esc_html_e("Addon Description", "unlimited_elementor_elements")?>:</div>
 				<div id="uc_overview_description" class="uc-section-content uc-desc-wrapper">
 					<?php echo esc_html($description)?>
 				</div>
 				<div class="unite-clear"></div>
 			</div>
-			<div class="uc-section-inline"><?php esc_html_e("Link to resource", "unlimited_elements")?>: <?php echo esc_html($link)?></div>
+			<div class="uc-section-inline"><?php esc_html_e("Link to resource", "unlimited_elementor_elements")?>: <?php echo esc_html($link)?></div>
 			<div class="uc-section">
-				<div class="uc-section-title uc-title-icon"><?php esc_html_e("Widget Icon", "unlimited_elements")?>:</div>
+				<div class="uc-section-title uc-title-icon"><?php esc_html_e("Widget Icon", "unlimited_elementor_elements")?>:</div>
 				<div id="uc_overview_icon" class="uc-section-content uc-addon-icon-small" style="background-image:url('<?php echo UniteProviderFunctionsUC::escAddParam($addonIcon)?>')"></div> 
 			</div>
 			
@@ -781,11 +781,11 @@ class UniteCreatorAddonView{
 		?>
 		 <div class="uc-edit-addon-poweredby">
 		 
-		 	<?php _e("Powered by Twig Template Engine. ", "unlimited_elements")?> 
-		 		<a href="<?php echo GlobalsUC::LINK_TWIG?>" target="_blank"><?php _e("show documentation", "unlimited_elements")?></a>.
+		 	<?php _e("Powered by Twig Template Engine. ", "unlimited_elementor_elements")?> 
+		 		<a href="<?php echo GlobalsUC::LINK_TWIG?>" target="_blank"><?php _e("show documentation", "unlimited_elementor_elements")?></a>.
 		 		<?php _e("To show code examples in right panel ")?> 
 		 		
-		 		<a  href="javascript:void(0)" class="uc-link-code-examples" ><?php _e("click here", "unlimited_elements")?></a>.
+		 		<a  href="javascript:void(0)" class="uc-link-code-examples" ><?php _e("click here", "unlimited_elementor_elements")?></a>.
 		 		
 		 </div>
 		<?php 
@@ -872,13 +872,13 @@ class UniteCreatorAddonView{
 						//------------- put html row
 					
 						$textareaID = "area_addon_html";
-						$rowTitle = $this->textSingle.esc_html__(" HTML","unlimited_elements");
+						$rowTitle = $this->textSingle.esc_html__(" HTML","unlimited_elementor_elements");
 						
 						if($this->isSVG == true)
-							$rowTitle = esc_html__("SVG Content","unlimited_elements");
+							$rowTitle = esc_html__("SVG Content","unlimited_elementor_elements");
 						
 						if(!empty($this->tabHtmlTitle))
-							$rowTitle = $this->tabHtmlTitle.esc_html__(" Content","unlimited_elements");
+							$rowTitle = $this->tabHtmlTitle.esc_html__(" Content","unlimited_elementor_elements");
 						
 							
 						$areaHtml = $html;
@@ -899,7 +899,7 @@ class UniteCreatorAddonView{
 						$this->putHtml_tabTableSap(true);
 						
 						$textareaID = "area_addon_html_item";
-						$rowTitle = esc_html__("Item HTML","unlimited_elements");
+						$rowTitle = esc_html__("Item HTML","unlimited_elementor_elements");
 						$areaHtml = $htmlItem;
 						$paramsPanelID = "uc_params_panel_item";
 						$addVariableID = "uc_params_panel_item_addvar";
@@ -912,7 +912,7 @@ class UniteCreatorAddonView{
 						//------------- put html item row 2
 						
 						$textareaID = "area_addon_html_item2";
-						$rowTitle = esc_html__("Item HTML 2","unlimited_elements");
+						$rowTitle = esc_html__("Item HTML 2","unlimited_elementor_elements");
 						$areaHtml = $htmlItem2;
 						$paramsPanelID = "uc_params_panel_item2";
 						$addVariableID = "uc_params_panel_item_addvar2";
@@ -937,7 +937,7 @@ class UniteCreatorAddonView{
 						//--------- css addon --------
 					
 						$textareaID = "area_addon_css";
-						$rowTitle = $this->textSingle.esc_html__(" CSS","unlimited_elements");
+						$rowTitle = $this->textSingle.esc_html__(" CSS","unlimited_elementor_elements");
 						$areaHtml = $css;
 						$paramsPanelID = "uc_params_panel_css";
 						
@@ -946,7 +946,7 @@ class UniteCreatorAddonView{
 						//--------- css item --------
 						
 						$textareaID = "area_addon_css_item";
-						$rowTitle = esc_html__("Item CSS","unlimited_elements");
+						$rowTitle = esc_html__("Item CSS","unlimited_elementor_elements");
 						$areaHtml = $cssItem;
 						$paramsPanelID = "uc_params_panel_css_item";
 						
@@ -967,7 +967,7 @@ class UniteCreatorAddonView{
 				<table class="uc-tabcontent-table">
 					<?php 
 					$textareaID = "area_addon_js";
-					$rowTitle = $this->textSingle.esc_html__(" Javascript","unlimited_elements");
+					$rowTitle = $this->textSingle.esc_html__(" Javascript","unlimited_elementor_elements");
 					$areaHtml = $js;
 					$paramsPanelID = "uc_params_panel_js";
 					$params = array();
@@ -1013,22 +1013,22 @@ class UniteCreatorAddonView{
 		$addonID = $this->objAddon->getID();
 		$addonType = $this->objAddon->getType();
 		
-		$urlTestAddon = HelperUC::getViewUrl_TestAddon($addonID);
+		$urlTestAddon = EWPHelper::getViewUrl_TestAddon($addonID);
 		
-		$urlPreviewAddon = HelperUC::getViewUrl_TestAddon($addonID,"preview=1");
+		$urlPreviewAddon = EWPHelper::getViewUrl_TestAddon($addonID,"preview=1");
 		
-		$urlAddonDefaults = helperuc::getViewUrl_AddonDefaults($addonID);
+		$urlAddonDefaults = EWPHelper::getViewUrl_AddonDefaults($addonID);
 		
-		$textPreviewAddon = esc_html__("Preview ","unlimited_elements").$this->textSingle;
-		$textTestAddon = esc_html__("Test ","unlimited_elements").$this->textSingle;
-		$textBack = esc_html__("Back To ","unlimited_elements").$this->textPlural.esc_html__(" List","unlimited_elements");
-		$textDefaults = $this->textSingle.esc_html__(" Defaults","unlimited_elements");
+		$textPreviewAddon = esc_html__("Preview ","unlimited_elementor_elements").$this->textSingle;
+		$textTestAddon = esc_html__("Test ","unlimited_elementor_elements").$this->textSingle;
+		$textBack = esc_html__("Back To ","unlimited_elementor_elements").$this->textPlural.esc_html__(" List","unlimited_elementor_elements");
+		$textDefaults = $this->textSingle.esc_html__(" Defaults","unlimited_elementor_elements");
 		
-		$textExport = esc_html__("Export ", "unlimited_elements").$this->textSingle;
+		$textExport = esc_html__("Export ", "unlimited_elementor_elements").$this->textSingle;
 		
 		$isExistsInCatalog = $this->objAddon->isExistsInCatalog();
 		
-		$urlBack = HelperUC::getViewUrl_Addons($addonType);
+		$urlBack = EWPHelper::getViewUrl_Addons($addonType);
 		
 		if(!empty($this->urlViewBack))
 			$urlBack = $this->urlViewBack;
@@ -1043,11 +1043,11 @@ class UniteCreatorAddonView{
 				<div class="unite-float-left">
 				
 					<div class="uc-button-action-wrapper">
-						<a id="button_update_addon" class="button_update_addon unite-button-primary" href="javascript:void(0)"><?php esc_html_e("Update", "unlimited_elements");?></a>
+						<a id="button_update_addon" class="button_update_addon unite-button-primary" href="javascript:void(0)"><?php esc_html_e("Update", "unlimited_elementor_elements");?></a>
 						
 						<div style="padding-top:6px;">
 							
-							<span id="uc_loader_update" class="loader_text" style="display:none"><?php esc_html_e("Updating...", "unlimited_elements")?></span>
+							<span id="uc_loader_update" class="loader_text" style="display:none"><?php esc_html_e("Updating...", "unlimited_elementor_elements")?></span>
 							<span id="uc_message_addon_updated" class="unite-color-green" style="display:none"></span>
 							
 						</div>
@@ -1067,8 +1067,8 @@ class UniteCreatorAddonView{
 
 					<?php if($isExistsInCatalog == true): ?>
 					
-						<a id="uc_button_update_catalog" class="button_update_addon unite-button-secondary" href="javascript:void(0)"><?php esc_html_e("Update From Catalog", "unlimited_elements");?></a>
-						<span id="uc_loader_update_catalog" class="loader_text" style="display:none"><?php esc_html__("Updating...", "unlimited_elements"); ?></span>
+						<a id="uc_button_update_catalog" class="button_update_addon unite-button-secondary" href="javascript:void(0)"><?php esc_html_e("Update From Catalog", "unlimited_elementor_elements");?></a>
+						<span id="uc_loader_update_catalog" class="loader_text" style="display:none"><?php esc_html__("Updating...", "unlimited_elementor_elements"); ?></span>
 						<span id="uc_message_addon_updated_catalog" class="unite-color-green" style="display:none"></span>
 					
 					<?php endif?>
@@ -1507,7 +1507,7 @@ class UniteCreatorAddonView{
 	 */
 	private function putBulkDialog(){
 		?>
-		<div id="uc_dialog_bulk" title="<?php esc_html_e("Bulk Operations", "unlimited_elements")?>" class="unite-inputs" style="display:none">
+		<div id="uc_dialog_bulk" title="<?php esc_html_e("Bulk Operations", "unlimited_elementor_elements")?>" class="unite-inputs" style="display:none">
 			
 			bulk operations dialog
 			
@@ -1560,16 +1560,16 @@ class UniteCreatorAddonView{
 		
 		<div class="unite-dialog-inner-constant">
 		
-		<div class="uc-dialog-loader loader_text" style="display:none"><?php esc_html_e("Updating Addons", "unlimited_elements")?>...</div>
+		<div class="uc-dialog-loader loader_text" style="display:none"><?php esc_html_e("Updating Addons", "unlimited_elementor_elements")?>...</div>
 		
 		<table class="unite_table_items">
 		
 			<tr>
 				<th class="">
-					<input type='checkbox' title="<?php esc_html_e("Select All Addons", "unlimited_elements")?>" class="uc-check-all">
+					<input type='checkbox' title="<?php esc_html_e("Select All Addons", "unlimited_elementor_elements")?>" class="uc-check-all">
 				</th>
-				<th><b><?php esc_html_e("Addon Title", "unlimited_elements")?></b></th>
-				<th><b><?php esc_html_e("Status", "unlimited_elements")?></b></th>
+				<th><b><?php esc_html_e("Addon Title", "unlimited_elementor_elements")?></b></th>
+				<th><b><?php esc_html_e("Status", "unlimited_elementor_elements")?></b></th>
 			</tr>
 		
 		<?php 
@@ -1621,11 +1621,11 @@ class UniteCreatorAddonView{
 		
 		<span class="hor_sap"></span>
 		
-		<a href="javascript:void(0)" data-action="update" class="uc-action-button unite-button-primary"><?php esc_html_e("Add / Update in Addons", "unlimited_elements")?></a>
+		<a href="javascript:void(0)" data-action="update" class="uc-action-button unite-button-primary"><?php esc_html_e("Add / Update in Addons", "unlimited_elementor_elements")?></a>
 		
 		<span class="hor_sap40"></span>
 		
-		<a href="javascript:void(0)" data-action="delete" class="uc-action-button unite-button-secondary"><?php esc_html_e("Delete From Addons", "unlimited_elements")?></a>
+		<a href="javascript:void(0)" data-action="delete" class="uc-action-button unite-button-secondary"><?php esc_html_e("Delete From Addons", "unlimited_elementor_elements")?></a>
 		
 		
 		<?php 
@@ -1673,7 +1673,7 @@ class UniteCreatorAddonView{
 	 */
 	private function putHtml_beforeTabs(){
 		?>
-				<div id="uc_update_addon_error" class="unite_error_message" style="display:none"></div>
+				<div id="uc_update_addon_error" class="unite_error_message omar5" style="display:none"></div>
 		<?php 
 	}
 	
@@ -1686,7 +1686,7 @@ class UniteCreatorAddonView{
 		if($this->showHeader == true)
 			$this->putHtml_top();
 		else
-			require HelperUC::getPathTemplate("header_missing");
+			require EWPHelper::getPathTemplate("header_missing");
 		?>
 		<div class="content_wrapper unite-content-wrapper">
 		<?php 

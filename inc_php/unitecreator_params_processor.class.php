@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorParamsProcessorWork{
 	
@@ -68,7 +68,7 @@ class UniteCreatorParamsProcessorWork{
 		$urlAssets = $this->addon->getUrlAssets();
 	
 		if(!empty($urlAssets))
-			$value = HelperUC::convertFromUrlAssets($value, $urlAssets);
+			$value = EWPHelper::convertFromUrlAssets($value, $urlAssets);
 	
 		return($value);
 	}
@@ -88,7 +88,7 @@ class UniteCreatorParamsProcessorWork{
 		switch($type){
 			case "uc_image":
 			case "uc_mp3":
-				$value = HelperUC::URLtoFull($value);
+				$value = EWPHelper::URLtoFull($value);
 				break;
 		}
 		
@@ -227,7 +227,7 @@ class UniteCreatorParamsProcessorWork{
 					
 					//check google fonts
 					if(empty($arrGoogleFonts)){
-						$arrFontsPanelData = HelperUC::getFontPanelData();
+						$arrFontsPanelData = EWPHelper::getFontPanelData();
 						$arrGoogleFonts = $arrFontsPanelData["arrGoogleFonts"];
 					}
 					
@@ -242,8 +242,8 @@ class UniteCreatorParamsProcessorWork{
 							$this->addon->addCssInclude($urlGoogleFont);
 						}
 						else{
-							$handle = HelperUC::getUrlHandle($urlGoogleFont);
-							HelperUC::addStyleAbsoluteUrl($urlGoogleFont, $handle);
+							$handle = EWPHelper::getUrlHandle($urlGoogleFont);
+							EWPHelper::addStyleAbsoluteUrl($urlGoogleFont, $handle);
 						}
 						
 					}
@@ -495,7 +495,7 @@ class UniteCreatorParamsProcessorWork{
 			if($paramsType == "items"){
 								
 				$name = self::ITEMS_ATTRIBUTE_PREFIX.$name;
-				$title = esc_html__("Items", "unlimited_elements")." => ".$title;
+				$title = esc_html__("Items", "unlimited_elementor_elements")." => ".$title;
 			}
 			
 			$fontEditable = UniteFunctionsUC::getVal($param, "font_editable");
@@ -706,7 +706,7 @@ class UniteCreatorParamsProcessorWork{
 			$data[$name] = $urlImage;
 		}else{
 			
-			$value = HelperUC::URLtoFull($value);
+			$value = EWPHelper::URLtoFull($value);
 			$data[$name] = $value;
 		}
 		$addThumb = UniteFunctionsUC::getVal($param, "add_thumb");
@@ -717,16 +717,16 @@ class UniteCreatorParamsProcessorWork{
 	
 		if($addThumb == true){
 	
-			$urlThumb = HelperUC::$operations->getThumbURLFromImageUrl($value, null, GlobalsUC::THUMB_SIZE_NORMAL);
-			$urlThumb = HelperUC::URLtoFull($urlThumb);
+			$urlThumb = EWPHelper::$operations->getThumbURLFromImageUrl($value, null, GlobalsUC::THUMB_SIZE_NORMAL);
+			$urlThumb = EWPHelper::URLtoFull($urlThumb);
 			
 			$data[$name."_thumb"] = $urlThumb;
 		}
 	
 		if($addThumbLarge == true){
 	
-			$urlThumb = HelperUC::$operations->getThumbURLFromImageUrl($value, null, GlobalsUC::THUMB_SIZE_LARGE);
-			$urlThumb = HelperUC::URLtoFull($urlThumb);
+			$urlThumb = EWPHelper::$operations->getThumbURLFromImageUrl($value, null, GlobalsUC::THUMB_SIZE_LARGE);
+			$urlThumb = EWPHelper::URLtoFull($urlThumb);
 			
 			$data[$name."_thumb_large"] = $urlThumb;
 		}
@@ -1104,7 +1104,7 @@ class UniteCreatorParamsProcessorWork{
 		
 		//UniteFunctionsUC::showTrace();
 		
-		$messageEmpty = esc_html__("No menu selected", "unlimited_elements");
+		$messageEmpty = esc_html__("No menu selected", "unlimited_elementor_elements");
 		
 		if($this->isOutputProcessType($processType) == false)
 			return(null);
@@ -1137,7 +1137,7 @@ class UniteCreatorParamsProcessorWork{
 		
 		
 		if(empty($arrItems)){
-			$message = esc_html__("No items in ","unlimited_elements").$menuType.esc_html__(" menu","unlimited_elements");
+			$message = esc_html__("No items in ","unlimited_elementor_elements").$menuType.esc_html__(" menu","unlimited_elementor_elements");
 			return($message);
 		}
 		
@@ -1435,7 +1435,7 @@ class UniteCreatorParamsProcessorWork{
 					
 					try{
 						$urlThumb = $operations->createThumbs($urlImage);
-						$urlThumb = HelperUC::URLtoFull($urlThumb);
+						$urlThumb = EWPHelper::URLtoFull($urlThumb);
 					}catch(Exception $e){
 						$urlThumb = "";
 					}

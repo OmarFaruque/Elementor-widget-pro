@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorAddons extends UniteElementsBaseUC{
 		
@@ -35,7 +35,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
     		if(empty($urlPreview))
     			continue;
     			
-    		$urlPreview = HelperUC::URLtoAssetsRelative($urlPreview);
+    		$urlPreview = EWPHelper::URLtoAssetsRelative($urlPreview);
     		
     		$arrPreviews[$key] = $urlPreview;
     	}
@@ -358,7 +358,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 			
 			$insertKey = $addonCatTitle;
 			if(array_key_exists($addonCatTitle, $arrCatsAssoc) == false)
-				$insertKey = HelperUC::getText("uncategorized");
+				$insertKey = EWPHelper::getText("uncategorized");
 						
 			
 			$arrCatsAssoc[$insertKey]["addons"][$name] = $addonForInsert;
@@ -416,7 +416,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		if(empty($type))
 			$type = UniteFunctionsUC::getVal($data, "type");
 		
-		HelperUC::runProviderFunc("validateDataAddonsType", $type, $data);
+		EWPHelper::runProviderFunc("validateDataAddonsType", $type, $data);
 		
 		return($type);
 	}
@@ -838,7 +838,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 			
 			$objAddon = new UniteCreatorAddon();
 			$newAddonID = $objAddon->addSmall($title, $name, $description, $catID, $addonType);
-			$urlAddon = HelperUC::getViewUrl_EditAddon($newAddonID);
+			$urlAddon = EWPHelper::getViewUrl_EditAddon($newAddonID);
 			$htmlItem = $objManager->getAddonAdminHtml($objAddon);
 			
 		}else{
@@ -851,7 +851,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 				$params["parent_id"] = $parentID;
 			
 			$newLayoutID = $objLayout->createSmall($title, $name, $description, $catID, $params);
-			$urlAddon = HelperUC::getViewUrl_Layout($newLayoutID);
+			$urlAddon = EWPHelper::getViewUrl_Layout($newLayoutID);
 			
 			$htmlItem = $objManager->getAddonAdminHtml($objLayout);
 			
@@ -947,7 +947,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		$description = $data["description"];
 		
 		$addonType = $this->getAddonTypeFromData($data);
-		$isLayout = HelperUC::isLayoutAddonType($addonType);
+		$isLayout = EWPHelper::isLayoutAddonType($addonType);
 				
 		if($isLayout == false){
 			$addon = new UniteCreatorAddon();
@@ -1003,7 +1003,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		
 		$addonsIDs = UniteFunctionsUC::getVal($data, "arrAddonsIDs");
 		
-		if(HelperUC::isLayoutAddonType($type) == false){		//delete addons
+		if(EWPHelper::isLayoutAddonType($type) == false){		//delete addons
 			$this->deleteAddons($addonsIDs);
 		}
 		else{		//delete layouts
@@ -1031,7 +1031,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	public function saveOrderFromData($data){
 		
 		$addonType = $this->getAddonTypeFromData($data);
-		$isLayout = HelperUC::isLayoutAddonType($addonType);
+		$isLayout = EWPHelper::isLayoutAddonType($addonType);
 		
 		$addonsIDs = UniteFunctionsUC::getVal($data, "addons_order");
 		
@@ -1060,7 +1060,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		$targetCatID = UniteFunctionsUC::getVal($data, "targetCatID");
 		$selectedCatID = UniteFunctionsUC::getVal($data, "selectedCatID");
 		$type = $this->getAddonTypeFromData($data);
-		$isLayouts = HelperUC::isLayoutAddonType($type);
+		$isLayouts = EWPHelper::isLayoutAddonType($type);
 		
 		$arrAddonIDs = UniteFunctionsUC::getVal($data, "arrAddonIDs");
 	
@@ -1089,7 +1089,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		$arrIDs = UniteFunctionsUC::getVal($data, "arrIDs");
 		$type = $this->getAddonTypeFromData($data);
 		
-		$isLayouts = HelperUC::isLayoutAddonType($type);
+		$isLayouts = EWPHelper::isLayoutAddonType($type);
 		
 		if($isLayouts == false)
 			$this->duplicateAddons($arrIDs, $catID);
@@ -1187,7 +1187,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		}catch(Exception $e){
 			$message = $e->getMessage();
 									
-			$errorMessage = HelperUC::getHtmlErrorMessage($message, GlobalsUC::SHOW_TRACE_FRONT);
+			$errorMessage = EWPHelper::getHtmlErrorMessage($message, GlobalsUC::SHOW_TRACE_FRONT);
 			
 			echo UniteProviderFunctionsUC::escCombinedHtml($errorMessage);
 		}
@@ -1255,7 +1255,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 	public function exportAddon($data){
 		
 		$addonType = $this->getAddonTypeFromData($data);
-		$isLayout = HelperUC::isLayoutAddonType($addonType);
+		$isLayout = EWPHelper::isLayoutAddonType($addonType);
 		
 		try{
 			
@@ -1325,7 +1325,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 				
 		$catID = UniteFunctionsUC::getVal($data, "catid");
 		$addonType = $this->getAddonTypeFromData($data);
-		$isLayout = HelperUC::isLayoutAddonType($addonType);
+		$isLayout = EWPHelper::isLayoutAddonType($addonType);
 				
 		$isOverwrite = UniteFunctionsUC::getVal($data, "isoverwrite");
 		$isOverwrite = UniteFunctionsUC::strToBool($isOverwrite);
@@ -1402,7 +1402,7 @@ class UniteCreatorAddons extends UniteElementsBaseUC{
 		$webAPI = new UniteCreatorWebAPI();
 		$webAPI->installCatalogAddonFromData($installData);
 		
-		$urlRedirect = HelperUC::getViewUrl_EditAddon($addonID);
+		$urlRedirect = EWPHelper::getViewUrl_EditAddon($addonID);
 		
 		return($urlRedirect);
 	}

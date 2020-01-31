@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorSettingsView{
 	
@@ -38,7 +38,7 @@ class UniteCreatorSettingsView{
 		
 		$buttonText = $this->textButton;
 		if(empty($buttonText))
-			$buttonText = esc_html__("Save Settings", "unlimited_elements");
+			$buttonText = esc_html__("Save Settings", "unlimited_elementor_elements");
 		
 		$addParams = "";
 		if($this->isModeCustomSettings == true)
@@ -52,7 +52,7 @@ class UniteCreatorSettingsView{
 				
 				<div style="padding-top:6px;">
 					
-					<span id="<?php echo esc_attr($prefix)?>_loader_save" class="loader_text" style="display:none"><?php esc_html_e("Saving...", "unlimited_elements")?></span>
+					<span id="<?php echo esc_attr($prefix)?>_loader_save" class="loader_text" style="display:none"><?php esc_html_e("Saving...", "unlimited_elementor_elements")?></span>
 					<span id="<?php echo esc_attr($prefix)?>_message_saved" class="unite-color-green" style="display:none"></span>
 					
 				</div>
@@ -60,7 +60,7 @@ class UniteCreatorSettingsView{
 			
 			<div class="unite-clear"></div>
 			
-			<div id="<?php echo esc_attr($prefix)?>_save_settings_error" class="unite_error_message" style="display:none"></div>
+			<div id="<?php echo esc_attr($prefix)?>_save_settings_error" class="unite_error_message omar3" style="display:none"></div>
 		
 		<?php 
 	}
@@ -108,7 +108,7 @@ class UniteCreatorSettingsView{
 		$this->objSettings = new UniteCreatorSettings();
 		$this->objSettings->loadXMLFile($this->customSettingsXmlFile);
 		
-		$arrValues = HelperUC::$operations->getCustomSettingsValues($this->customSettingsKey);
+		$arrValues = EWPHelper::$operations->getCustomSettingsValues($this->customSettingsKey);
 		
 		if(!empty($arrValues))
 			$this->objSettings->setStoredValues($arrValues);
@@ -122,7 +122,7 @@ class UniteCreatorSettingsView{
 	 */
 	protected function addScripts(){
 		
-		HelperUC::addScript("unitecreator_admin_generalsettings", "unitecreator_admin_generalsettings");
+		EWPHelper::addScript("unitecreator_admin_generalsettings", "unitecreator_admin_generalsettings");
 		
 	}
 	
@@ -141,9 +141,9 @@ class UniteCreatorSettingsView{
 		//show header
 		if($this->showHeader == true){
 			$headerTitle = $this->headerTitle;
-			require HelperUC::getPathTemplate("header");
+			require EWPHelper::getPathTemplate("header");
 		}else
-			require HelperUC::getPathTemplate("header_missing");
+			require EWPHelper::getPathTemplate("header_missing");
 		
 		
 		$objSettings = $this->objSettings;
@@ -159,7 +159,7 @@ class UniteCreatorSettingsView{
 		
 		$randomString = UniteFunctionsUC::getRandomString(5, true);
 		
-		require HelperUC::getPathTemplate("settings");
+		require EWPHelper::getPathTemplate("settings");
 	}
 	
 	

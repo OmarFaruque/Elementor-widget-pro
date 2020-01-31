@@ -22,25 +22,24 @@ try{
 		define("UC_BOTH_VERSIONS_ACTIVE", true);
 	else{
 		
-		$pathAltLoader = $pathProvider."provider_alt_loader.php";
+        $pathAltLoader = $pathProvider."provider_alt_loader.php";
 		if(file_exists($pathAltLoader)){
-			require $pathAltLoader;
+			require_once( $pathAltLoader );
 		}else{
 		require_once $currentFolder.'/includes.php';
 		
 		require_once  GlobalsUC::$pathProvider."core/provider_main_file.php";
 		}
-		
 	}
 	
 }catch(Exception $e){
 	$message = $e->getMessage();
 	$trace = $e->getTraceAsString();
 	
-	echo "<br>";
-	echo esc_html($message);
-	echo "<pre>";
-	print_r($trace);
+	// echo "<br>";
+	// echo esc_html($message);
+	// echo "<pre>";
+	// print_r($trace);
 }
 
 

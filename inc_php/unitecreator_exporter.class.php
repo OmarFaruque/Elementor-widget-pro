@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorExporter extends UniteCreatorExporterBase{
@@ -131,8 +131,8 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 		$arrJs = UniteFunctionsUC::getVal($includes, "js");
 		$arrCss = UniteFunctionsUC::getVal($includes, "css");
 		
-		$arrJs = HelperUC::arrUrlsToRelative($arrJs, true);
-		$arrCss = HelperUC::arrUrlsToRelative($arrCss, true);
+		$arrJs = EWPHelper::arrUrlsToRelative($arrJs, true);
+		$arrCss = EWPHelper::arrUrlsToRelative($arrCss, true);
 		
 		if(!empty($arrJs))
 			$includes["js"] = $arrJs;
@@ -301,7 +301,7 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 		
 		$objAddonType = $this->addon->getObjAddonType();
 				
-		$isUnderAssets = HelperUC::isPathUnderAssetsPath($pathAssets, $objAddonType);
+		$isUnderAssets = EWPHelper::isPathUnderAssetsPath($pathAssets, $objAddonType);
 				
 		if(!$isUnderAssets)
 			return(false);
@@ -309,7 +309,7 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 		if(is_dir($pathAssets) == false)
 			return(false);
 		
-		$isPathAssets = HelperUC::isPathAssets($pathAssets, $objAddonType);
+		$isPathAssets = EWPHelper::isPathAssets($pathAssets, $objAddonType);
 		if($isPathAssets == true)
 			return(false);
 		
@@ -401,7 +401,7 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 		$addonType = $this->addon->getType();
 		$catTitle = $this->addon->getCatTitle();
 		
-		$isSpecialType = HelperUC::isSpecialAddonType($addonType);
+		$isSpecialType = EWPHelper::isSpecialAddonType($addonType);
 		if($isSpecialType == true)
 			$catTitle = $addonType."_".$catTitle;
 		
@@ -588,7 +588,7 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 		}
 		
 		$nameZip = $catTitle.$suffix;
-		$nameZip = HelperUC::convertTitleToHandle($nameZip);
+		$nameZip = EWPHelper::convertTitleToHandle($nameZip);
 		
 		$this->filenameCategoryZip = $nameZip.".zip";
 		
@@ -976,7 +976,7 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 		$catTitle = UniteFunctionsUC::getVal($arrImport, "cattitle");
 		$addonTitle = UniteFunctionsUC::getVal($arrImport, "title");		
 		
-		$isSpecialAddonType = HelperUC::isSpecialAddonType($addonType);
+		$isSpecialAddonType = EWPHelper::isSpecialAddonType($addonType);
 		
 		//---- add log text ------
 		
@@ -1106,7 +1106,7 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 		
 		if(!empty($this->importedAddonType)){
 			$objAddonType = UniteCreatorAddonType::getAddonTypeObject($this->importedAddonType);
-			$pathAssets = HelperUC::getAssetsPath($objAddonType);
+			$pathAssets = EWPHelper::getAssetsPath($objAddonType);
 		}
 		
 		
@@ -1341,7 +1341,7 @@ class UniteCreatorExporter extends UniteCreatorExporterBase{
 					
 					$catAddonType = UniteFunctionsUC::getVal($catData, "type");
 					
-					$isSpecialAddonType = HelperUC::isSpecialAddonType($catAddonType);
+					$isSpecialAddonType = EWPHelper::isSpecialAddonType($catAddonType);
 					
 					//validate addon type
 					if($isSpecialAddonType == false && $catAddonType != $addonType)

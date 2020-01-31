@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 	class GlobalsUC{
 		
@@ -16,8 +16,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		
 		const ENABLE_TRANSLATIONS = false;
 		
-		const PLUGIN_TITLE = "Unlimited Elements";
-		const PLUGIN_NAME = "unlimitedelements";
+		const PLUGIN_TITLE = "Element Widget Pro";
+		const PLUGIN_NAME = "elementwidgetpro";
 		
 		const TABLE_ADDONS_NAME = "addonlibrary_addons";
 		const TABLE_LAYOUTS_NAME = "addonlibrary_layouts";
@@ -58,6 +58,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		const DIR_THEME_ADDONS = "blox_addons";
 		
 		const URL_API = "http://api.bloxbuilder.me/index.php";
+		// const URL_API = "http://127.0.0.1/elementorjson/returnjson.php";
+		
 		//const URL_API = "http://localhost/dev/blox_API/";
 		
    		const URL_BUY = "https://unlimited-elements.com/pricing/";
@@ -225,9 +227,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		private static function initDBTableTitles(){
 			
 			$arrTitles = array();
-			$arrTitles[GlobalsUC::$table_addons] = esc_html__("Addon", "unlimited_elements");
-			$arrTitles[GlobalsUC::$table_categories] = esc_html__("Category", "unlimited_elements");
-			$arrTitles[GlobalsUC::$table_layouts] = esc_html__("Page", "unlimited_elements");
+			$arrTitles[GlobalsUC::$table_addons] = esc_html__("Addon", "unlimited_elementor_elements");
+			$arrTitles[GlobalsUC::$table_categories] = esc_html__("Category", "unlimited_elementor_elements");
+			$arrTitles[GlobalsUC::$table_layouts] = esc_html__("Page", "unlimited_elementor_elements");
 			
 			UniteCreatorDB::$arrTableTitles = $arrTitles;
 			
@@ -241,7 +243,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function initAfterIncludes(){
 			 
-			$product = HelperUC::getProductFromRequest();
+			$product = EWPHelper::getProductFromRequest();
 						
 			$webAPI = new UniteCreatorWebAPI();
 			if(!empty($product))

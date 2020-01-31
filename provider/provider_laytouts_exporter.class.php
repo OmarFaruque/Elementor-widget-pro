@@ -5,7 +5,7 @@
 * @copyright (C) 2012 Unite CMS, All Rights Reserved.
 * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorLayoutsExporter extends UniteCreatorLayoutsExporterWork{
 	
@@ -41,7 +41,7 @@ class UniteCreatorLayoutsExporter extends UniteCreatorLayoutsExporterWork{
 		$name .= "_image";
 		
 		//get full url
-		$urlFull = HelperUC::URLtoFull($url);
+		$urlFull = EWPHelper::URLtoFull($url);
 				
 		//check for existing image id
 		$imageID = UniteFunctionsWPUC::getAttachmentIDFromImageUrl($urlFull);

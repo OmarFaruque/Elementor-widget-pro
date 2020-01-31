@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorManagerInline extends UniteCreatorManager{
@@ -87,9 +87,9 @@ class UniteCreatorManagerInline extends UniteCreatorManager{
 	protected function getMenuSingleItem(){
 		
 		$arrMenuItem = array();
-		$arrMenuItem["edit_item"] = esc_html__("Edit Item","unlimited_elements");
-		$arrMenuItem["remove_items"] = esc_html__("Delete","unlimited_elements");
-		$arrMenuItem["duplicate_items"] = esc_html__("Duplicate","unlimited_elements");
+		$arrMenuItem["edit_item"] = esc_html__("Edit Item","unlimited_elementor_elements");
+		$arrMenuItem["remove_items"] = esc_html__("Delete","unlimited_elementor_elements");
+		$arrMenuItem["duplicate_items"] = esc_html__("Duplicate","unlimited_elementor_elements");
 		
 		return($arrMenuItem);
 	}
@@ -99,8 +99,8 @@ class UniteCreatorManagerInline extends UniteCreatorManager{
 	 */
 	protected function getMenuMulitipleItems(){
 		$arrMenuItemMultiple = array();
-		$arrMenuItemMultiple["remove_items"] = esc_html__("Delete","unlimited_elements");
-		$arrMenuItemMultiple["duplicate_items"] = esc_html__("Duplicate","unlimited_elements");
+		$arrMenuItemMultiple["remove_items"] = esc_html__("Delete","unlimited_elementor_elements");
+		$arrMenuItemMultiple["duplicate_items"] = esc_html__("Duplicate","unlimited_elementor_elements");
 		return($arrMenuItemMultiple);
 	}
 	
@@ -110,8 +110,8 @@ class UniteCreatorManagerInline extends UniteCreatorManager{
 	 */
 	protected function getMenuField(){
 		$arrMenuField = array();
-		$arrMenuField["add_item"] = esc_html__("Add Item","unlimited_elements");
-		$arrMenuField["select_all"] = esc_html__("Select All","unlimited_elements");
+		$arrMenuField["add_item"] = esc_html__("Add Item","unlimited_elementor_elements");
+		$arrMenuField["select_all"] = esc_html__("Select All","unlimited_elementor_elements");
 		
 		return($arrMenuField);
 	}
@@ -133,26 +133,26 @@ class UniteCreatorManagerInline extends UniteCreatorManager{
 			default:
 			case UniteCreatorAddon::ITEMS_TYPE_DEFAULT:
 			?>
- 				<a data-action="add_item" type="button" class="<?php echo esc_attr($buttonClass)?>"><?php esc_html_e("Add Item","unlimited_elements")?></a>
+ 				<a data-action="add_item" type="button" class="<?php echo esc_attr($buttonClass)?>"><?php esc_html_e("Add Item","unlimited_elementor_elements")?></a>
 			<?php 
 			break;
 			case UniteCreatorAddon::ITEMS_TYPE_IMAGE:
 			?>
- 				<a data-action="add_images" type="button" class="<?php echo esc_attr($buttonClass)?>"><?php esc_html_e("Add Images","unlimited_elements")?></a>
+ 				<a data-action="add_images" type="button" class="<?php echo esc_attr($buttonClass)?>"><?php esc_html_e("Add Images","unlimited_elementor_elements")?></a>
 			<?php 
 			break;
 			case UniteCreatorAddon::ITEMS_TYPE_FORM:
 				?>
- 				<a data-action="add_form_item" type="button" class="<?php echo esc_attr($buttonClass)?>"><?php esc_html_e("Add Form Item","unlimited_elements")?></a>
+ 				<a data-action="add_form_item" type="button" class="<?php echo esc_attr($buttonClass)?>"><?php esc_html_e("Add Form Item","unlimited_elementor_elements")?></a>
  				<?php
 			break;
 		}
 		
 		?>
-	 		<a data-action="select_all_items" type="button" class="unite-button-secondary button-disabled uc-button-item uc-button-select" data-textselect="<?php esc_html_e("Select All","unlimited_elements")?>" data-textunselect="<?php esc_html_e("Unselect All","unlimited_elements")?>"><?php esc_html_e("Select All","unlimited_elements")?></a>
-	 		<a data-action="duplicate_items" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Duplicate","unlimited_elements")?></a>
-	 		<a data-action="remove_items" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Delete","unlimited_elements")?></a>
-	 		<a data-action="edit_item" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Edit Item","unlimited_elements")?> </a>
+	 		<a data-action="select_all_items" type="button" class="unite-button-secondary button-disabled uc-button-item uc-button-select" data-textselect="<?php esc_html_e("Select All","unlimited_elementor_elements")?>" data-textunselect="<?php esc_html_e("Unselect All","unlimited_elementor_elements")?>"><?php esc_html_e("Select All","unlimited_elementor_elements")?></a>
+	 		<a data-action="duplicate_items" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Duplicate","unlimited_elementor_elements")?></a>
+	 		<a data-action="remove_items" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Delete","unlimited_elementor_elements")?></a>
+	 		<a data-action="edit_item" type="button" class="unite-button-secondary button-disabled uc-button-item uc-single-item"><?php esc_html_e("Edit Item","unlimited_elementor_elements")?> </a>
 		<?php 
 	}
 	
@@ -174,7 +174,7 @@ class UniteCreatorManagerInline extends UniteCreatorManager{
 		}
 		
 		?>
-			<div title="<?php esc_html_e("Edit Item","unlimited_elements")?>" class="uc-dialog-edit-item" style="display:none">
+			<div title="<?php esc_html_e("Edit Item","unlimited_elementor_elements")?>" class="uc-dialog-edit-item" style="display:none">
 				<div class="uc-item-config-settings" autofocus="true" <?php echo UniteProviderFunctionsUC::escAddParam($addHtml);?>>
 					
 					<?php if($isLoadByAjax == false): 
@@ -185,7 +185,7 @@ class UniteCreatorManagerInline extends UniteCreatorManager{
 					<?php else:	 //load by ajax?>
 						
 						<div class="unite-dialog-loader-wrapper">
-							<div class="unite-dialog-loader"><?php esc_html_e("Loading Settings", "unlimited_elements")?>...</div>
+							<div class="unite-dialog-loader"><?php esc_html_e("Loading Settings", "unlimited_elementor_elements")?>...</div>
 						</div>
 						
 					<?php endif?>

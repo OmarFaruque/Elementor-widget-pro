@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 $arrData = array();
 
@@ -20,7 +20,7 @@ $arrFonts = UniteFunctionsUC::arrayToAssoc($arrFonts);
 
 //get settings google fonts
 
-$arrSettingsGoogleFonts = HelperUC::$operations->getGeneralSettingsGoogleFonts();
+$arrSettingsGoogleFonts = EWPHelper::$operations->getGeneralSettingsGoogleFonts();
 
 $arrGoogleFonts = array(
 		"Open Sans"=>"Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i",

@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 	
 	class UniteCreatorDB{
@@ -512,9 +512,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			}
 			
 			if(empty($errorEmpty)){
-				$tableTitle = UniteFunctionsUC::getVal(self::$arrTableTitles, $tableName, __("Record", "unlimited_elements"));
+				$tableTitle = UniteFunctionsUC::getVal(self::$arrTableTitles, $tableName, __("Record", "unlimited_elementor_elements"));
 				
-				$errorEmpty = $tableTitle." ".__("not found", "unlimited_elements");
+				$errorEmpty = $tableTitle." ".__("not found", "unlimited_elementor_elements");
 			}
 			
 			$response = $this->fetch($tableName, $where, $orderField, $groupByField, $sqlAddon);

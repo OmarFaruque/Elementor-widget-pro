@@ -78,7 +78,7 @@ msgid " Javascript"
 msgstr ""
 
 #: views/license.php:22
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:54
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:54
 msgid " License"
 msgstr ""
 
@@ -202,12 +202,12 @@ msgstr ""
 msgid "Activate Blox Pro - Envato"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor_template.class.php:46
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:16
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_template.class.php:46
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:16
 msgid "Activate Plugin"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:27
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:27
 msgid "Activate Unlimited Elements"
 msgstr ""
 
@@ -232,7 +232,7 @@ msgid "Activation Failed"
 msgstr ""
 
 #: inc_php/manager/unitecreator_manager_addons.class.php:1539
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:212
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:212
 msgid "Active"
 msgstr ""
 
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Add New Category"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:27
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:27
 msgid "Add New Template"
 msgstr ""
 
@@ -441,7 +441,7 @@ msgstr ""
 msgid "All rights reserved"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:35
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:35
 msgid "All Templates"
 msgstr ""
 
@@ -463,7 +463,7 @@ msgstr ""
 msgid "Always"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:23
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:23
 msgid "Archive Posts Pagination"
 msgstr ""
 
@@ -674,7 +674,7 @@ msgid "Choose Addon Type"
 msgstr ""
 
 #: inc_php/unitecreator_client_text.php:93
-#: provider/core/plugins/unlimited_elements/elementor/controls/control_audio.php:40
+#: provider/core/plugins/unlimited_elementor_elements/elementor/controls/control_audio.php:40
 msgid "Choose Audio"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgstr ""
 msgid "Choose Query"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/controls/control_shape.php:50
+#: provider/core/plugins/unlimited_elementor_elements/elementor/controls/control_shape.php:50
 msgid "Choose Shape"
 msgstr ""
 
@@ -750,9 +750,9 @@ msgid "Close"
 msgstr ""
 
 #: inc_php/unitecreator_settings_output.class.php:799
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:179
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:199
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:219
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:179
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:199
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:219
 msgid "Color"
 msgstr ""
 
@@ -761,7 +761,7 @@ msgstr ""
 msgid "Color Picker"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:161
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:161
 msgid "Colors"
 msgstr ""
 
@@ -822,15 +822,15 @@ msgstr ""
 msgid "CSS"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/dialog_param_elementor.class.php:22
+#: provider/core/plugins/unlimited_elementor_elements/dialog_param_elementor.class.php:22
 msgid "CSS Selector"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/dialog_param_elementor.class.php:33
+#: provider/core/plugins/unlimited_elementor_elements/dialog_param_elementor.class.php:33
 msgid "CSS Selector 2 (optional)"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/dialog_param_elementor.class.php:44
+#: provider/core/plugins/unlimited_elementor_elements/dialog_param_elementor.class.php:44
 msgid "CSS Selector 3 (optional)"
 msgstr ""
 
@@ -842,12 +842,12 @@ msgstr ""
 msgid "Current Posts"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor_cpt.class.php:28
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_cpt.class.php:28
 msgid "Custom Post Type"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor_cpt.class.php:26
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:100
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_cpt.class.php:26
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:100
 msgid "Custom Post Types"
 msgstr ""
 
@@ -981,7 +981,7 @@ msgstr ""
 msgid "Dividers"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:53
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:53
 msgid ""
 "Do you mind writing us the name of the diffrent plugin you intend to use?"
 msgstr ""
@@ -994,7 +994,7 @@ msgstr ""
 msgid "Don't have Envato Activation Key? "
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:38
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:38
 msgid "Don't have the envato activation key?"
 msgstr ""
 
@@ -1123,7 +1123,7 @@ msgstr ""
 msgid "Edit Page"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:28
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:28
 msgid "Edit Template"
 msgstr ""
 
@@ -1148,11 +1148,11 @@ msgstr ""
 msgid "Editor"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor_template.class.php:44
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_template.class.php:44
 msgid "Elementor Template"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor.class.php:30
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor.class.php:30
 msgid "Elementor Widget"
 msgstr ""
 
@@ -1226,7 +1226,7 @@ msgstr ""
 msgid "Export Category "
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/elementor_integrate.class.php:887
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_integrate.class.php:887
 msgid "Export With Addons"
 msgstr ""
 
@@ -1363,8 +1363,8 @@ msgstr ""
 
 #: inc_php/unitecreator_addon.class.php:1601
 #: views/objects/addon_view.class.php:391
-#: provider/core/plugins/unlimited_elements/elementor/elementor_widget.class.php:804
-#: provider/core/plugins/unlimited_elements/elementor/elementor_widget.class.php:1186
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_widget.class.php:804
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_widget.class.php:1186
 msgid "General"
 msgstr ""
 
@@ -1374,8 +1374,8 @@ msgstr ""
 
 #: views/settings.php:52 inc_php/unitecreator_form.class.php:69
 #: views/objects/mappicker_view.class.php:192
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:105
-#: provider/core/plugins/unlimited_elements/views/settingselementor.php:31
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:105
+#: provider/core/plugins/unlimited_elementor_elements/views/settingselementor.php:31
 msgid "General Settings"
 msgstr ""
 
@@ -1395,7 +1395,7 @@ msgstr ""
 msgid "GO PRO"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor.class.php:32
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor.class.php:32
 msgid "Go Pro"
 msgstr ""
 
@@ -1439,7 +1439,7 @@ msgstr ""
 msgid "Hide Preview"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:192
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:192
 msgid "Hover"
 msgstr ""
 
@@ -1464,19 +1464,19 @@ msgstr ""
 msgid "http://unlimited-elements.com"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:60
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:60
 msgid "I couldn't get the plugin to work"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:48
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:48
 msgid "I don't need the plugin anymore"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:52
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:52
 msgid "I found a better plugin that has the same features"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:64
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:64
 msgid "I found to many bugs"
 msgstr ""
 
@@ -1520,11 +1520,11 @@ msgstr ""
 msgid "Import Layouts"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/elementor_integrate.class.php:675
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_integrate.class.php:675
 msgid "Import Now"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/elementor_integrate.class.php:666
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_integrate.class.php:666
 msgid "Import Template With Addons"
 msgstr ""
 
@@ -1561,7 +1561,7 @@ msgstr ""
 msgid "Installing"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:56
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:56
 msgid "It's a temporary deactivation"
 msgstr ""
 
@@ -1602,8 +1602,8 @@ msgstr ""
 
 #: inc_php/unitecreator_addon.class.php:1285
 #: inc_php/unitecreator_params_processor.class.php:495
-#: provider/core/plugins/unlimited_elements/elementor/elementor_widget.class.php:348
-#: provider/core/plugins/unlimited_elements/elementor/elementor_widget.class.php:1144
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_widget.class.php:348
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_widget.class.php:1144
 msgid "Items"
 msgstr ""
 
@@ -1706,7 +1706,7 @@ msgstr ""
 msgid "Libraries"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:111
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:111
 msgid "License"
 msgstr ""
 
@@ -1750,7 +1750,7 @@ msgstr ""
 
 #: views/objects/addon_view.class.php:696
 #: inc_php/addontypes/unitecreator_addontype.class.php:55
-#: provider/core/plugins/unlimited_elements/addontype_elementor_template.class.php:34
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_template.class.php:34
 msgid "Main"
 msgstr ""
 
@@ -1778,7 +1778,7 @@ msgstr ""
 msgid "Manage "
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/custom_posttypes.php:22
+#: provider/core/plugins/unlimited_elementor_elements/views/custom_posttypes.php:22
 msgid "Manage Custom Post Types"
 msgstr ""
 
@@ -1786,19 +1786,19 @@ msgstr ""
 msgid "Manage Layout Categories"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/backgrounds.php:22
+#: provider/core/plugins/unlimited_elementor_elements/views/backgrounds.php:22
 msgid "Manage Section Backgrounds"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/svg_shapes.php:22
+#: provider/core/plugins/unlimited_elementor_elements/views/svg_shapes.php:22
 msgid "Manage SVG Shapes"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/templates_elementor.php:22
+#: provider/core/plugins/unlimited_elementor_elements/views/templates_elementor.php:22
 msgid "Manage Templates for Elementor"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/addons_elementor.php:22
+#: provider/core/plugins/unlimited_elementor_elements/views/addons_elementor.php:22
 msgid "Manage Widgets for Elementor"
 msgstr ""
 
@@ -1934,7 +1934,7 @@ msgstr ""
 msgid "New Page"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:29
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:29
 msgid "New Template"
 msgstr ""
 
@@ -2002,19 +2002,19 @@ msgstr ""
 msgid "no settings for this addon"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:33
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:33
 msgid "No Template Found"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:34
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:34
 msgid "No Template found in trash"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:34
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:34
 msgid "None"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:172
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:172
 msgid "Normal"
 msgstr ""
 
@@ -2040,7 +2040,7 @@ msgstr ""
 msgid "Number"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:35
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:35
 msgid "Numbers"
 msgstr ""
 
@@ -2074,7 +2074,7 @@ msgstr ""
 msgid "Order updated"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:69
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:69
 msgid "Other"
 msgstr ""
 
@@ -2099,8 +2099,8 @@ msgstr ""
 msgid "Page Templates"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:30
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:141
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:30
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:141
 msgid "Pagination"
 msgstr ""
 
@@ -2116,7 +2116,7 @@ msgstr ""
 msgid "Paste your activation key here"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:36
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:36
 msgid "Paste your envato activation key here"
 msgstr ""
 
@@ -2124,7 +2124,7 @@ msgstr ""
 msgid "Paste your envato purchase code here <br> from the pro version item"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/feedback.class.php:70
+#: provider/core/plugins/unlimited_elementor_elements/feedback.class.php:70
 msgid "Please describe the reason you are deactivating the plugin"
 msgstr ""
 
@@ -2226,7 +2226,7 @@ msgstr ""
 msgid "Product Activated"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:42
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:42
 msgid "Purchase Unlimited Elements on Codecanyon"
 msgstr ""
 
@@ -2385,7 +2385,7 @@ msgstr ""
 msgid "Search Layout"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:32
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:32
 msgid "Search Template"
 msgstr ""
 
@@ -2398,7 +2398,7 @@ msgstr ""
 msgid "Section Anchor"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:102
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:102
 msgid "Section Backgrounds"
 msgstr ""
 
@@ -2409,7 +2409,7 @@ msgstr ""
 
 #: views/library.php:44 views/objects/views_chooser.class.php:54
 #: inc_php/addontypes/unitecreator_addontype_layout_section.class.php:24
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:99
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:99
 msgid "Sections"
 msgstr ""
 
@@ -2488,7 +2488,7 @@ msgstr ""
 msgid "Select order direction. Descending A-Z or Accending Z-A"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/elementor_widget.class.php:884
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_widget.class.php:884
 msgid "Select Style"
 msgstr ""
 
@@ -2593,7 +2593,7 @@ msgstr ""
 msgid "Sort: "
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/pagination.class.php:234
+#: provider/core/plugins/unlimited_elementor_elements/elementor/pagination.class.php:234
 msgid "Space Between"
 msgstr ""
 
@@ -2605,8 +2605,8 @@ msgstr ""
 msgid "Style"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/elementor/elementor_widget.class.php:306
-#: provider/core/plugins/unlimited_elements/elementor/elementor_widget.class.php:1107
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_widget.class.php:306
+#: provider/core/plugins/unlimited_elementor_elements/elementor/elementor_widget.class.php:1107
 msgid "Styles"
 msgstr ""
 
@@ -2619,11 +2619,11 @@ msgstr ""
 msgid "SVG Content"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:101
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:101
 msgid "SVG Shapes"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor_template.class.php:43
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_template.class.php:43
 msgid "Template"
 msgstr ""
 
@@ -2631,8 +2631,8 @@ msgstr ""
 msgid "Template part"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor_template.class.php:42
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:98
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_template.class.php:42
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:98
 msgid "Templates"
 msgstr ""
 
@@ -2683,7 +2683,7 @@ msgstr ""
 msgid "The category deleted successfully"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:60
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:60
 msgid ""
 "The category name is unchangable, because of the addons consolidation, if "
 "changed it could break the layout."
@@ -2697,7 +2697,7 @@ msgstr ""
 msgid "The product is Active!"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/dialog_param_elementor.class.php:50
+#: provider/core/plugins/unlimited_elementor_elements/dialog_param_elementor.class.php:50
 msgid ""
 "The selector that the typography field will be related to. Can be related to "
 "several html tags."
@@ -2735,7 +2735,7 @@ msgstr ""
 msgid "This pro version is active!"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor_template.class.php:47
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_template.class.php:47
 msgid "This template is available<br>when the plugin is activated."
 msgstr ""
 
@@ -2783,7 +2783,7 @@ msgid "Top"
 msgstr ""
 
 #: inc_php/unitecreator_params_editor.class.php:55
-#: provider/core/plugins/unlimited_elements/addontype_elementor_cpt.class.php:27
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor_cpt.class.php:27
 msgid "Type"
 msgstr ""
 
@@ -2805,12 +2805,12 @@ msgstr ""
 msgid "Unleash access to +700 addons,"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:33
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:33
 msgid "Unleash access to +700 widgets for Elementor"
 msgstr ""
 
 #: provider/provider_client_text.php:10
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:21
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:21
 msgid "Unlimited Elements"
 msgstr ""
 
@@ -2821,16 +2821,16 @@ msgid ""
 msgstr ""
 
 #. Name of the plugin
-#: provider/core/plugins/unlimited_elements/plugin.php:32
+#: provider/core/plugins/unlimited_elementor_elements/plugin.php:32
 msgid "Unlimited Elements for Elementor"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:44
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:44
 msgid "Unlimited Elements is activated lifetime for this site!"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:25
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:26
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:25
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:26
 msgid "Unlimited Elements Library"
 msgstr ""
 
@@ -2838,7 +2838,7 @@ msgstr ""
 msgid "Unlimited Elements Plugin"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:59
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:59
 msgid "Unlimited Elements Template"
 msgstr ""
 
@@ -2943,7 +2943,7 @@ msgstr ""
 msgid "Updating..."
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor.class.php:33
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor.class.php:33
 msgid "Upgrade to PRO version <br> to use this widget"
 msgstr ""
 
@@ -3005,8 +3005,8 @@ msgstr ""
 msgid "View our pricing plans"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:30
-#: provider/core/plugins/unlimited_elements/helper_provider_core.class.php:31
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:30
+#: provider/core/plugins/unlimited_elementor_elements/helper_provider_core.class.php:31
 msgid "View Template"
 msgstr ""
 
@@ -3033,15 +3033,15 @@ msgstr ""
 msgid "Web and Installed"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor.class.php:29
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor.class.php:29
 msgid "Widget"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/addontype_elementor.class.php:28
+#: provider/core/plugins/unlimited_elementor_elements/addontype_elementor.class.php:28
 msgid "Widgets"
 msgstr ""
 
-#: provider/core/plugins/unlimited_elements/provider_core_admin.class.php:95
+#: provider/core/plugins/unlimited_elementor_elements/provider_core_admin.class.php:95
 msgid "Widgets for Elementor"
 msgstr ""
 
@@ -3054,7 +3054,7 @@ msgid "Wrap Items With Submenu"
 msgstr ""
 
 #: provider/views/provider_activation_view.class.php:25
-#: provider/core/plugins/unlimited_elements/views/licenseelementor.php:31
+#: provider/core/plugins/unlimited_elementor_elements/views/licenseelementor.php:31
 msgid "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 msgstr ""
 

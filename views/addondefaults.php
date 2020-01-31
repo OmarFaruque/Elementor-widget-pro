@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorAddonDefaultsView{
@@ -34,7 +34,7 @@ class UniteCreatorAddonDefaultsView{
 		
 		$addonTitle = $this->addon->getTitle();
 		
-		$headerTitle = esc_html__("Addon Defaults","unlimited_elements");
+		$headerTitle = esc_html__("Addon Defaults","unlimited_elementor_elements");
 		$headerTitle .= " - ".$addonTitle;
 		
 		return($headerTitle);
@@ -46,7 +46,7 @@ class UniteCreatorAddonDefaultsView{
 	protected function putHeaderHtml(){
 		
 		$headerTitle = $this->getHeader();
-		require HelperUC::getPathTemplate("header");
+		require EWPHelper::getPathTemplate("header");
 		
 	}
 	
@@ -94,7 +94,7 @@ class UniteCreatorAddonDefaultsView{
 		
 		$objAddonType = $addon->getObjAddonType();
 		
-		$urlEditAddon = HelperUC::getViewUrl_EditAddon($addonID);
+		$urlEditAddon = EWPHelper::getViewUrl_EditAddon($addonID);
 		
 		$arrOptions = $this->getOptions($addon);
 				
@@ -112,7 +112,7 @@ class UniteCreatorAddonDefaultsView{
 		
 		$this->isPreviewMode = $isPreviewMode;
 		
-		require HelperUC::getPathTemplate("addon_defaults");
+		require EWPHelper::getPathTemplate("addon_defaults");
 				
 	}
 	

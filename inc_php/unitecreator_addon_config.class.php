@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorAddonConfig extends HtmlOutputBaseUC{
 		
@@ -130,12 +130,12 @@ class UniteCreatorAddonConfig extends HtmlOutputBaseUC{
 	 */
 	public function getHtmlFrame($putMode = false){
 		
-		$title = esc_html__("Addon Title", "unlimited_elements");
+		$title = esc_html__("Addon Title", "unlimited_elementor_elements");
 		$this->valdiateStartAddon();
 		
 		$addHtml = "";
 		$title = $this->startAddon->getTitle(true);
-		$title .= " - ".esc_html__("Config", "unlimited_elements");
+		$title .= " - ".esc_html__("Config", "unlimited_elementor_elements");
 		
 		$titleSmall = $this->startAddon->getTitle(true);
 		

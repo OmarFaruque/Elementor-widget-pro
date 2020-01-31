@@ -4,7 +4,7 @@
 
 	<fieldset name="general" label="General Settings">
 		
-		<field name="font_awesome_version" 
+		<field name="ewp_font_awesome_version" 
 			type="list"
 			default="fa4"
 			label="Font Awesome Version"
@@ -93,12 +93,10 @@
 	</fieldset>	
 	
 	<fieldset name="fields_settings" label="Special Addons Settings">
-
 		<field name="form_settings" 
 			type="statictext"
 			label="&lt;b&gt;Form Addons&lt;/b&gt;">
 		</field>
-		
 		<field name="form_admin_email" 
 			type="text"
 			default="" 

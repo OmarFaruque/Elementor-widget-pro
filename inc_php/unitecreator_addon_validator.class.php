@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorAddonValidator{
 	
@@ -109,11 +109,11 @@ class UniteCreatorAddonValidator{
 		
 		foreach($arrIncludes as $urlInclude){
 			
-			$isUnderAssets = HelperUC::isUrlUnderAssets($urlInclude, $objAddonType);
+			$isUnderAssets = EWPHelper::isUrlUnderAssets($urlInclude, $objAddonType);
 			if($isUnderAssets == false)
 				continue;
 			
-			$pathInclude = HelperUC::urlToPath($urlInclude);
+			$pathInclude = EWPHelper::urlToPath($urlInclude);
 
 			if(empty($pathInclude))
 				return(true);

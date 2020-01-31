@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 	class UCOperations extends UniteElementsBaseUC{
@@ -306,9 +306,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			$thumbWidth = $this->getThumbWidthFromSize($thumbSize);
 						
-			$urlImage = HelperUC::URLtoRelative($urlImage);
+			$urlImage = EWPHelper::URLtoRelative($urlImage);
 			
-			$info = HelperUC::getImageDetails($urlImage);
+			$info = EWPHelper::getImageDetails($urlImage);
 			
 			//check thumbs path
 			$pathThumbs = $info["path_thumbs"];
@@ -354,7 +354,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					$urlThumb = $this->createThumbs($urlImage, $thumbSize);	
 				}
 				
-				$urlThumb = HelperUC::URLtoFull($urlThumb);
+				$urlThumb = EWPHelper::URLtoFull($urlThumb);
 				return($urlThumb);
 				
 			}catch(Exception $e){
@@ -447,7 +447,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$title = $objLayout->getTitle();
 			$type = $objLayout->getLayoutType();
 			
-			$filename = "layout_".HelperUC::convertTitleToHandle($title);
+			$filename = "layout_".EWPHelper::convertTitleToHandle($title);
 			
 			if(!empty($type))
 				$filename .= "_".$type;
@@ -496,12 +496,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				UniteFunctionsUC::throwError("The screenshot could not be created");
 			}
 			
-			$urlScreenshot = HelperUC::pathToRelativeUrl($filepath);
+			$urlScreenshot = EWPHelper::pathToRelativeUrl($filepath);
 			
 			$objLayout->updateParam("preview_image", $urlScreenshot);
 			$objLayout->updateParam("page_image", "");
 			
-			$urlScreenshotFull = HelperUC::URLtoFull($urlScreenshot);
+			$urlScreenshotFull = EWPHelper::URLtoFull($urlScreenshot);
 			
 			return($urlScreenshotFull);
 		}

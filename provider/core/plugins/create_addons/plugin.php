@@ -7,7 +7,7 @@
 */
 
 //no direct accees
-defined ('UNLIMITED_ELEMENTS_INC') or die ('restricted aceess');
+defined ('ELEMENTOR_WIDGET_PRO_INC') or die ('restricted aceess');
 
 
 class AddonLibraryCreatorPluginUC extends UniteCreatorPluginBase{
@@ -46,11 +46,11 @@ class AddonLibraryCreatorPluginUC extends UniteCreatorPluginBase{
 		
 		$arrNewItems = array();
 		$arrNewItems[] = array("key"=>"duplicate_item",
-							   "text"=>esc_html__("Duplicate","unlimited_elements"),
+							   "text"=>esc_html__("Duplicate","unlimited_elementor_elements"),
 							   "insert_after"=>"remove_item");
 		
 		$arrNewItems[] = array("key"=>"export_addon",
-							   "text"=>esc_html__("Export ","unlimited_elements").$this->textSingle,
+							   "text"=>esc_html__("Export ","unlimited_elementor_elements").$this->textSingle,
 							   "insert_after"=>"test_addon_blank");
 		
 		$arrMenu = UniteFunctionsUC::insertToAssocArray($arrMenu, $arrNewItems);
@@ -66,7 +66,7 @@ class AddonLibraryCreatorPluginUC extends UniteCreatorPluginBase{
 	
 		$arrNewItems = array();
 		$arrNewItems[] = array("key"=>"duplicate_item",
-				"text"=>esc_html__("Duplicate","unlimited_elements"),
+				"text"=>esc_html__("Duplicate","unlimited_elementor_elements"),
 				"insert_after"=>"bottom");
 		
 		$arrMenu = UniteFunctionsUC::insertToAssocArray($arrMenu, $arrNewItems);
@@ -82,7 +82,7 @@ class AddonLibraryCreatorPluginUC extends UniteCreatorPluginBase{
 	public function addItems_managerMenuField($arrMenu){
 		
 		$arrNewItems[] = array("key"=>"add_addon",
-				"text"=>esc_html__("Add Addon","unlimited_elements"),
+				"text"=>esc_html__("Add Addon","unlimited_elementor_elements"),
 				"insert_after"=>"top");
 		
 		$arrMenu = UniteFunctionsUC::insertToAssocArray($arrMenu, $arrNewItems);
@@ -96,7 +96,7 @@ class AddonLibraryCreatorPluginUC extends UniteCreatorPluginBase{
 	public function addItems_managerMenuCategory($arrMenu){
 	
 		$arrNewItems[] = array("key"=>"export_cat_addons",
-				"text"=>esc_html__("Export Category ","unlimited_elements").$this->textPlural,
+				"text"=>esc_html__("Export Category ","unlimited_elementor_elements").$this->textPlural,
 				"insert_after"=>"bottom");
 		
 		$arrMenu = UniteFunctionsUC::insertToAssocArray($arrMenu, $arrNewItems);
@@ -111,7 +111,7 @@ class AddonLibraryCreatorPluginUC extends UniteCreatorPluginBase{
 	public function drawItemButtons2(){
 		?>
 		
-	 			<a data-action="duplicate_item" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Duplicate","unlimited_elements")?></a>
+	 			<a data-action="duplicate_item" type="button" class="unite-button-secondary button-disabled uc-button-item"><?php esc_html_e("Duplicate","unlimited_elementor_elements")?></a>
 		
 		<?php 
 	}
@@ -121,7 +121,7 @@ class AddonLibraryCreatorPluginUC extends UniteCreatorPluginBase{
 	 */
 	public function drawItemButtons3(){
 		
-		$textExport = esc_html__("Export ", "unlimited_elements").$this->textSingle;
+		$textExport = esc_html__("Export ", "unlimited_elementor_elements").$this->textSingle;
 		
 		?>
 	 		

@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 /**
@@ -406,7 +406,7 @@ class UniteTableUC extends HtmlOutputBaseUC{
 		$htmlSelect = HelperHtmlUC::getHTMLSelect($arrCats, $cat, "name='{$fieldCat}' class='unite-tableitems-category' onchange='this.form.submit()'", true);
 		$htmlGetFields = $this->getHtmlHiddenInputs($fieldCat);
 		
-		$html = "<span class='uc-table-top-filter-title'>".esc_html__("Filter Category", "unlimited_elements")."</span>";
+		$html = "<span class='uc-table-top-filter-title'>".esc_html__("Filter Category", "unlimited_elementor_elements")."</span>";
 		
 		$html .= $this->getHtmlFormSelect($htmlSelect, $htmlGetFields);
 		
@@ -445,8 +445,8 @@ class UniteTableUC extends HtmlOutputBaseUC{
 				$urlFirst = $this->getUrlPage(1);
 				$urlPrev = $this->getUrlPage($previous_link);
 				
-				$titleFirst = esc_html__("First", "unlimited_elements");
-				$titlePrev = esc_html__("Previous", "unlimited_elements");
+				$titleFirst = esc_html__("First", "unlimited_elementor_elements");
+				$titlePrev = esc_html__("Previous", "unlimited_elementor_elements");
 	
 				$textFirst = "";
 				$textPrev = "";
@@ -489,8 +489,8 @@ class UniteTableUC extends HtmlOutputBaseUC{
 				$urlNext = $this->getUrlPage($next_link);
 				$urlLast = $this->getUrlPage($total_pages);
 	
-				$titleNext = esc_html__("Next Page", "unlimited_elements");
-				$titleLast = esc_html__("Last Page", "unlimited_elements");
+				$titleNext = esc_html__("Next Page", "unlimited_elementor_elements");
+				$titleLast = esc_html__("Last Page", "unlimited_elementor_elements");
 	
 				$textNext = "";
 				$textLast = "";
@@ -545,10 +545,10 @@ class UniteTableUC extends HtmlOutputBaseUC{
 		$fieldValue = htmlspecialchars($fieldValue);
 
 		if(empty($buttonText))
-			$buttonText = esc_html__("Search", "unlimited_elements");
+			$buttonText = esc_html__("Search", "unlimited_elementor_elements");
 		
 		if(empty($clearText))
-			$clearText = esc_html__("Clear", "unlimited_elements");
+			$clearText = esc_html__("Clear", "unlimited_elementor_elements");
 		
 		
 		$fieldName = self::GET_FIELD_SEARCH;

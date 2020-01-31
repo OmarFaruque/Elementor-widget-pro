@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 	class UniteCreatorAdmin extends UniteBaseAdminClassUC{
@@ -42,15 +42,15 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			UniteProviderFunctionsUC::addScriptsFramework($specialSettings);
 			
 			//add color picker scripts
-			$colorPickerType = HelperUC::getGeneralSetting("color_picker_type");
+			$colorPickerType = EWPHelper::getGeneralSetting("color_picker_type");
 			switch($colorPickerType){
 				case "spectrum":
-					HelperUC::addScript("spectrum","unite-spectrum","js/spectrum");
-					HelperUC::addStyle("spectrum","unite-spectrum","js/spectrum");
+					EWPHelper::addScript("spectrum","unite-spectrum","js/spectrum");
+					EWPHelper::addStyle("spectrum","unite-spectrum","js/spectrum");
 				break;
 				case "farbtastic":
-					HelperUC::addScript("farbtastic","unite-farbtastic","js/farbtastic");
-					HelperUC::addStyle("farbtastic","unite-farbtastic","js/farbtastic");
+					EWPHelper::addScript("farbtastic","unite-farbtastic","js/farbtastic");
+					EWPHelper::addStyle("farbtastic","unite-farbtastic","js/farbtastic");
 				break;
 				default:
 					UniteFunctionsUC::throwError("Wrong color picker typ: ".$colorPickerType);
@@ -58,17 +58,17 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			}
 						
 			
-			HelperUC::addScript("jquery.tipsy","tipsy-js");
+			EWPHelper::addScript("jquery.tipsy","tipsy-js");
 			
 			//font awsome - from admin always load the 5
-			$urlFontAwesomeCSS = HelperUC::getUrlFontAwesome();
-			HelperUC::addStyleAbsoluteUrl($urlFontAwesomeCSS, "font-awesome");
+			$urlFontAwesomeCSS = EWPHelper::getUrlFontAwesome();
+			EWPHelper::addStyleAbsoluteUrl($urlFontAwesomeCSS, "font-awesome");
 			
-			HelperUC::addScript("settings", "unitecreator_settings");
-			HelperUC::addScript("admin","unitecreator_admin");
-			HelperUC::addStyle("admin","unitecreator_admin_css");
+			EWPHelper::addScript("settings", "unitecreator_settings");
+			EWPHelper::addScript("admin","unitecreator_admin");
+			EWPHelper::addStyle("admin","unitecreator_admin_css");
 						
-			HelperUC::addScriptAbsoluteUrl(GlobalsUC::$url_provider."assets/provider_admin.js", "provider_admin_js");
+			EWPHelper::addScriptAbsoluteUrl(GlobalsUC::$url_provider."assets/provider_admin.js", "provider_admin_js");
 		}
 		
 		
@@ -83,8 +83,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			self::addMustScripts();
 			
-			HelperUC::addScript("unitecreator_assets", "unitecreator_assets");
-			HelperUC::addStyle("unitecreator_styles","unitecreator_css","css");
+			EWPHelper::addScript("unitecreator_assets", "unitecreator_assets");
+			EWPHelper::addStyle("unitecreator_styles","unitecreator_css","css");
 			
 			$viewForIncludes = self::$view;
 			
@@ -98,42 +98,42 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				case GlobalsUC::VIEW_EDIT_ADDON:
 				case GlobalsUC::VIEW_ASSETS:
 					
-					HelperUC::addScript("jquery.dialogextend.min", "jquery-ui-dialogextend","js/dialog_extend", true);
+					EWPHelper::addScript("jquery.dialogextend.min", "jquery-ui-dialogextend","js/dialog_extend", true);
 					
 					//dropzone
-					HelperUC::addScript("dropzone", "dropzone_js","js/dropzone");
-					HelperUC::addStyle("dropzone", "dropzone_css","js/dropzone");
+					EWPHelper::addScript("dropzone", "dropzone_js","js/dropzone");
+					EWPHelper::addStyle("dropzone", "dropzone_css","js/dropzone");
 					
 					//select 2
-					HelperUC::addScript("select2.full.min", "select2_js","js/select2");
-					HelperUC::addStyle("select2", "select2_css","js/select2");
+					EWPHelper::addScript("select2.full.min", "select2_js","js/select2");
+					EWPHelper::addStyle("select2", "select2_css","js/select2");
 					
 					
 					//include codemirror
-					HelperUC::addScript("codemirror.min", "codemirror_js","js/codemirror");
-					HelperUC::addScript("css", "codemirror_cssjs","js/codemirror/mode/css");
-					HelperUC::addScript("javascript", "codemirror_javascript","js/codemirror/mode/javascript");
-					HelperUC::addScript("xml", "codemirror_xml","js/codemirror/mode/xml");
-					HelperUC::addScript("htmlmixed", "codemirror_html","js/codemirror/mode/htmlmixed");
+					EWPHelper::addScript("codemirror.min", "codemirror_js","js/codemirror");
+					EWPHelper::addScript("css", "codemirror_cssjs","js/codemirror/mode/css");
+					EWPHelper::addScript("javascript", "codemirror_javascript","js/codemirror/mode/javascript");
+					EWPHelper::addScript("xml", "codemirror_xml","js/codemirror/mode/xml");
+					EWPHelper::addScript("htmlmixed", "codemirror_html","js/codemirror/mode/htmlmixed");
 					
-					HelperUC::addStyle("codemirror", "codemirror_css","js/codemirror");
+					EWPHelper::addStyle("codemirror", "codemirror_css","js/codemirror");
 					
-					HelperUC::addScript("unitecreator_includes", "unitecreator_includes");
-					HelperUC::addScript("unitecreator_params_dialog", "unitecreator_params_dialog");
-					HelperUC::addScript("unitecreator_params_editor", "unitecreator_params_editor");
-					HelperUC::addScript("unitecreator_params_panel", "unitecreator_params_panel");
-					HelperUC::addScript("unitecreator_variables", "unitecreator_variables");					
-					HelperUC::addScript("unitecreator_admin", "unitecreator_view_admin");
+					EWPHelper::addScript("unitecreator_includes", "unitecreator_includes");
+					EWPHelper::addScript("unitecreator_params_dialog", "unitecreator_params_dialog");
+					EWPHelper::addScript("unitecreator_params_editor", "unitecreator_params_editor");
+					EWPHelper::addScript("unitecreator_params_panel", "unitecreator_params_panel");
+					EWPHelper::addScript("unitecreator_variables", "unitecreator_variables");					
+					EWPHelper::addScript("unitecreator_admin", "unitecreator_view_admin");
 				break;
 				case GlobalsUC::VIEW_TEST_ADDON:
 					
 					self::onAddScriptsBrowser();
 					UniteCreatorManager::putScriptsIncludes(UniteCreatorManager::TYPE_ITEMS_INLINE);
 					
-					HelperUC::addScript("unitecreator_addon_config", "unitecreator_addon_config");
-					HelperUC::addStyle("unitecreator_admin_front","unitecreator_admin_front_css");
-					HelperUC::addScript("unitecreator_testaddon_admin");
-					HelperUC::addStyle("unitecreator_browser","unitecreator_browser_css");
+					EWPHelper::addScript("unitecreator_addon_config", "unitecreator_addon_config");
+					EWPHelper::addStyle("unitecreator_admin_front","unitecreator_admin_front_css");
+					EWPHelper::addScript("unitecreator_testaddon_admin");
+					EWPHelper::addStyle("unitecreator_browser","unitecreator_browser_css");
 					
 				break;
 				case GlobalsUC::VIEW_ADDON_DEFAULTS:
@@ -142,16 +142,16 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					
 					UniteCreatorManager::putScriptsIncludes(UniteCreatorManager::TYPE_ITEMS_INLINE);
 					
-					HelperUC::addScript("unitecreator_addon_config", "unitecreator_addon_config");
-					HelperUC::addStyle("unitecreator_admin_front","unitecreator_admin_front_css");
-					HelperUC::addScript("unitecreator_addondefaults_admin");
-					HelperUC::addStyle("unitecreator_browser","unitecreator_browser_css");
+					EWPHelper::addScript("unitecreator_addon_config", "unitecreator_addon_config");
+					EWPHelper::addStyle("unitecreator_admin_front","unitecreator_admin_front_css");
+					EWPHelper::addScript("unitecreator_addondefaults_admin");
+					EWPHelper::addStyle("unitecreator_browser","unitecreator_browser_css");
 					
 				break;
 				case GlobalsUC::VIEW_SETTINGS:
 				case GlobalsUC::VIEW_LAYOUTS_SETTINGS:
 					
-					HelperUC::addScript("unitecreator_admin_generalsettings", "unitecreator_admin_generalsettings");
+					EWPHelper::addScript("unitecreator_admin_generalsettings", "unitecreator_admin_generalsettings");
 					
 				break;
 				case GlobalsUC::VIEW_TEMPLATES_LIST:
@@ -161,7 +161,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					
 					UniteCreatorManager::putScriptsIncludes(UniteCreatorManager::TYPE_PAGES);
 					
-					HelperUC::addScript("unitecreator_admin_layouts", "unitecreator_admin_layouts");
+					EWPHelper::addScript("unitecreator_admin_layouts", "unitecreator_admin_layouts");
 					
 				break;
 				case GlobalsUC::VIEW_LAYOUT_IFRAME:
@@ -184,7 +184,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			}
 
 			//provider admin css always comes to end
-			HelperUC::addStyleAbsoluteUrl(GlobalsUC::$url_provider."assets/provider_admin.css", "provider_admin_css");
+			EWPHelper::addStyleAbsoluteUrl(GlobalsUC::$url_provider."assets/provider_admin.css", "provider_admin_css");
 			
 			UniteProviderFunctionsUC::doAction(UniteCreatorFilters::ACTION_ADD_ADMIN_SCRIPTS);
 			
@@ -202,7 +202,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			self::addMustScripts($specialSettings);
 			
-			HelperUC::addStyle("unitecreator_admin_front","unitecreator_admin_front_css");
+			EWPHelper::addStyle("unitecreator_admin_front","unitecreator_admin_front_css");
 			
 			UniteCreatorManager::putScriptsIncludes(UniteCreatorManager::TYPE_ITEMS_INLINE);
 			
@@ -217,9 +217,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			self::addScripts_settingsBase();
 			
-			HelperUC::addStyle("unitecreator_browser","unitecreator_browser_css");
-			HelperUC::addScript("unitecreator_browser", "unitecreator_browser");			
-			HelperUC::addScript("unitecreator_addon_config", "unitecreator_addon_config");
+			EWPHelper::addStyle("unitecreator_browser","unitecreator_browser_css");
+			EWPHelper::addScript("unitecreator_browser", "unitecreator_browser");			
+			EWPHelper::addScript("unitecreator_addon_config", "unitecreator_addon_config");
 			
 		}
 		
@@ -240,13 +240,13 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				GlobalsUC::$objActiveAddonForAssets = $objAddon;
 			}
 				
-			$pathAssets = HelperUC::getAssetsPath($objAddonType);
+			$pathAssets = EWPHelper::getAssetsPath($objAddonType);
 			
 			if($pathAssets != GlobalsUC::$pathAssets){
 				
 				GlobalsUC::$pathAssets = $pathAssets;
 				
-				GlobalsUC::$url_assets = HelperUC::getAssetsUrl($objAddonType);
+				GlobalsUC::$url_assets = EWPHelper::getAssetsUrl($objAddonType);
 			}
 			
 		}
@@ -259,21 +259,21 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			if($isOuter == true){
 				
-				HelperUC::addScript("unitecreator_page_builder", "unitecreator_page_builder");
+				EWPHelper::addScript("unitecreator_page_builder", "unitecreator_page_builder");
 			}
 						
 			self::onAddScriptsBrowser();
 			
-			HelperUC::putAnimationIncludes(true);
+			EWPHelper::putAnimationIncludes(true);
 									
-			HelperUC::addScript("unitecreator_grid_builder", "unitecreator_grid_editor");
-			HelperUC::addScript("unitecreator_grid_actions_panel", "unitecreator_grid_actions_panel");
-			HelperUC::addScript("unitecreator_grid_panel", "unitecreator_grid_panel");
-			HelperUC::addScript("unitecreator_grid_objects", "unitecreator_grid_objects");
+			EWPHelper::addScript("unitecreator_grid_builder", "unitecreator_grid_editor");
+			EWPHelper::addScript("unitecreator_grid_actions_panel", "unitecreator_grid_actions_panel");
+			EWPHelper::addScript("unitecreator_grid_panel", "unitecreator_grid_panel");
+			EWPHelper::addScript("unitecreator_grid_objects", "unitecreator_grid_objects");
 			
 			//grid builder (inside iframe)
 			if($isOuter == false){
-				HelperUC::putSmoothScrollIncludes();				
+				EWPHelper::putSmoothScrollIncludes();				
 			}
 			
 		}
@@ -286,7 +286,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			//check curl
 			if(function_exists("curl_init") == false)
-				HelperUC::addAdminNotice("Your PHP is missing \"CURL\" Extension. Blox needs this extension. Please enable it in php.ini");
+				EWPHelper::addAdminNotice("Your PHP is missing \"CURL\" Extension. Blox needs this extension. Please enable it in php.ini");
 							
 		}
 		
@@ -298,7 +298,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public function adminPages(){
 			
 			$this->validatePHPExtensions();
-			
+			// echo 'media select: ' . GlobalsUC::VIEW_MEDIA_SELECT . '<br/>';
+			// echo 'view: ' . self::$view . '<br/>';
 			if(self::$view != GlobalsUC::VIEW_MEDIA_SELECT)
 				self::setMasterView("master_view");
 			

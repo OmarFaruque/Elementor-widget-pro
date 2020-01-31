@@ -1,6 +1,6 @@
 <?php
 
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteProviderFunctionsUC{
 	
@@ -172,8 +172,8 @@ class UniteProviderFunctionsUC{
 			
 		//no jquery ui style
 		if($specialSettings != "nojqueryui"){
-			HelperUC::addStyle("jquery-ui.structure.min","jui-smoothness-structure","css/jui/new");
-			HelperUC::addStyle("jquery-ui.theme.min","jui-smoothness-theme","css/jui/new");
+			EWPHelper::addStyle("jquery-ui.structure.min","jui-smoothness-structure","css/jui/new");
+			EWPHelper::addStyle("jquery-ui.theme.min","jui-smoothness-theme","css/jui/new");
 		}
 		
 		if(function_exists("wp_enqueue_media"))
@@ -429,7 +429,7 @@ class UniteProviderFunctionsUC{
 	 */
 	public static function putFooterTextLine(){
 		?>
-			&copy; <?php esc_html_e("All rights reserved","unlimited_elements")?>, <a href="https://unlimited-elements.com" target="_blank">Unlimited Elements</a>. &nbsp;&nbsp;
+			&copy; <?php esc_html_e("All rights reserved","unlimited_elementor_elements")?>, <a href="https://unlimited-elements.com" target="_blank">Unlimited Elements</a>. &nbsp;&nbsp;
 		<?php
 	}
 	
@@ -584,10 +584,11 @@ class UniteProviderFunctionsUC{
 	 */
 	public static function getOption($option, $default = false, $supportMultisite = false){
 	
-		if($supportMultisite == true && is_multisite())
+		if($supportMultisite == true && is_multisite()):
 			return(get_site_option($option, $default));
-		else
+		else:
 			return get_option($option, $default);
+		endif;
 	
 	}
 	
@@ -653,7 +654,7 @@ class UniteProviderFunctionsUC{
 		$maxUploadSize = ini_get( "upload_max_filesize");
 		
 		if(empty($pluginTitle))
-			$pluginTitle = esc_html__("Unlimited Elements Plugin", "unlimited_elements");
+			$pluginTitle = esc_html__("Unlimited Elements Plugin", "unlimited_elementor_elements");
 		else
 			$pluginTitle .= " Plugin";
 		
@@ -663,24 +664,24 @@ class UniteProviderFunctionsUC{
 		<!-- update plugin button -->
 		
 		<div class="uc-update-plugin-wrapper">
-			<a id="uc_button_update_plugin" class="unite-button-primary" href="javascript:void(0)" ><?php esc_html_e("Update Plugin", "unlimited_elements")?></a>
+			<a id="uc_button_update_plugin" class="unite-button-primary" href="javascript:void(0)" ><?php esc_html_e("Update Plugin", "unlimited_elementor_elements")?></a>
 		</div>
 		
 		<!-- dialog update -->
 		
-		<div id="dialog_update_plugin" title="<?php esc_html_e("Update ","unlimited_elements")?> <?php echo esc_attr($pluginTitle)?>" style="display:none;">	
+		<div id="dialog_update_plugin" title="<?php esc_html_e("Update ","unlimited_elementor_elements")?> <?php echo esc_attr($pluginTitle)?>" style="display:none;">	
 			
 			<!--  
-			<div class="unite-dialog-title"><?php esc_html_e("Update ","unlimited_elements")?> <?php echo esc_html($pluginTitle)?>:</div>	
+			<div class="unite-dialog-title"><?php esc_html_e("Update ","unlimited_elementor_elements")?> <?php echo esc_html($pluginTitle)?>:</div>	
 			-->
 			
 			<div class="unite-dialog-desc">
-				<?php esc_html_e("To update the plugin please select the plugin install package.","unlimited_elements") ?>		
+				<?php esc_html_e("To update the plugin please select the plugin install package.","unlimited_elementor_elements") ?>		
 			<br>
 		
-			<?php esc_html_e("The files will be overwriten", "unlimited_elements")?>
+			<?php esc_html_e("The files will be overwriten", "unlimited_elementor_elements")?>
 		
-			<br> <?php esc_html_e("File example: unlimited-elements0.x.x.zip","unlimited_elements")?>	
+			<br> <?php esc_html_e("File example: unlimited-elements0.x.x.zip","unlimited_elementor_elements")?>	
 				
 				<br>
 				<br>
@@ -698,14 +699,14 @@ class UniteProviderFunctionsUC{
 				<input type="hidden" name="action" value="<?php echo esc_attr($pluginName)?>_ajax_action">		
 				<input type="hidden" name="client_action" value="update_plugin">		
 				<input type="hidden" name="nonce" value="<?php echo esc_attr($nonce) ?>">
-				<?php esc_html_e("Choose the update file:","unlimited_elements")?>
+				<?php esc_html_e("Choose the update file:","unlimited_elementor_elements")?>
 				<br><br>
 				
 				<input type="file" name="update_file" class="unite-dialog-fileinput">		
 				
 				<br><br>
 			
-				<input type="submit" class='unite-button-primary' value="<?php esc_html_e("Update Plugin","unlimited_elements")?>">	
+				<input type="submit" class='unite-button-primary' value="<?php esc_html_e("Update Plugin","unlimited_elementor_elements")?>">	
 			</form>
 			
 		</div>
@@ -804,7 +805,7 @@ class UniteProviderFunctionsUC{
 	 */
 	public static function updatePlugin(){
 		
-		$linkBack = HelperUC::getViewUrl_Default();
+		$linkBack = EWPHelper::getViewUrl_Default();
 		$htmlLinkBack = HelperHtmlUC::getHtmlLink($linkBack, "Go Back");
 		
 		try{
@@ -813,7 +814,7 @@ class UniteProviderFunctionsUC{
 			$nonce = UniteFunctionsUC::getPostVariable("nonce","",UniteFunctionsUC::SANITIZE_NOTHING);
 			self::verifyNonce($nonce);
 			
-			$linkBack = HelperUC::getViewUrl_Default("provider_action=run_after_update");
+			$linkBack = EWPHelper::getViewUrl_Default("provider_action=run_after_update");
 			$htmlLinkBack = HelperHtmlUC::getHtmlLink($linkBack, "Go Back");
 			
 			//check if zip exists

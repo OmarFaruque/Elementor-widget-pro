@@ -71,7 +71,7 @@ class UniteSettingsOutputUC extends UniteSettingsOutputUCWork{
 		
 		$placeholder = UniteFunctionsUC::getVal($setting, "placeholder");
 		if(empty($placeholder))
-			$placeholder = __("Please type post title", "unlimited_elements");
+			$placeholder = __("Please type post title", "unlimited_elementor_elements");
 		
 		
 		$addHtml = $this->getDefaultAddHtml($setting);

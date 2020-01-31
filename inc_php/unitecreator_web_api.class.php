@@ -6,7 +6,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorWebAPIWork{
 	
@@ -34,6 +34,8 @@ class UniteCreatorWebAPIWork{
 	 */
 	public function __construct(){
 		
+		add_action( 'admin_head', array($this, 'testfunction') );
+
 		if(empty(self::$urlAPI))
 			self::$urlAPI = GlobalsUC::URL_API;
 	}
@@ -142,10 +144,19 @@ class UniteCreatorWebAPIWork{
 		if(!empty(self::$arrCatalogData))
 			return(self::$arrCatalogData);
 		
+
+
+		// echo 'option: ' . self::OPTION_CATALOG . '<br/>';
 		$arrData = UniteProviderFunctionsUC::getOption(self::OPTION_CATALOG);
+
+		// echo 'self optin catelog: ' . self::OPTION_CATALOG . '<br/>';
+		// echo 'self arrcatalogData <br/> <pre>';
+		// print_r($arrData);
+		// echo '</pre>';
 		
-		if(is_array($arrData) == false)
+		if(is_array($arrData) == false){
 			return(null);
+		}
 			
 		$arrData = $this->modifyArrData($arrData);
 				
@@ -162,6 +173,10 @@ class UniteCreatorWebAPIWork{
 	private function getCatalogArrayFromData(){
 		
 		$arrData = $this->getCatalogData();
+
+		// echo 'Arr Data <br/><pre>';
+		// print_r($arrData);
+		// echo '</pre>';
 		if(empty($arrData))
 			return(array());
 		
@@ -240,9 +255,14 @@ class UniteCreatorWebAPIWork{
 	 */
 	public function getCatalogArray($objAddonsType){
 		
+		
+
 		$key = $objAddonsType->catalogKey;
 		$arrCatalog = $this->getCatalogArrayFromData();
 		
+		// echo 'object addons type <br/><pre>';
+		// print_r($arrCatalog);
+		// echo '</pre>';
 		$arrCatalogItems = UniteFunctionsUC::getVal($arrCatalog, $key);
 		if(empty($arrCatalogItems))
 			$arrCatalogItems = array();
@@ -322,13 +342,12 @@ class UniteCreatorWebAPIWork{
 	 * check if time to check catalog
 	 */
 	public function isTimeToCheckCatalog(){
-	
 		$timeout = UniteProviderFunctionsUC::getTransient(self::OPTION_TIMEOUT_TRANSIENT);
-	
-		if(empty($timeout))
+		if(empty($timeout)){
 			return(true);
-		else
+		}else{
 			return(false);
+		}
 	}
 	
 	
@@ -338,7 +357,6 @@ class UniteCreatorWebAPIWork{
 	 * get catalog version
 	 */
 	public function getCurrentCatalogStamp(){
-	
 		$arrData = $this->getCatalogData();
 		if(empty($arrData))
 			return(null);
@@ -443,24 +461,39 @@ class UniteCreatorWebAPIWork{
 	 * call API with some action and data
 	 */
 	private function callAPI($action, $data = array(), $isRawResponse = false){
-				
+		
+		
 		$data["action"] = $action;
 		$data["domain"] = GlobalsUC::$current_host;
-		
-		if(!isset($data["code"]))
+		$arrData = $this->getCatalogData();
+		// echo 'data omar <br/><pre>';
+		// print_r($arrData);
+		// echo '</pre>';
+		if(!isset($data["code"])){
 			$data["code"] = $this->getActivationCode();
+		}
+			
 		
-		if(!isset($data["catalog_date"]))
-			$data["catalog_date"] = $this->getCurrentCatalogStamp();
+		if(!isset($data["catalog_date"])) $data["catalog_date"] = $this->getCurrentCatalogStamp();
+
 		
-		$data["blox_version"] = UNLIMITED_ELEMENTS_VERSION;
+		
+		$data["blox_version"] = unlimited_elementor_elements_VERSION;
 		
 		$data = $this->modifyDataBeforeRequest($data);
 		
 		
 		$response = UniteFunctionsUC::getUrlContents(self::$urlAPI, $data);
+		// echo 'url: ' . self::$urlAPI . '<br/>';
+		// echo 'api response: ' . $response . '<br/>';
+		// echo 'response: <br/><pre>';
+		// print_r(@json_decode($response));
+		// echo '</pre>';
 		
+		// $isRawResponse = true;
 		if($isRawResponse == true){
+			// echo 'responsetrue;';
+			// echo 'response len: ' . $response . '<br/>';
 			$len = strlen($response);
 			if($len < 200){
 				$objResponse = @json_decode($response);
@@ -471,12 +504,13 @@ class UniteCreatorWebAPIWork{
 		}
 		
 		if(empty($response))
-			UniteFunctionsUC::throwError("Wrong API Response");
+			UniteFunctionsUC::throwError("Wrong API Response om");
 		
 		$arrResponse = UniteFunctionsUC::jsonDecode($response);
 		
+		
 		if(empty($arrResponse))
-			UniteFunctionsUC::throwError("wrong API response: ".$response);
+			UniteFunctionsUC::throwError("wrong API response mm: ".$response);
 		
 		$success = UniteFunctionsUC::getVal($arrResponse, "success");
 		$success = UniteFunctionsUC::strToBool($success);
@@ -545,7 +579,9 @@ class UniteCreatorWebAPIWork{
 	 * activate product from data
 	 */
 	public function activateProductFromData($data){
-				
+		
+		echo 'activate data';
+
 		$code = UniteFunctionsUC::getVal($data, "code");
 		$codetype = UniteFunctionsUC::getVal($data, "codetype");
 		$product = UniteFunctionsUC::getVal($data, "product");
@@ -585,6 +621,8 @@ class UniteCreatorWebAPIWork{
 	 */
 	private function saveCatalogData($stamp, $arrCatalog){
 		
+		
+
 		$arrData = array();
 		$arrData["stamp"] = $stamp;
 		$arrData["catalog"] = $arrCatalog;
@@ -596,11 +634,30 @@ class UniteCreatorWebAPIWork{
 	}
 	
 	
+	/*
+	* Test Function 
+	*/
+	public function testfunction(){
+		// echo 'self 55 url: ' . self::$urlAPI . '<br/>';
+			$data = array();
+			$data["catalog_date"] = '';
+			$data["include_pages"] = true;
+			
+			$response = $this->callAPI("check_catalog", $data);
+			// echo 'array response from tst function: <br/><br/><br/><pre>'; 
+			// print_r($response);
+			// echo '</pre>';
+		
+	}
+
+	/**
+	 * check or update catalog in web
+	 */
 	/**
 	 * check or update catalog in web
 	 */
 	public function checkUpdateCatalog(){
-			
+		
 		try{
 			
 			$isCatalogExists = $this->isCatalogExists();
@@ -625,10 +682,9 @@ class UniteCreatorWebAPIWork{
 			
 			$data = array();
 			$data["catalog_date"] = $catalogStamp;
-			$data["include_pages"] = true;
+			$data["include_pages"] = false;
 			
 			$response = $this->callAPI("check_catalog", $data);
-			
 			
 			$updateFound = UniteFunctionsUC::getVal($response, "update_found");
 			$updateFound = UniteFunctionsUC::strToBool($updateFound);
@@ -669,7 +725,6 @@ class UniteCreatorWebAPIWork{
 		}
 		
 	}
-	
 	/**
 	 * check if supported addon type
 	 */
@@ -736,6 +791,8 @@ class UniteCreatorWebAPIWork{
 		if($this->isAddonTypeSupported($objAddonsType) == false)
 			return($arrCats);
 		
+
+		echo 'this catelog exist: ' . $this->isCatalogExists() . '<br/>';
 		if($this->isCatalogExists() == false)
 			$this->checkUpdateCatalog();
 		
@@ -824,14 +881,24 @@ class UniteCreatorWebAPIWork{
 	 */
 	public function mergeCatsAndAddonsWithCatalog($arrCats, $numAddonsOnly = false, $objAddonsType, $params = null){
 		
+		
+		
 		if($this->isAddonTypeSupported($objAddonsType) == false)
 			return($arrCats);
 		
 		if($this->isCatalogExists() == false)
 			$this->checkUpdateCatalog();
 		
+		// echo '<pre>';
+		// print_r($objAddonsType);
+		// echo '</pre>';
+
 		$arrWebCatalog = $this->getCatalogArray($objAddonsType);
+
 		
+		// echo 'array test 1 <br/><pre>';
+		// print_r($arrWebCatalog);
+		// echo '</pre>';
 		$filterSearch = UniteFunctionsUC::getVal($params, "filter_search");
 		$filterSearch = trim($filterSearch);
 		
@@ -853,7 +920,7 @@ class UniteCreatorWebAPIWork{
 			//add directory
 			if(isset($arrCats[$dir]) == false){
 								
-				$catHandle = HelperUC::convertTitleToHandle($dir);
+				$catHandle = EWPHelper::convertTitleToHandle($dir);
 				$catID = "ucweb_".$catHandle;
 				
 				$arrCats[$dir] = array(

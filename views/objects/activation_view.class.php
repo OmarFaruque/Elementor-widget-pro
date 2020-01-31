@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorActivationView extends UniteElementsBaseUC{
 
@@ -34,27 +34,27 @@ class UniteCreatorActivationView extends UniteElementsBaseUC{
 		$this->urlPricing = GlobalsUC::URL_BUY;
 		$this->urlSupport = GlobalsUC::URL_SUPPORT;
 		
-		$this->textActivate = esc_html__("Activate Blox Pro", "unlimited_elements");
+		$this->textActivate = esc_html__("Activate Blox Pro", "unlimited_elementor_elements");
 		
-		$this->textGoPro = esc_html__("GO PRO", "unlimited_elements");
-		$this->textUnleash = esc_html__("Unleash access to +700 addons,", "unlimited_elements");
+		$this->textGoPro = esc_html__("GO PRO", "unlimited_elementor_elements");
+		$this->textUnleash = esc_html__("Unleash access to +700 addons,", "unlimited_elementor_elements");
 		
-		$this->textAndTemplates = esc_html__("+100 page templates and +50 section designs", "unlimited_elements");
+		$this->textAndTemplates = esc_html__("+100 page templates and +50 section designs", "unlimited_elementor_elements");
 		
-		$this->textPasteActivationKey = esc_html__("Paste your activation key here", "unlimited_elements");
+		$this->textPasteActivationKey = esc_html__("Paste your activation key here", "unlimited_elementor_elements");
 		
 		$this->textPlaceholder = "xxxx-xxxx-xxxx-xxxx";
-		$this->textLinkToBuy = esc_html__("View our pricing plans", "unlimited_elements");
+		$this->textLinkToBuy = esc_html__("View our pricing plans", "unlimited_elementor_elements");
 		
-		$this->textDontHave = esc_html__("Don't have a pro activation key?", "unlimited_elements");
+		$this->textDontHave = esc_html__("Don't have a pro activation key?", "unlimited_elementor_elements");
 
-		$this->textDontHaveLogin = esc_html__("If you already purchased, get the key from my account?", "unlimited_elements");
-		$this->textLinkToLogin = esc_html__("Go to My Account", "unlimited_elements");
+		$this->textDontHaveLogin = esc_html__("If you already purchased, get the key from my account?", "unlimited_elementor_elements");
+		$this->textLinkToLogin = esc_html__("Go to My Account", "unlimited_elementor_elements");
 		$this->urlLogin = "http://my.unitecms.net";
 		
-		$this->textActivationFailed = esc_html__("You probably got your activation code wrong", "unlimited_elements");
+		$this->textActivationFailed = esc_html__("You probably got your activation code wrong", "unlimited_elementor_elements");
 		
-		$this->textYourProAccountLifetime = esc_html__("Your pro account is activated lifetime for this site", "unlimited_elements");
+		$this->textYourProAccountLifetime = esc_html__("Your pro account is activated lifetime for this site", "unlimited_elementor_elements");
 		
 	}
 	
@@ -90,7 +90,7 @@ class UniteCreatorActivationView extends UniteElementsBaseUC{
                    <div id="uc_loader_activate_pro" class="uc-loader-activation" style='display:none'>
 					
 						<span class='loader_text'>	                                	
-	                                		<?php esc_html_e("Activating", "unlimited_elements")?>...
+	                                		<?php esc_html_e("Activating", "unlimited_elementor_elements")?>...
 	                    </span>
 	                   
 	               </div>
@@ -151,10 +151,10 @@ class UniteCreatorActivationView extends UniteElementsBaseUC{
 	            <div class="uc-popup-container uc-fail hidden">
 	                <div class="uc-popup-content">
 	                    <div class="uc-popup-holder">
-	                        <div class="large-title"><?php esc_html_e("Ooops", "unlimited_elements")?>.... <br><?php esc_html_e("Activation Failed", "unlimited_elements")?> :(</div>
+	                        <div class="large-title"><?php esc_html_e("Ooops", "unlimited_elementor_elements")?>.... <br><?php esc_html_e("Activation Failed", "unlimited_elementor_elements")?> :(</div>
 	                        <div class="popup-error"></div>
 	                        <div class="popup-text"><?php echo esc_html($this->textActivationFailed)?> <br>to try again <a id="activation_link_try_again" href="javascript:void(0)">click here</a></div>
-	                        <div class="bottom-text"><?php esc_html_e("or contact our","unlimited_elements")?> <a href="<?php echo esc_attr($this->urlSupport)?>" target="_blank"><?php esc_html_e("support center", "unlimited_elements")?></a></div>
+	                        <div class="bottom-text"><?php esc_html_e("or contact our","unlimited_elementor_elements")?> <a href="<?php echo esc_attr($this->urlSupport)?>" target="_blank"><?php esc_html_e("support center", "unlimited_elementor_elements")?></a></div>
 	                    </div>
 	                </div>
 	            </div>
@@ -164,23 +164,23 @@ class UniteCreatorActivationView extends UniteElementsBaseUC{
 	            <div class="uc-popup-container uc-activated hidden">
 	                <div class="uc-popup-content">
 	                    <div class="uc-popup-holder">
-	                        <div class="xlarge-title"><?php esc_html_e("Hi Five", "unlimited_elements")?>!</div>
+	                        <div class="xlarge-title"><?php esc_html_e("Hi Five", "unlimited_elementor_elements")?>!</div>
 	                        
 	                        <?php if($this->isExpireEnabled == true):?>
 	                        	<div class="popup-text small-padding"><?php echo esc_html($this->textYourProAccountLifetime)?></div>
 		                        <div class="days"></div>
-		                        <span><?php esc_html_e("DAYS", "unlimited_elements")?></span>
+		                        <span><?php esc_html_e("DAYS", "unlimited_elementor_elements")?></span>
 		                        <br><br>
 		                        
 		                        <?php if($this->writeRefreshPageMessage == true):?>
-		                        <a href="javascript:location.reload()" class="btn"><?php esc_html_e("Refresh page to View Your Pro Catalog", "unlimited_elements")?></a>
+		                        <a href="javascript:location.reload()" class="btn"><?php esc_html_e("Refresh page to View Your Pro Catalog", "unlimited_elementor_elements")?></a>
 		                        <?php endif?>
 		                        
 	                        <?php else:?>
 	                        	
-	                        	<div class="popup-text small-padding"><?php esc_html_e("Your pro account is activated lifetime for this site","unlimited_elements")?>!</div>
+	                        	<div class="popup-text small-padding"><?php esc_html_e("Your pro account is activated lifetime for this site","unlimited_elementor_elements")?>!</div>
 		                       	
-	                        	<div class="popup-text small-padding"><?php esc_html_e("Thank you for purchasing from us and good luck", "unlimited_elements")?>!</div>
+	                        	<div class="popup-text small-padding"><?php esc_html_e("Thank you for purchasing from us and good luck", "unlimited_elementor_elements")?>!</div>
 	                        	
 	                        <?php endif?>
 	                        
@@ -198,9 +198,9 @@ class UniteCreatorActivationView extends UniteElementsBaseUC{
 	public function putHtmlDeactivate(){
 		
 		?>
-		<h2><?php esc_html_e("This pro version is active!", "unlimited_elements")?></h2>
+		<h2><?php esc_html_e("This pro version is active!", "unlimited_elementor_elements")?></h2>
 		
-		<a href="javascript:void(0)" class="uc-link-deactivate unite-button-primary" data-product="<?php echo esc_attr($this->product)?>"><?php esc_html_e("Deactivate Pro Version", "unlimited_elements")?></a>
+		<a href="javascript:void(0)" class="uc-link-deactivate unite-button-primary" data-product="<?php echo esc_attr($this->product)?>"><?php esc_html_e("Deactivate Pro Version", "unlimited_elementor_elements")?></a>
 		
 		<?php 
 	}
@@ -234,7 +234,7 @@ class UniteCreatorActivationView extends UniteElementsBaseUC{
 	 */
 	public function putHtmlPopup(){
 		
-		$title = esc_html__("Activate Your Pro Account", "unlimited_elements");
+		$title = esc_html__("Activate Your Pro Account", "unlimited_elementor_elements");
 		
 		?>
            <div class="activateProDialog" title="<?php echo esc_attr($title)?>" style="display:none">

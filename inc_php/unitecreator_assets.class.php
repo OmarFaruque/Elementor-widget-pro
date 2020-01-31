@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorAssets{
 	
@@ -411,7 +411,7 @@ class UniteCreatorAssets{
 		else
 			$path = $this->startPath;
 				
-		$path = HelperUC::pathToRelative($path, false);
+		$path = EWPHelper::pathToRelative($path, false);
 		
 		return($path);
 	}
@@ -421,7 +421,7 @@ class UniteCreatorAssets{
 	 * get relative startpath
 	 */
 	private function getStartPathRelative(){
-		return HelperUC::pathToRelative($this->startPath, false);
+		return EWPHelper::pathToRelative($this->startPath, false);
 	}
 	
 	
@@ -456,7 +456,7 @@ class UniteCreatorAssets{
 	 * convert path dir 8to url
 	 */
 	protected function getUrlDir($pathDir){
-		$urlDir = HelperUC::pathToRelativeUrl($pathDir);
+		$urlDir = EWPHelper::pathToRelativeUrl($pathDir);
 		$urlDir = rtrim($urlDir, "/")."/";	//make sure that there is always /
 		return($urlDir);
 	}
@@ -603,7 +603,7 @@ class UniteCreatorAssets{
 			//don't show back link on assets path
 			if($file == ".." && $isStartPath == true){
 				if($isNoFiles == true){
-					$emptyText = esc_html__("empty folder", "unlimited_elements");
+					$emptyText = esc_html__("empty folder", "unlimited_elementor_elements");
 					$html .= "<div class='uc-filelist-emptytext'>{$emptyText}</div>";
 				}
 				
@@ -684,8 +684,8 @@ class UniteCreatorAssets{
 			//add image path to icon if needed
 			$iconAddHtml = "";
 			if($isThumbsView == true && $filetype == self::FILETYPE_IMAGE){
-				$urlThumb = HelperUC::$operations->createThumbs($fileUrl);
-				$urlThumb = HelperUC::URLtoFull($urlThumb);
+				$urlThumb = EWPHelper::$operations->createThumbs($fileUrl);
+				$urlThumb = EWPHelper::URLtoFull($urlThumb);
 				$urlThumb = htmlspecialchars($urlThumb);
 				
 				$iconAddHtml = " style=\"background-image:url('{$urlThumb}');\"";
@@ -733,7 +733,7 @@ class UniteCreatorAssets{
 	public function sanitizePath($path){
 	
 		if(is_dir($path) == false){
-			$path = HelperUC::pathToAbsolute($path);
+			$path = EWPHelper::pathToAbsolute($path);
 		}
 	
 		$path = UniteFunctionsUC::realpath($path);
@@ -1028,12 +1028,12 @@ class UniteCreatorAssets{
 			return(false);
 		
 		?>
-			<div id="uc_dialog_upload_files" title="<?php esc_html_e("Upload Files", "unlimited_elements")?>" style="display:none">
+			<div id="uc_dialog_upload_files" title="<?php esc_html_e("Upload Files", "unlimited_elementor_elements")?>" style="display:none">
 				
 				<div class="uc-dialog-upload-inner">
 					
 					<div class="uc-assets-activepath">
-					<?php esc_html_e("Upload to folder: ", "unlimited_elements") ?> 
+					<?php esc_html_e("Upload to folder: ", "unlimited_elementor_elements") ?> 
 						<b>
 						<span id="uc_dialogupload_activepath">some path</span>
 						</b>
@@ -1075,18 +1075,18 @@ class UniteCreatorAssets{
 
 		?>
 		
-		<div id="uc_dialog_create_folder" title="<?php esc_html_e("Create Folder", "unlimited_elements")?>" style="display:none" class="unite-inputs">
+		<div id="uc_dialog_create_folder" title="<?php esc_html_e("Create Folder", "unlimited_elementor_elements")?>" style="display:none" class="unite-inputs">
 			
 			<div class="unite-dialog-top"></div>
-			<div class="unite-inputs-label"><?php esc_html_e("Folder Name", "unlimited_elements")?></div>
+			<div class="unite-inputs-label"><?php esc_html_e("Folder Name", "unlimited_elementor_elements")?></div>
 			
 			<input id="uc_dialog_create_folder_name" type="text" class="unite-input-regular" value="">
 			
 			<?php 
 				$prefix = "uc_dialog_create_folder";
-				$buttonTitle = esc_html__("Create Folder", "unlimited_elements");
-				$loaderTitle = esc_html__("Creating Folder...", "unlimited_elements");
-				$successTitle = esc_html__("Folder Created", "unlimited_elements");
+				$buttonTitle = esc_html__("Create Folder", "unlimited_elementor_elements");
+				$loaderTitle = esc_html__("Creating Folder...", "unlimited_elementor_elements");
+				$successTitle = esc_html__("Folder Created", "unlimited_elementor_elements");
 				HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 			?>			
 			
@@ -1103,18 +1103,18 @@ class UniteCreatorAssets{
 
 		?>
 		
-		<div id="uc_dialog_create_file" title="<?php esc_html_e("Create File", "unlimited_elements")?>" style="display:none" class="unite-inputs">
+		<div id="uc_dialog_create_file" title="<?php esc_html_e("Create File", "unlimited_elementor_elements")?>" style="display:none" class="unite-inputs">
 			
 			<div class="unite-dialog-top"></div>
-			<div class="unite-inputs-label"><?php esc_html_e("File Name", "unlimited_elements")?></div>
+			<div class="unite-inputs-label"><?php esc_html_e("File Name", "unlimited_elementor_elements")?></div>
 			
 			<input id="uc_dialog_create_file_name" type="text" class="unite-input-regular" value="">
 			
 			<?php 
 				$prefix = "uc_dialog_create_file";
-				$buttonTitle = esc_html__("Create File", "unlimited_elements");
-				$loaderTitle = esc_html__("Creating File...", "unlimited_elements");
-				$successTitle = esc_html__("File Created", "unlimited_elements");
+				$buttonTitle = esc_html__("Create File", "unlimited_elementor_elements");
+				$loaderTitle = esc_html__("Creating File...", "unlimited_elementor_elements");
+				$successTitle = esc_html__("File Created", "unlimited_elementor_elements");
 				HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 			?>			
 			
@@ -1129,16 +1129,16 @@ class UniteCreatorAssets{
 	private function putDialogRenameFile(){
 		?>
 	
-		<div id="uc_dialog_rename_file" title="<?php esc_html_e("Rename File / Folder", "unlimited_elements")?>" style="display:none" class="unite-inputs uc-dialog-rename-file">
+		<div id="uc_dialog_rename_file" title="<?php esc_html_e("Rename File / Folder", "unlimited_elementor_elements")?>" style="display:none" class="unite-inputs uc-dialog-rename-file">
 			<div class="unite-dialog-top"></div>
-			<div class="unite-inputs-label"><?php esc_html_e("Rename this file/folder to", "unlimited_elements")?>:</div>
+			<div class="unite-inputs-label"><?php esc_html_e("Rename this file/folder to", "unlimited_elementor_elements")?>:</div>
 			<input id="uc_dialog_rename_file_input" type="text" class="unite-input-regular">
 	
 			<?php
 			$prefix = "uc_dialog_rename_file";
-			$buttonTitle = esc_html__("Rename", "unlimited_elements");
-			$loaderTitle = esc_html__("Renaming...", "unlimited_elements");
-			$successTitle = esc_html__("File/Dir Renamed", "unlimited_elements");
+			$buttonTitle = esc_html__("Rename", "unlimited_elementor_elements");
+			$loaderTitle = esc_html__("Renaming...", "unlimited_elementor_elements");
+			$successTitle = esc_html__("File/Dir Renamed", "unlimited_elementor_elements");
 			HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 			?>
 	
@@ -1152,17 +1152,17 @@ class UniteCreatorAssets{
 	 */
 	private function putDialogEditFile(){
 		?>
-		<div id="uc_dialog_edit_file" title="<?php esc_html_e("Edit File", "unlimited_elements")?>" style="display:none" class="unite-inputs uc-dialog-edit-file">
+		<div id="uc_dialog_edit_file" title="<?php esc_html_e("Edit File", "unlimited_elementor_elements")?>" style="display:none" class="unite-inputs uc-dialog-edit-file">
 			
 			<div class="uc-dialog-inner">
 				<div id="uc_dialog_edit_file_loader" class="uc-loader-wrapper">
-					<span class="loader_text"><?php esc_html_e("Loading...", "unlimited_elements")?></span>
+					<span class="loader_text"><?php esc_html_e("Loading...", "unlimited_elementor_elements")?></span>
 				</div>
 				
 				<textarea id="uc_dialog_edit_file_textarea" style="display:none"></textarea>
 
-				<div id="uc_dialog_edit_file_loadersaving" class="unite-dialog-loader" style="display:none"><?php esc_html_e("Saving File...", "unlimited_elements")?></div>
-				<div id="uc_dialog_edit_file_success" class="unite-dialog-success" style="display:none"><?php esc_html_e("File Saved...", "unlimited_elements")?></div>
+				<div id="uc_dialog_edit_file_loadersaving" class="unite-dialog-loader" style="display:none"><?php esc_html_e("Saving File...", "unlimited_elementor_elements")?></div>
+				<div id="uc_dialog_edit_file_success" class="unite-dialog-success" style="display:none"><?php esc_html_e("File Saved...", "unlimited_elementor_elements")?></div>
 				<div id="uc_dialog_edit_file_error" class="unite-dialog-error"></div>
 				
 			</div>
@@ -1182,11 +1182,11 @@ class UniteCreatorAssets{
 		$objAssets->setOption(UniteCreatorAssets::OPTION_ID, "uc_movefile_browser");
 		
 		?>
-		<div id="uc_dialog_move_files" title="<?php esc_html_e("Move Files", "unlimited_elements")?>" style="display:none" class="unite-inputs uc-dialog-move-file">
+		<div id="uc_dialog_move_files" title="<?php esc_html_e("Move Files", "unlimited_elementor_elements")?>" style="display:none" class="unite-inputs uc-dialog-move-file">
 			
 			<div class="unite-dialog-top"></div>
 			
-			<div id="uc_dialog_move_label" class="unite-inputs-label" data-text="<?php esc_html_e("Move %1 files to", "unlimited_elements")?>">:</div>
+			<div id="uc_dialog_move_label" class="unite-inputs-label" data-text="<?php esc_html_e("Move %1 files to", "unlimited_elementor_elements")?>">:</div>
 			
 			<div id="uc_dialog_move_files_url" class="unite-dialog-text-bold mtop_5 mbottom_5"></div>
 			
@@ -1198,9 +1198,9 @@ class UniteCreatorAssets{
 			
 			<?php 
 				$prefix = "uc_dialog_move_files";
-				$buttonTitle = esc_html__("Move Files", "unlimited_elements");
-				$loaderTitle = esc_html__("Moving Files...", "unlimited_elements");
-				$successTitle = esc_html__("Files Moved", "unlimited_elements");
+				$buttonTitle = esc_html__("Move Files", "unlimited_elementor_elements");
+				$loaderTitle = esc_html__("Moving Files...", "unlimited_elementor_elements");
+				$successTitle = esc_html__("Files Moved", "unlimited_elementor_elements");
 				HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 			?>
 			
@@ -1210,9 +1210,9 @@ class UniteCreatorAssets{
 				
 				<div class="vert_top5"></div>
 				
-				<a href="javascript:void(0)" class="unite-button-secondary" data-action="overwrite"><?php esc_html_e("Overwrite", "unlimited_elements")?></a>
-				<a href="javascript:void(0)" class="unite-button-secondary" data-action="skip"><?php esc_html_e("Skip", "unlimited_elements")?></a>
-				<a href="javascript:void(0)" class="unite-button-secondary" data-action="cancel"><?php esc_html_e("Cancel", "unlimited_elements")?></a>
+				<a href="javascript:void(0)" class="unite-button-secondary" data-action="overwrite"><?php esc_html_e("Overwrite", "unlimited_elementor_elements")?></a>
+				<a href="javascript:void(0)" class="unite-button-secondary" data-action="skip"><?php esc_html_e("Skip", "unlimited_elementor_elements")?></a>
+				<a href="javascript:void(0)" class="unite-button-secondary" data-action="cancel"><?php esc_html_e("Cancel", "unlimited_elementor_elements")?></a>
 				
 			</div>
 			
@@ -1244,22 +1244,22 @@ class UniteCreatorAssets{
 	private function putActionsPanel(){
 		?>
 				<div class="uc-assets-buttons-panel">
-					<a class="uc-button-upload-file uc-panel-button unite-button-secondary" data-action="upload" href="javascript:void(0)" ><?php esc_html_e("Upload", "unlimited_elements")?></a>
-					<a class="uc-button-select-all uc-panel-button unite-button-secondary button-disabled" data-action="select_all" href="javascript:void(0)"  data-textselect="<?php esc_html_e("Select All", "unlimited_elements")?>" data-textunselect="<?php esc_html_e("Unselect All", "unlimited_elements")?>" ><?php esc_html_e("Select All", "unlimited_elements")?></a>
-					<a class="uc-button-create-folder uc-panel-button unite-button-secondary" data-action="create_folder" href="javascript:void(0)"><?php esc_html_e("Create Folder", "unlimited_elements")?></a>
-					<a class="uc-button-create-file uc-panel-button unite-button-secondary" data-action="create_file" href="javascript:void(0)"><?php esc_html_e("Create File", "unlimited_elements")?></a>
+					<a class="uc-button-upload-file uc-panel-button unite-button-secondary" data-action="upload" href="javascript:void(0)" ><?php esc_html_e("Upload", "unlimited_elementor_elements")?></a>
+					<a class="uc-button-select-all uc-panel-button unite-button-secondary button-disabled" data-action="select_all" href="javascript:void(0)"  data-textselect="<?php esc_html_e("Select All", "unlimited_elementor_elements")?>" data-textunselect="<?php esc_html_e("Unselect All", "unlimited_elementor_elements")?>" ><?php esc_html_e("Select All", "unlimited_elementor_elements")?></a>
+					<a class="uc-button-create-folder uc-panel-button unite-button-secondary" data-action="create_folder" href="javascript:void(0)"><?php esc_html_e("Create Folder", "unlimited_elementor_elements")?></a>
+					<a class="uc-button-create-file uc-panel-button unite-button-secondary" data-action="create_file" href="javascript:void(0)"><?php esc_html_e("Create File", "unlimited_elementor_elements")?></a>
 					
-					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-multiple" data-action="delete" href="javascript:void(0)"><?php esc_html_e("Delete", "unlimited_elements")?></a>
-					<span class="uc-preloader-deleting loader_text mleft_5" style="display:none"><?php esc_html_e("deleting...", "unlimited_elements")?></span>
+					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-multiple" data-action="delete" href="javascript:void(0)"><?php esc_html_e("Delete", "unlimited_elementor_elements")?></a>
+					<span class="uc-preloader-deleting loader_text mleft_5" style="display:none"><?php esc_html_e("deleting...", "unlimited_elementor_elements")?></span>
 										
-					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-single uc-relate-file" data-action="edit" href="javascript:void(0)"><?php esc_html_e("Edit", "unlimited_elements")?></a>
+					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-single uc-relate-file" data-action="edit" href="javascript:void(0)"><?php esc_html_e("Edit", "unlimited_elementor_elements")?></a>
 					
-					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-single" data-action="rename" href="javascript:void(0)"><?php esc_html_e("Rename", "unlimited_elements")?></a>
+					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-single" data-action="rename" href="javascript:void(0)"><?php esc_html_e("Rename", "unlimited_elementor_elements")?></a>
 					
-					<a class="uc-panel-button unite-button-secondary uc-relate-multiple button-disabled" data-action="move" href="javascript:void(0)"><?php esc_html_e("Move", "unlimited_elements")?></a>
+					<a class="uc-panel-button unite-button-secondary uc-relate-multiple button-disabled" data-action="move" href="javascript:void(0)"><?php esc_html_e("Move", "unlimited_elementor_elements")?></a>
 					
-					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-special uc-relate-type-zip" data-action="unzip" href="javascript:void(0)"><?php esc_html_e("Unzip", "unlimited_elements")?></a>
-					<span class="uc-preloader-unzip loader_round mleft_5" style="display:none"><?php esc_html_e("unzipping...", "unlimited_elements")?></span>
+					<a class="uc-panel-button unite-button-secondary button-disabled uc-relate-special uc-relate-type-zip" data-action="unzip" href="javascript:void(0)"><?php esc_html_e("Unzip", "unlimited_elementor_elements")?></a>
+					<span class="uc-preloader-unzip loader_round mleft_5" style="display:none"><?php esc_html_e("unzipping...", "unlimited_elementor_elements")?></span>
 					
 					 
 				</div>
@@ -1278,7 +1278,7 @@ class UniteCreatorAssets{
 				<div class="uc-assets-activepath">
 				
 					<span class="uc-assets-activepath-inner">
-						<?php esc_html_e("Active Path", "unlimited_elements")?>:
+						<?php esc_html_e("Active Path", "unlimited_elementor_elements")?>:
 						 <span class="uc-pathname">../<?php echo esc_html($activePath)?></span>
 					 </span>
 					 
@@ -1329,7 +1329,7 @@ class UniteCreatorAssets{
 				if(GlobalsUC::SHOW_TRACE == true)
 					$trace = $e->getTraceAsString();
 			
-				$htmlError = HelperUC::getHtmlErrorMessage($message,$trace, "Assets Manager Error: ");
+				$htmlError = EWPHelper::getHtmlErrorMessage($message,$trace, "Assets Manager Error: ");
 				?>
 				<div <?php echo UniteProviderFunctionsUC::escAddParam($id)?> data-pathkey="<?php echo esc_attr($this->pathKey)?>" class="uc-assets-wrapper" <?php echo UniteProviderFunctionsUC::escAddParam($wrapperStyle)?> data-isbrowser="<?php echo esc_attr($this->isBrowerMode)?>" data-path="<?php echo esc_attr($activePathData)?>" data-startpath="<?php echo esc_attr($startPathData)?>" data-options="<?php echo esc_attr($jsonOptions)?>">
 				<?php 
@@ -1356,7 +1356,7 @@ class UniteCreatorAssets{
 									
 					<div class="uc-preloader-filelist loader_text mtop_25" style="display:none">
 					
-						<?php esc_html_e("Loading File list...", "unlimited_elements")?>
+						<?php esc_html_e("Loading File list...", "unlimited_elementor_elements")?>
 					
 					</div>
 					
@@ -1386,7 +1386,7 @@ class UniteCreatorAssets{
 			if(GlobalsUC::SHOW_TRACE == true)
 				$trace = $e->getTraceAsString();
 				
-			$htmlError = HelperUC::getHtmlErrorMessage($message,$trace, "Assets Manager Error: ");
+			$htmlError = EWPHelper::getHtmlErrorMessage($message,$trace, "Assets Manager Error: ");
 			
 			echo "<div class='uc-assets-startup-error'>".esc_html($htmlError)."</div>";
 		}

@@ -225,7 +225,7 @@
 	height:60px;
 }
 
-.uc-manager-outer .uc-manager-header-line .uc-manager-header-logo{
+.uc-manager-outer .uc-manager-header-line .elementer-pro-header-logo{
 	
 }
 
@@ -780,4 +780,7 @@
 
 .uc-items-filters .uc-filters-set-search a.uc-filter-button-clear:hover i{
 	color: #777777;	
+}
+.uc-manager-header-line img {
+    max-width: 300px;
 }

@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorDialogParamWork{
 	
@@ -116,39 +116,39 @@ class UniteCreatorDialogParamWork{
 	 */
 	protected function initParamTypes(){
 		
-		$this->addParam("uc_textfield", esc_html__("Text Field", "unlimited_elements"));
-		$this->addParam("uc_number", esc_html__("Number", "unlimited_elements"));
-		$this->addParam("uc_radioboolean", esc_html__("Radio Boolean", "unlimited_elements"));
-		$this->addParam("uc_textarea", esc_html__("Text Area", "unlimited_elements"));
-		$this->addParam(self::PARAM_EDITOR, esc_html__("Editor", "unlimited_elements"));
-		$this->addParam("uc_checkbox", esc_html__("Checkbox", "unlimited_elements"));
-		$this->addParam("uc_dropdown", esc_html__("Dropdown", "unlimited_elements"));
-		$this->addParam(self::PARAM_COLORPICKER, esc_html__("Color Picker", "unlimited_elements"));
-		$this->addParam(self::PARAM_LINK, esc_html__("Link", "unlimited_elements"));
-		$this->addParam(self::PARAM_IMAGE, esc_html__("Image", "unlimited_elements"));
-		$this->addParam(self::PARAM_HR, esc_html__("HR Line", "unlimited_elements"));
-		$this->addParam(self::PARAM_FONT_OVERRIDE, esc_html__("Font Override", "unlimited_elements"));
-		$this->addParam(self::PARAM_ADDONPICKER, esc_html__("Addon Picker", "unlimited_elements"));
+		$this->addParam("uc_textfield", esc_html__("Text Field", "unlimited_elementor_elements"));
+		$this->addParam("uc_number", esc_html__("Number", "unlimited_elementor_elements"));
+		$this->addParam("uc_radioboolean", esc_html__("Radio Boolean", "unlimited_elementor_elements"));
+		$this->addParam("uc_textarea", esc_html__("Text Area", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_EDITOR, esc_html__("Editor", "unlimited_elementor_elements"));
+		$this->addParam("uc_checkbox", esc_html__("Checkbox", "unlimited_elementor_elements"));
+		$this->addParam("uc_dropdown", esc_html__("Dropdown", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_COLORPICKER, esc_html__("Color Picker", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_LINK, esc_html__("Link", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_IMAGE, esc_html__("Image", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_HR, esc_html__("HR Line", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_FONT_OVERRIDE, esc_html__("Font Override", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_ADDONPICKER, esc_html__("Addon Picker", "unlimited_elementor_elements"));
 		
-		$this->addParam(self::PARAM_AUDIO, esc_html__("Audio", "unlimited_elements"));
-		$this->addParam(self::PARAM_ICON, esc_html__("Icon", "unlimited_elements"));
-		$this->addParam(self::PARAM_SHAPE, esc_html__("Shape", "unlimited_elements"));
-		$this->addParam(self::PARAM_CONTENT, esc_html__("Content", "unlimited_elements"));
-		$this->addParam(self::PARAM_POST, esc_html__("Post", "unlimited_elements"));
-		$this->addParam(self::PARAM_POSTS_LIST, esc_html__("Posts List", "unlimited_elements"));
-		$this->addParam(self::PARAM_POST_TERMS, esc_html__("Posts Terms", "unlimited_elements"));
-		$this->addParam(self::PARAM_FORM, esc_html__("Form", "unlimited_elements"));
-		$this->addParam(self::PARAM_INSTAGRAM, esc_html__("Instagram", "unlimited_elements"));
-		$this->addParam(self::PARAM_MAP, esc_html__("Google Map", "unlimited_elements"));
-		$this->addParam(self::PARAM_MENU, esc_html__("Menu", "unlimited_elements"));
-		$this->addParam(self::PARAM_DATASET, esc_html__("Dataset", "unlimited_elements"));
+		$this->addParam(self::PARAM_AUDIO, esc_html__("Audio", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_ICON, esc_html__("Icon", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_SHAPE, esc_html__("Shape", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_CONTENT, esc_html__("Content", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_POST, esc_html__("Post", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_POSTS_LIST, esc_html__("Posts List", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_POST_TERMS, esc_html__("Posts Terms", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_FORM, esc_html__("Form", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_INSTAGRAM, esc_html__("Instagram", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_MAP, esc_html__("Google Map", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_MENU, esc_html__("Menu", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_DATASET, esc_html__("Dataset", "unlimited_elementor_elements"));
 		
 		//variables
-		$this->addParam("uc_varitem_simple", esc_html__("Simple Variable", "unlimited_elements"));
-		$this->addParam("uc_var_paramrelated", esc_html__("Attribute Related", "unlimited_elements"));
-		$this->addParam("uc_var_paramitemrelated", esc_html__("Item Attribute Related", "unlimited_elements"));
-		$this->addParam(self::PARAM_VAR_GET, esc_html__("GET Param", "unlimited_elements"));
-		$this->addParam(self::PARAM_TYPOGRAPHY, esc_html__("Typography", "unlimited_elements"));
+		$this->addParam("uc_varitem_simple", esc_html__("Simple Variable", "unlimited_elementor_elements"));
+		$this->addParam("uc_var_paramrelated", esc_html__("Attribute Related", "unlimited_elementor_elements"));
+		$this->addParam("uc_var_paramitemrelated", esc_html__("Item Attribute Related", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_VAR_GET, esc_html__("GET Param", "unlimited_elementor_elements"));
+		$this->addParam(self::PARAM_TYPOGRAPHY, esc_html__("Typography", "unlimited_elementor_elements"));
 		
 	}
 	
@@ -195,13 +195,13 @@ class UniteCreatorDialogParamWork{
 	private function putInstagramParam(){
 		?>
 			<div class="unite-inputs-label">
-				<?php esc_html_e("Max Items", "unlimited_elements")?>
+				<?php esc_html_e("Max Items", "unlimited_elementor_elements")?>
 			</div>
 			
 			<input type="text" name="max_items" class="unite-input-number" value="">
 			
 			<div class="unite-inputs-description">
-				* <?php esc_html_e("Put number of items (1-12), or empty for all the items (12)", "unlimited_elements")?>
+				* <?php esc_html_e("Put number of items (1-12), or empty for all the items (12)", "unlimited_elementor_elements")?>
 			</div>
 			
 			<br>
@@ -218,7 +218,7 @@ class UniteCreatorDialogParamWork{
 	private function putGoogleMapParam(){
 		?>
 			<div class="unite-inputs-label">
-				<?php esc_html_e("Defaults for google map", "unlimited_elements")?>
+				<?php esc_html_e("Defaults for google map", "unlimited_elementor_elements")?>
 			</div>
 			
 		<?php 
@@ -231,7 +231,7 @@ class UniteCreatorDialogParamWork{
 	private function putFormParam(){
 		?>
 			<div class="unite-inputs-label">
-				<?php esc_html_e("Form Params Goes Here", "unlimited_elements")?>
+				<?php esc_html_e("Form Params Goes Here", "unlimited_elementor_elements")?>
 			</div>
 		<?php 
 	}
@@ -242,7 +242,7 @@ class UniteCreatorDialogParamWork{
 	protected function putNoDefaultValueText($text = "", $addStyleCheckbox = false){
 		
 		if(empty($text))
-			esc_html_e("No default value for this attribute", "unlimited_elements");
+			esc_html_e("No default value for this attribute", "unlimited_elementor_elements");
 		else
 			echo esc_html($text);
 			
@@ -271,10 +271,10 @@ class UniteCreatorDialogParamWork{
 				<div class='uc-dialog-param-style-checkbox-wrapper'>
 					<div class="unite-inputs-sap"></div>
 					<label class="unite-inputs-label-inline-free">
-							<?php esc_html_e("Allow Font Edit", "unlimited_elements")?>:
+							<?php esc_html_e("Allow Font Edit", "unlimited_elementor_elements")?>:
 						 	<input type="checkbox" onfocus="this.blur()" name="font_editable">
 					</label>
-					<div class="unite-dialog-description-left"><?php esc_html_e("Allow edit font for this field in font style tab. Must be put with the {{fieldname|raw}} in html", "unlimited_elements")?></div>
+					<div class="unite-dialog-description-left"><?php esc_html_e("Allow edit font for this field in font style tab. Must be put with the {{fieldname|raw}} in html", "unlimited_elementor_elements")?></div>
 				</div>
 		<?php 
 	}
@@ -293,7 +293,7 @@ class UniteCreatorDialogParamWork{
 		<div class="unite-inputs-label">
 			
 			<label for="<?php echo esc_attr($id)?>">
-			<?php esc_html_e("Field Required", "unlimited_elements") ?>:
+			<?php esc_html_e("Field Required", "unlimited_elementor_elements") ?>:
 			</label> 
 			
 			<input id="<?php echo esc_attr($id)?>" type="checkbox" name="is_required">
@@ -323,7 +323,7 @@ class UniteCreatorDialogParamWork{
 				
 		?>
 				<div class="unite-inputs-label">
-					<?php esc_html_e("Default Value", "unlimited_elements")?>:
+					<?php esc_html_e("Default Value", "unlimited_elementor_elements")?>:
 				</div>
 				
 				<?php if($isTextarea == false):?>
@@ -338,8 +338,8 @@ class UniteCreatorDialogParamWork{
 					
 						<br><br>
 						
-						* <?php esc_html_e("To allow html tags, use","unlimited_elements")?> <b>|raw</b> <?php esc_html_e("filter", "unlimited_elements") ?> <br><br>
-						&nbsp;&nbsp;&nbsp; <?php esc_html_e("example","unlimited_elements")?> : {{myfield|raw}}
+						* <?php esc_html_e("To allow html tags, use","unlimited_elementor_elements")?> <b>|raw</b> <?php esc_html_e("filter", "unlimited_elementor_elements") ?> <br><br>
+						&nbsp;&nbsp;&nbsp; <?php esc_html_e("example","unlimited_elementor_elements")?> : {{myfield|raw}}
 						
 					<?php endif?>
 				
@@ -366,7 +366,7 @@ class UniteCreatorDialogParamWork{
 	private function putFontOverrideParam(){
 		?>
 				
-				* <?php esc_html_e("Use this font override in css tab using special function","unlimited_elements")?> 
+				* <?php esc_html_e("Use this font override in css tab using special function","unlimited_elementor_elements")?> 
 				
 		<?php 
 	}
@@ -376,7 +376,7 @@ class UniteCreatorDialogParamWork{
 	 */
 	private function putColorPickerDefault(){
 		?>
-			<?php esc_html_e("Default Value", "unlimited_elements")?>:
+			<?php esc_html_e("Default Value", "unlimited_elementor_elements")?>:
 			
 			<div class="vert_sap5"></div>
  		    <input type="text" name="default_value" class="uc-text-colorpicker" value="#ffffff" data-initval="#ffffff">
@@ -433,19 +433,19 @@ class UniteCreatorDialogParamWork{
 			
 			<?php if(!empty($text)): ?>
 				<span class="uc-radioset-title">
-				<?php esc_html_e($text, "unlimited_elements")?>:
+				<?php esc_html_e($text, "unlimited_elementor_elements")?>:
 				</span>
 			<?php endif?>
 			
 				<input id="<?php echo esc_attr($idYes)?>" type="radio" name="<?php echo esc_attr($name)?>" value="true" <?php echo esc_attr($trueChecked)?>>
-				<label for="<?php echo esc_attr($idYes)?>"><?php _e($yesText, "unlimited_elements")?></label>
+				<label for="<?php echo esc_attr($idYes)?>"><?php _e($yesText, "unlimited_elementor_elements")?></label>
 				
 				<input id="<?php echo esc_attr($idNo)?>" type="radio" name="<?php echo esc_attr($name)?>" value="false" <?php echo esc_attr($falseChecked)?>>
-				<label for="<?php echo esc_attr($idNo)?>"><?php _e($noText, "unlimited_elements")?></label>
+				<label for="<?php echo esc_attr($idNo)?>"><?php _e($noText, "unlimited_elementor_elements")?></label>
 				
 				<?php if($isTextNear == true):?>
 					<input type="text" name="text_near" class="unite-input-medium">
-					<?php esc_html_e("(text near)", "unlimited_elements")?>
+					<?php esc_html_e("(text near)", "unlimited_elementor_elements")?>
 					
 				<?php endif?>
 			</div>
@@ -463,8 +463,8 @@ class UniteCreatorDialogParamWork{
 			<table data-inputtype="radio_boolean"  class='uc-table-dropdown-items uc-table-dropdown-full'>
 				<thead>
 					<tr>
-						<th width="100px"><?php esc_html_e("Item Text", "unlimited_elements")?></th>
-						<th width="100px"><?php esc_html_e("Item Value", "unlimited_elements")?></th>
+						<th width="100px"><?php esc_html_e("Item Text", "unlimited_elementor_elements")?></th>
+						<th width="100px"><?php esc_html_e("Item Value", "unlimited_elementor_elements")?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -472,14 +472,14 @@ class UniteCreatorDialogParamWork{
 						<td><input type="text" name="true_name" value="Yes" data-initval="Yes" class='uc-dropdown-item-name'></td>
 						<td><input type="text" name="true_value" value="true" data-initval="true" class='uc-dropdown-item-value'></td>
 						<td>
-							<div class='uc-dropdown-icon uc-dropdown-item-default uc-selected' title="<?php esc_html_e("Default Item", "unlimited_elements")?>"></div>
+							<div class='uc-dropdown-icon uc-dropdown-item-default uc-selected' title="<?php esc_html_e("Default Item", "unlimited_elementor_elements")?>"></div>
 						</td>
 					</tr>
 					<tr>
 						<td><input type="text" name="false_name" value="No" data-initval="No" class='uc-dropdown-item-name'></td>
 						<td><input type="text" name="false_value" value="false" data-initval="false" class='uc-dropdown-item-value'></td>
 						<td>
-							<div class='uc-dropdown-icon uc-dropdown-item-default' title="<?php esc_html_e("Default Item", "unlimited_elements")?>"></div>
+							<div class='uc-dropdown-icon uc-dropdown-item-default' title="<?php esc_html_e("Default Item", "unlimited_elementor_elements")?>"></div>
 						</td>
 					</tr>
 					
@@ -501,7 +501,7 @@ class UniteCreatorDialogParamWork{
 		?>
 			<label for="<?php echo esc_attr($checkID)?>">
 				<input id="<?php echo esc_attr($checkID)?>" type="checkbox" class="uc-param-image-checkbox uc-control" data-controlled-selector="#<?php echo esc_attr($inputID)?>" name="<?php echo esc_attr($thumbName)?>">
-				<?php _e($text, "unlimited_elements")?>
+				<?php _e($text, "unlimited_elementor_elements")?>
 			</label>
 			<input id="<?php echo esc_attr($inputID)?>" type="text" data-addsuffix="<?php echo esc_attr($addSuffix)?>" style="display:none" disabled class="mleft_5 unite-input-alias uc-param-image-thumbname">
 			
@@ -565,7 +565,7 @@ class UniteCreatorDialogParamWork{
 		
 		?>
 			<div class="uc-tab-content-desc">
-				<?php esc_html_e("* You can add thumbnails creation to the image. Turn them on if you will use them in addon", "unlimited_elements")?>
+				<?php esc_html_e("* You can add thumbnails creation to the image. Turn them on if you will use them in addon", "unlimited_elementor_elements")?>
 			</div>
 			
 			<div class="unite-inputs-sap"></div>
@@ -578,7 +578,7 @@ class UniteCreatorDialogParamWork{
 			
 			<div class="unite-inputs-sap"></div>
 						
-			<?php $this->putImageSelectInput("default_value",esc_html__("Default Image","unlimited_elements")); ?>
+			<?php $this->putImageSelectInput("default_value",esc_html__("Default Image","unlimited_elementor_elements")); ?>
 			
 		<?php 
 	}
@@ -589,7 +589,7 @@ class UniteCreatorDialogParamWork{
 	 */
 	private function putMp3Param(){
 	
-		$this->putMp3SelectInput("default_value",esc_html__("Default Audio File Url","unlimited_elements"));
+		$this->putMp3SelectInput("default_value",esc_html__("Default Audio File Url","unlimited_elementor_elements"));
 	}
 	
 	/**
@@ -598,7 +598,7 @@ class UniteCreatorDialogParamWork{
 	private function putMenuParam(){
 		
 		$settings = new UniteCreatorSettings();
-		$settings->addSelect("menu_html_base", array("UL LI"=>"ul","DIV"=>"div","NAV"=>"nav"), esc_html__("Menu Html Based On", "unlimited_elements"), "ul",array("description"=>"The main menu tag, and child tags accordingly"));
+		$settings->addSelect("menu_html_base", array("UL LI"=>"ul","DIV"=>"div","NAV"=>"nav"), esc_html__("Menu Html Based On", "unlimited_elementor_elements"), "ul",array("description"=>"The main menu tag, and child tags accordingly"));
 		$settings->addTextBox("menu_class","","Menu Class",array("description"=>"ul or div that wraps the menu items class"));
 		$settings->addTextBox("menu_submenu_class","","Sub Menu Class",array("description"=>"submenu wrapper ul or div class"));
 		$settings->addTextBox("menu_item_class","","Menu Item Class",array("description"=>"items li or a class"));
@@ -606,7 +606,7 @@ class UniteCreatorDialogParamWork{
 		$settings->addTextBox("menu_item_current_class","","Menu Current Item Class",array("description"=>"the parent item of the active child item"));
 		
 		$settings->addHr();
-		$settings->addSelect("menu_wrap_submenu_item", array("Don't wrap"=>"no","Wrap"=>"wrap"), esc_html__("Wrap Items With Submenu", "unlimited_elements"), "no", array("description"=>"Wrap items that contains submenu with div"));
+		$settings->addSelect("menu_wrap_submenu_item", array("Don't wrap"=>"no","Wrap"=>"wrap"), esc_html__("Wrap Items With Submenu", "unlimited_elementor_elements"), "no", array("description"=>"Wrap items that contains submenu with div"));
 		$settings->addTextBox("menu_submenu_wrapper_class","","Submenu Wrapper Div Class",array("description"=>"The class of the submenu wrapper div"));
 		$settings->addControl("menu_wrap_submenu_item", "menu_submenu_wrapper_class", "show", "wrap");
 		
@@ -645,7 +645,7 @@ class UniteCreatorDialogParamWork{
 			$firstType = UniteFunctionsUC::getFirstNotEmptyKey($arrDatasetsNames);
 			$arrDatasetsNames = array_flip($arrDatasetsNames);
 			
-			$settings->addSelect("dataset_type", $arrDatasetsNames, esc_html__("Choose Dataset Type", "unlimited_elements"), $firstType ,array("description"=>"select the datase type"));
+			$settings->addSelect("dataset_type", $arrDatasetsNames, esc_html__("Choose Dataset Type", "unlimited_elementor_elements"), $firstType ,array("description"=>"select the datase type"));
 			
 			//put queries
 			$arrDatasetObjects = $this->objDatasets->getDatasetTypes();
@@ -663,7 +663,7 @@ class UniteCreatorDialogParamWork{
 				$queries["---Not Selected---"] = "";
 				
 				$settingName = "dataset_{$type}_query";
-				$settings->addSelect($settingName, $queries, esc_html__("Choose Query", "unlimited_elements"), $firstQuery ,array("description"=>"select the dataset query"));
+				$settings->addSelect($settingName, $queries, esc_html__("Choose Query", "unlimited_elementor_elements"), $firstQuery ,array("description"=>"select the dataset query"));
 				$settings->addControl("dataset_type", $settingName, "show", $type);
 			}
 			
@@ -687,7 +687,7 @@ class UniteCreatorDialogParamWork{
 		
 		$settings = new UniteCreatorSettings();
 
-		$settings->addSelect("addon_type", $arrTypes, esc_html__("Choose Addon Type", "unlimited_elements"), $firstType ,array("description"=>"select the addon type"));
+		$settings->addSelect("addon_type", $arrTypes, esc_html__("Choose Addon Type", "unlimited_elementor_elements"), $firstType ,array("description"=>"select the addon type"));
 		
 		$objOutput = new UniteSettingsOutputWideUC();
 		$objOutput->init($settings);
@@ -701,14 +701,14 @@ class UniteCreatorDialogParamWork{
 	 */
 	private function putPostTermsParam(){
 		
-		esc_html_e("Post terms are post categories / tags and other custom types. Also called as taxonomies ", "unlimited_elements");
+		esc_html_e("Post terms are post categories / tags and other custom types. Also called as taxonomies ", "unlimited_elementor_elements");
 		
 		?>
 		<br>
 		<br>
 		<?php 
 		
-		esc_html_e("No default value for this attribute", "unlimited_elements");
+		esc_html_e("No default value for this attribute", "unlimited_elementor_elements");
 		
 		?>
 		
@@ -729,19 +729,19 @@ class UniteCreatorDialogParamWork{
 		$settings = new UniteCreatorSettings();
 
 		$params = array();
-		$params["description"] = __("Choose some post for the custom fields to appear in attributes list in the right", "unlimited_elements");
+		$params["description"] = __("Choose some post for the custom fields to appear in attributes list in the right", "unlimited_elementor_elements");
 		
-		$settings->addPostPicker("post_example", "", __("Post Example For Custom Fields", "unlimited_elements") );
+		$settings->addPostPicker("post_example", "", __("Post Example For Custom Fields", "unlimited_elementor_elements") );
 				
 		$objOutput = new UniteSettingsOutputWideUC();
 		$objOutput->init($settings);
 		$objOutput->draw("postpicker_param_settings", false);
 		
-		$this->putCheckbox("use_custom_fields", __("Use Custom Fields", "unlimited_elements"));
+		$this->putCheckbox("use_custom_fields", __("Use Custom Fields", "unlimited_elementor_elements"));
 		?>
 		<div class="vert_sap10"></div>
 		<?php 
-		$this->putCheckbox("use_category", __("Use Post Category", "unlimited_elements"));
+		$this->putCheckbox("use_category", __("Use Post Category", "unlimited_elementor_elements"));
 		
 		?>
 		<br><br>
@@ -764,8 +764,8 @@ class UniteCreatorDialogParamWork{
 					<thead>
 						<tr>
 							<th></th>
-							<th width="100px"><?php esc_html_e("Item Text", "unlimited_elements")?></th>
-							<th width="100px"><?php esc_html_e("Item Value", "unlimited_elements")?></th>
+							<th width="100px"><?php esc_html_e("Item Text", "unlimited_elementor_elements")?></th>
+							<th width="100px"><?php esc_html_e("Item Value", "unlimited_elementor_elements")?></th>
 							<th></th>
 						</tr>
 					</thead>
@@ -775,9 +775,9 @@ class UniteCreatorDialogParamWork{
 							<td><input type="text" value="" class='uc-dropdown-item-name'></td>
 							<td><input type="text" value="" class='uc-dropdown-item-value'></td>
 							<td>
-								<div class='uc-dropdown-icon uc-dropdown-item-delete' title="<?php esc_html_e("Delete Item", "unlimited_elements")?>"></div>
-								<div class='uc-dropdown-icon uc-dropdown-item-add' title="<?php esc_html_e("Add Item", "unlimited_elements")?>"></div>
-								<div class='uc-dropdown-icon uc-dropdown-item-default uc-selected' title="<?php esc_html_e("Default Item", "unlimited_elements")?>"></div>
+								<div class='uc-dropdown-icon uc-dropdown-item-delete' title="<?php esc_html_e("Delete Item", "unlimited_elementor_elements")?>"></div>
+								<div class='uc-dropdown-icon uc-dropdown-item-add' title="<?php esc_html_e("Add Item", "unlimited_elementor_elements")?>"></div>
+								<div class='uc-dropdown-icon uc-dropdown-item-default uc-selected' title="<?php esc_html_e("Default Item", "unlimited_elementor_elements")?>"></div>
 							</td>
 						</tr>
 					</tbody>
@@ -792,8 +792,8 @@ class UniteCreatorDialogParamWork{
 	 */
 	private function putDropdownSelectRelated($selectSelector, $valueText = null, $putText = null){
 		
-		$valueTextOutput = esc_html__("Attribute Value", "unlimited_elements");
-		$putTextOutput = esc_html__("Html Output", "unlimited_elements");
+		$valueTextOutput = esc_html__("Attribute Value", "unlimited_elementor_elements");
+		$putTextOutput = esc_html__("Html Output", "unlimited_elementor_elements");
 		
 		if(!empty($valueText))
 			$valueTextOutput = $valueText;
@@ -830,19 +830,19 @@ class UniteCreatorDialogParamWork{
 		?>
 			
 			<div class="unite-inputs-label">
-				<?php esc_html_e("Default Value", "unlimited_elements")?>:
+				<?php esc_html_e("Default Value", "unlimited_elementor_elements")?>:
 			</div>
 			
 			<input type="text" name="default_value" value="" class="uc_default_value">
 			
-			<a class="uc-link-add" data-addto-selector=".uc_default_value" data-addtext="%numitem%" href="javascript:void(0)"><?php esc_html_e("Add Numitem", "unlimited_elements")?></a>
+			<a class="uc-link-add" data-addto-selector=".uc_default_value" data-addtext="%numitem%" href="javascript:void(0)"><?php esc_html_e("Add Numitem", "unlimited_elementor_elements")?></a>
 			
 			<div class="unite-inputs-label mtop_5 mbottom_5">
 				
 				<input id="<?php echo esc_attr($checkboxFirstID)?>" type="checkbox" name="enable_first_item" class="uc-control" data-controlled-selector=".uc_section_first">
 				
 				<label for="<?php echo esc_attr($checkboxFirstID)?>">
-				<?php esc_html_e("Value for First Item", "unlimited_elements")?>:
+				<?php esc_html_e("Value for First Item", "unlimited_elementor_elements")?>:
 				</label>
 			</div>
 			
@@ -850,7 +850,7 @@ class UniteCreatorDialogParamWork{
 				
 				<input type="text" name="first_item_value" value="" class="uc_first_item_value">
 				
-				<a class="uc-link-add" data-addto-selector=".uc_first_item_value" data-addtext="%numitem%" href="javascript:void(0)"><?php esc_html_e("Add Numitem", "unlimited_elements")?></a>
+				<a class="uc-link-add" data-addto-selector=".uc_first_item_value" data-addtext="%numitem%" href="javascript:void(0)"><?php esc_html_e("Add Numitem", "unlimited_elementor_elements")?></a>
 				
 			</div>
 			
@@ -859,7 +859,7 @@ class UniteCreatorDialogParamWork{
 				<input id="<?php echo esc_attr($checkboxLastID)?>" type="checkbox" name="enable_last_item" class="uc-control" data-controlled-selector=".uc_section_last">
 				
 				<label for="<?php echo esc_attr($checkboxLastID)?>">
-				<?php esc_html_e("Value for Last Item", "unlimited_elements")?>:
+				<?php esc_html_e("Value for Last Item", "unlimited_elementor_elements")?>:
 				</label>
 			</div>
 			
@@ -867,12 +867,12 @@ class UniteCreatorDialogParamWork{
 				
 				<input type="text" name="last_item_value" value="" class="uc_last_item_value" >
 				
-				<a class="uc-link-add" data-addto-selector=".uc_last_item_value" data-addtext="%numitem%" href="javascript:void(0)"><?php esc_html_e("Add Numitem", "unlimited_elements")?></a>
+				<a class="uc-link-add" data-addto-selector=".uc_last_item_value" data-addtext="%numitem%" href="javascript:void(0)"><?php esc_html_e("Add Numitem", "unlimited_elementor_elements")?></a>
 							
 			</div>
 			
 			<div class="unite-dialog-description-right">
-				* <?php esc_html_e("The %numitem% is 1,2,3,4... numbers serials", "unlimited_elements")?>
+				* <?php esc_html_e("The %numitem% is 1,2,3,4... numbers serials", "unlimited_elementor_elements")?>
 			</div>
 			
 		<?php
@@ -885,11 +885,11 @@ class UniteCreatorDialogParamWork{
 	 */
 	private function putParamsRelatedFields($type = "main"){
 		
-		$title = esc_html__("Select Main Attribute", "unlimited_elements");
+		$title = esc_html__("Select Main Attribute", "unlimited_elementor_elements");
 		$source = "main";
 		
 		if($type == "item"){
-			$title = esc_html__("Select Item Attribute", "unlimited_elements");
+			$title = esc_html__("Select Item Attribute", "unlimited_elementor_elements");
 			$source = "item";
 		}
 		
@@ -920,7 +920,7 @@ class UniteCreatorDialogParamWork{
 	 */
 	private function putGetParamFields(){
 		
-		$text = esc_html__("This parameter will go from GET query string", "unlimited_elements");
+		$text = esc_html__("This parameter will go from GET query string", "unlimited_elementor_elements");
 		
 		?>			
 			<div class="unite-inputs-label"><?php echo esc_html($text)?>:</div>
@@ -932,8 +932,8 @@ class UniteCreatorDialogParamWork{
 		$firstType = UniteFunctionsUC::getFirstNotEmptyKey($arrSanitize);
 		$arrSanitize = array_flip($arrSanitize);
 		
-		$objSettings->addSelect("sanitize_type", $arrSanitize, esc_html__("Sanitize Type", "unlimited_elements"), $firstType);
-		$objSettings->addTextBox("default_value", "", esc_html__("Default Value", "unlimited_elements"));
+		$objSettings->addSelect("sanitize_type", $arrSanitize, esc_html__("Sanitize Type", "unlimited_elementor_elements"), $firstType);
+		$objSettings->addTextBox("default_value", "", esc_html__("Default Value", "unlimited_elementor_elements"));
 		
 		$objOutput = new UniteSettingsOutputWideUC();
 		$objOutput->init($objSettings);
@@ -983,13 +983,13 @@ class UniteCreatorDialogParamWork{
 		if($isSelect == true):
 		?>
 			<option <?php echo UniteProviderFunctionsUC::escAddParam($selectHtml)?> data-type="<?php echo esc_attr($paramType)?>" value="<?php echo esc_attr($contentID)?>" <?php echo $addHtml?> >
-				<?php _e($title, "unlimited_elements")?>
+				<?php _e($title, "unlimited_elementor_elements")?>
 			</option>
 		<?php
 		else:
 		?>
 			<a href="javascript:void(0)" data-type="<?php echo esc_attr($paramType)?>" data-contentid="<?php echo esc_attr($contentID)?>" class="<?php echo esc_attr($class)?>" <?php echo $addHtml?>>
-				<?php _e($title, "unlimited_elements")?>
+				<?php _e($title, "unlimited_elementor_elements")?>
 			</a>
 		<?php
 		endif;
@@ -1020,7 +1020,7 @@ class UniteCreatorDialogParamWork{
 				$this->putDefaultValueParam(true);
 			break;
 			case "uc_checkbox":
-				$this->putRadioYesNo("is_checked", esc_html__("Checked By Default", "unlimited_elements"), false, "Yes", "No", true);
+				$this->putRadioYesNo("is_checked", esc_html__("Checked By Default", "unlimited_elementor_elements"), false, "Yes", "No", true);
 			break;
 			case "uc_dropdown":
 				$this->putDropDownItems();
@@ -1065,7 +1065,7 @@ class UniteCreatorDialogParamWork{
 				$this->putNoDefaultValueText();
 			break;
 			case self::PARAM_FONT_OVERRIDE:
-				$text = esc_html__("Use this font override in css tab using special function", "unlimited_elements");
+				$text = esc_html__("Use this font override in css tab using special function", "unlimited_elementor_elements");
 				$this->putNoDefaultValueText($text);
 			break;
 			//variable params
@@ -1107,16 +1107,16 @@ class UniteCreatorDialogParamWork{
 		
 		switch($this->type){
 			case self::TYPE_FORM_ITEM:
-				$arrTexts["add_title"] = esc_html__("Add Form Item","unlimited_elements");
-				$arrTexts["add_button"] = esc_html__("Add Form Item","unlimited_elements");
-				$arrTexts["edit_title"] = esc_html__("Edit Form Item","unlimited_elements");
-				$arrTexts["update_button"] = esc_html__("Update Form Item","unlimited_elements");				
+				$arrTexts["add_title"] = esc_html__("Add Form Item","unlimited_elementor_elements");
+				$arrTexts["add_button"] = esc_html__("Add Form Item","unlimited_elementor_elements");
+				$arrTexts["edit_title"] = esc_html__("Edit Form Item","unlimited_elementor_elements");
+				$arrTexts["update_button"] = esc_html__("Update Form Item","unlimited_elementor_elements");				
 			break;
 			default:
-				$arrTexts["add_title"] = esc_html__("Add Attribute","unlimited_elements");
-				$arrTexts["add_button"] = esc_html__("Add Attribute","unlimited_elements");
-				$arrTexts["edit_title"] = esc_html__("Edit Attribute","unlimited_elements");
-				$arrTexts["update_button"] = esc_html__("Update Attribute","unlimited_elements");				
+				$arrTexts["add_title"] = esc_html__("Add Attribute","unlimited_elementor_elements");
+				$arrTexts["add_button"] = esc_html__("Add Attribute","unlimited_elementor_elements");
+				$arrTexts["edit_title"] = esc_html__("Edit Attribute","unlimited_elementor_elements");
+				$arrTexts["update_button"] = esc_html__("Update Attribute","unlimited_elementor_elements");				
 			break;
 		}
 		
@@ -1155,7 +1155,7 @@ class UniteCreatorDialogParamWork{
 	private function putTabsDropdown(){
 		?>
 		
-		<?php esc_html_e("Attribute Type: " , "unlimited_elements")?>
+		<?php esc_html_e("Attribute Type: " , "unlimited_elementor_elements")?>
 		
 		<select class="uc-paramdialog-select-type">
 			
@@ -1185,8 +1185,8 @@ class UniteCreatorDialogParamWork{
 		$arrTexts = $this->getArrTexts();
 		$dataTexts = UniteFunctionsUC::jsonEncodeForHtmlData($arrTexts);
 		
-		$linkDownloadPro = HelperHtmlUC::getHtmlLink(GlobalsUC::URL_DOWNLOAD_PRO, __("client panel","unlimited_elements"),"","",true);
-		$linkBuyPro = HelperHtmlUC::getHtmlLink(GlobalsUC::URL_BUY, __("PRO version","unlimited_elements"),"","",true);
+		$linkDownloadPro = HelperHtmlUC::getHtmlLink(GlobalsUC::URL_DOWNLOAD_PRO, __("client panel","unlimited_elementor_elements"),"","",true);
+		$linkBuyPro = HelperHtmlUC::getHtmlLink(GlobalsUC::URL_BUY, __("PRO version","unlimited_elementor_elements"),"","",true);
 		
 		
 		?>
@@ -1219,7 +1219,7 @@ class UniteCreatorDialogParamWork{
 							
 							
 							<div class="unite-inputs-label">
-							<?php esc_html_e("Name", "unlimited_elements")?>:
+							<?php esc_html_e("Name", "unlimited_elementor_elements")?>:
 							</div>
 							<input type="text" class="uc-param-name" name="name" value="">
 							
@@ -1227,7 +1227,7 @@ class UniteCreatorDialogParamWork{
 							<div class="unite-inputs-sap"></div>
 							
 							<div class="unite-inputs-label">
-							<?php esc_html_e("Description", "unlimited_elements")?>:
+							<?php esc_html_e("Description", "unlimited_elementor_elements")?>:
 							</div>
 							
 							<textarea name="description"></textarea>
@@ -1239,23 +1239,23 @@ class UniteCreatorDialogParamWork{
 								<div class="unite-inputs-sap"></div>
 								
 								<div class="unite-inputs-label-inline-free">
-										<?php esc_html_e("Admin Label", "unlimited_elements")?>:
+										<?php esc_html_e("Admin Label", "unlimited_elementor_elements")?>:
 								</div>
 								<input type="checkbox" name="admin_label">
-								<div class="unite-dialog-description-left"><?php esc_html_e("Show attribute content on admin side", "unlimited_elements")?></div>
+								<div class="unite-dialog-description-left"><?php esc_html_e("Show attribute content on admin side", "unlimited_elementor_elements")?></div>
 							</div>
 							<?php endif?>
 							
 							<?php if(GlobalsUC::$isProVersion == false):?>
 							
 							<div class='uc-dialog-param-pro-message'>
-								<?php _e("This attribute is available only in the .","unlimited_elements"); 
+								<?php _e("This attribute is available only in the .","unlimited_elementor_elements"); 
 								echo $linkBuyPro;
 								?>
 								<br>
-								<?php _e("The PRO version (unlimited-elements-pro) is available for download in the ","unlimited_elements");?>
+								<?php _e("The PRO version (unlimited-elements-pro) is available for download in the ","unlimited_elementor_elements");?>
 								<?php echo $linkDownloadPro?>
-								<?php _e(" under \"downloads\" section.","unlimited_elements")?>
+								<?php _e(" under \"downloads\" section.","unlimited_elementor_elements")?>
 								 
 							</div>
 							<?php endif?>
@@ -1370,10 +1370,10 @@ class UniteCreatorDialogParamWork{
 		
 		$this->option_putAdminLabel = false;
 		$this->option_putTitle = false;
-		$this->option_arrTexts["add_title"] = esc_html__("Add Item Variable","unlimited_elements");
-		$this->option_arrTexts["add_button"] = esc_html__("Add Variable","unlimited_elements");
-		$this->option_arrTexts["update_button"] = esc_html__("Update Variable","unlimited_elements");
-		$this->option_arrTexts["edit_title"] = esc_html__("Edit Variable","unlimited_elements");
+		$this->option_arrTexts["add_title"] = esc_html__("Add Item Variable","unlimited_elementor_elements");
+		$this->option_arrTexts["add_button"] = esc_html__("Add Variable","unlimited_elementor_elements");
+		$this->option_arrTexts["update_button"] = esc_html__("Update Variable","unlimited_elementor_elements");
+		$this->option_arrTexts["edit_title"] = esc_html__("Edit Variable","unlimited_elementor_elements");
 		
 	}
 		

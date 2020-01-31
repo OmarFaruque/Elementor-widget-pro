@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorMappickerView{
 	
@@ -25,7 +25,7 @@ class UniteCreatorMappickerView{
 	 */
 	public function __construct(){
 		
-		$this->apiKey = HelperUC::getGeneralSetting("google_map_key");
+		$this->apiKey = EWPHelper::getGeneralSetting("google_map_key");
 		$this->apiKey = trim($this->apiKey);
 		if(empty($this->apiKey))
 			$this->apiKey = null;
@@ -68,21 +68,21 @@ class UniteCreatorMappickerView{
 		
 		$settings = new UniteCreatorSettings();
 		
-		$settings->addSap(esc_html__("Size and Location", "unlimited_elements"));
+		$settings->addSap(esc_html__("Size and Location", "unlimited_elementor_elements"));
 		
-		$settings->addTextBox("width","100%",esc_html__("Map Width","unlimited_elements"),array("unit"=>"px or %"));
-		$settings->addTextBox("height","300",esc_html__("Map Height","unlimited_elements"),array("unit"=>"px or %"));
+		$settings->addTextBox("width","100%",esc_html__("Map Width","unlimited_elementor_elements"),array("unit"=>"px or %"));
+		$settings->addTextBox("height","300",esc_html__("Map Height","unlimited_elementor_elements"),array("unit"=>"px or %"));
 		
 		$settings->addHr();
 		
 		$settings->addTextBox("location", "", "Location");
 		
 		$params = array(UniteSettingsUC::PARAM_ADDTEXT => "<span id='uc_loader_mylocation' class='loader_round' style='display:none'></span>");
-		$settings->addButton("button_my_location", esc_html__("Goto My Location", "unlimited_elements"), UniteSettingsUC::PARAM_NOTEXT, $params);
+		$settings->addButton("button_my_location", esc_html__("Goto My Location", "unlimited_elementor_elements"), UniteSettingsUC::PARAM_NOTEXT, $params);
 		
 		//--------- add marker
 		
-		$settings->addSap(esc_html__("Marker", "unlimited_elements"));
+		$settings->addSap(esc_html__("Marker", "unlimited_elementor_elements"));
 		
 		$arrMarkerType = array();
 		$arrMarkerType["Default Marker"] = "default";
@@ -96,11 +96,11 @@ class UniteCreatorMappickerView{
 		$settings->addIconPicker("icon","","Marker Icon", $iconParams);
 		$settings->addControl("marker_type", "icon", "show", "icon");
 		
-		$settings->addImage("marker_image","",esc_html__("Marker Image","unlimited_elements"));
+		$settings->addImage("marker_image","",esc_html__("Marker Image","unlimited_elementor_elements"));
 		$settings->addControl("marker_type", "marker_image", "show", "image");
 		
 		
-		$settings->addSap(esc_html__("Style", "unlimited_elements"));
+		$settings->addSap(esc_html__("Style", "unlimited_elementor_elements"));
 		
 		$arrStyles = array(
 			"[Standard]"=>"",
@@ -135,10 +135,10 @@ class UniteCreatorMappickerView{
 		
 		$settings->addSelect("map_type", $arrMapType, "Map Type", "roadmap");
 		
-		$settings->addSap(esc_html__("Language and Controls", "unlimited_elements"));
+		$settings->addSap(esc_html__("Language and Controls", "unlimited_elementor_elements"));
 		
 		//--- language
-		$settings->addSelect("language", $this->arrLangs, esc_html__("Language", "unlimited_elements"), "");
+		$settings->addSelect("language", $this->arrLangs, esc_html__("Language", "unlimited_elementor_elements"), "");
 		
 		$settings->addHr();
 		
@@ -186,10 +186,10 @@ class UniteCreatorMappickerView{
 		if(empty($this->apiKey) || $this->apiKey === $this->defaultAPIKey)
 			$addOverlay = true;
 		
-		$urlGeneralSettings = HelperUC::getViewUrl(GlobalsUC::VIEW_SETTINGS);
+		$urlGeneralSettings = EWPHelper::getViewUrl(GlobalsUC::VIEW_SETTINGS);
 		$urlGeneralSettings .= "#tab=fields_settings";
 		
-		$linkGeneralSettings = HelperHtmlUC::getHtmlLink($urlGeneralSettings, esc_html__("General Settings","unlimited_elements"),"","",true);
+		$linkGeneralSettings = HelperHtmlUC::getHtmlLink($urlGeneralSettings, esc_html__("General Settings","unlimited_elementor_elements"),"","",true);
 		
 		?>	
 			<div class="uc-mappicker-panels-wrapper">
@@ -198,7 +198,7 @@ class UniteCreatorMappickerView{
 				<div class="uc-mappicker-overlay-trans"></div>
 				<div class="uc-mappicker-overlay-black"></div>
 				<div class="uc-mappicker-overlay-text">
-					<?php esc_html_e("For edit the map, please enter your google map API Key in", "unlimited_elements")?> <?php echo UniteProviderFunctionsUC::escAddParam($linkGeneralSettings)?>.
+					<?php esc_html_e("For edit the map, please enter your google map API Key in", "unlimited_elementor_elements")?> <?php echo UniteProviderFunctionsUC::escAddParam($linkGeneralSettings)?>.
 					<br>
 					<br>
 					You can create your API key in <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">google map developes page</a>
@@ -391,7 +391,7 @@ class UniteCreatorMappickerView{
 		
 		$this->init();
 		
-		$status = esc_html__("No Map Chosen", "unlimited_elements");
+		$status = esc_html__("No Map Chosen", "unlimited_elementor_elements");
 		
 		$width = 220;
 		$height = 100;
@@ -402,7 +402,7 @@ class UniteCreatorMappickerView{
 			<div class="unite-mappicker-chooser-wrapper">
 				<img class="unite-mappicker-mapimage" src="<?php echo esc_attr($urlImage)?>" width="<?php echo esc_attr($width)?>" height="<?php echo esc_attr($height)?>">
 	        	<div class="unite-mappicker-chooser-overlay"></div>
-	        	<a href="javascript:void(0)" class="unite-mappicker-button unite-button-secondary unite-center-position" ><?php esc_html_e("Choose Map", "unlimited_elements")?></a>
+	        	<a href="javascript:void(0)" class="unite-mappicker-button unite-button-secondary unite-center-position" ><?php esc_html_e("Choose Map", "unlimited_elementor_elements")?></a>
 			</div>
 		
 		<?php
@@ -492,7 +492,7 @@ class UniteCreatorMappickerView{
 			
 			$markerIcon = UniteFunctionsUC::getVal($marker, "icon");
 			if($markerIcon)
-				$markerIcon = HelperUC::URLtoFull($markerIcon);
+				$markerIcon = EWPHelper::URLtoFull($markerIcon);
 		}
 		
 		$style = UniteFunctionsUC::getVal($mapData, "style");

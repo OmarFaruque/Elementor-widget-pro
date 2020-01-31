@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorBrowser extends UniteCreatorBrowserWork{
 	
@@ -16,10 +16,10 @@ class UniteCreatorBrowser extends UniteCreatorBrowserWork{
 		
 		parent::__construct();
 
-		$urlLicense = HelperUC::getViewUrl(GlobalsUC::VIEW_LICENSE);
+		$urlLicense = EWPHelper::getViewUrl(GlobalsUC::VIEW_LICENSE);
 		
-		$this->textBuy = esc_html__("Activate Blox", "unlimited_elements");
-		$this->textHoverProAddon = __("This addon is available<br>when blox is activated.", "unlimited_elements");
+		$this->textBuy = esc_html__("Activate Blox", "unlimited_elementor_elements");
+		$this->textHoverProAddon = __("This addon is available<br>when blox is activated.", "unlimited_elementor_elements");
 		$this->urlBuy = $urlLicense;
 		
 	}

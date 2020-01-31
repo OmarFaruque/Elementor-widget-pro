@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved.
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorLayoutsWork extends UniteElementsBaseUC{
 	
@@ -405,7 +405,7 @@ class UniteCreatorLayoutsWork extends UniteElementsBaseUC{
 		
 		$isFront = true;
 		
-		$url = HelperUC::getViewUrl_LayoutPreview($layoutID, true, $addParams, $isFront);
+		$url = EWPHelper::getViewUrl_LayoutPreview($layoutID, true, $addParams, $isFront);
 		
 		return($url);
 	}
@@ -508,7 +508,7 @@ class UniteCreatorLayoutsWork extends UniteElementsBaseUC{
 			$layoutID = $responseCreate["id"];
 			$name = $responseCreate["name"];
 			
-			$message = HelperUC::getText("layout_created");
+			$message = EWPHelper::getText("layout_created");
 			
 		}else{
 			
@@ -519,7 +519,7 @@ class UniteCreatorLayoutsWork extends UniteElementsBaseUC{
 			
 			$name = UniteFunctionsUC::getVal($data, "name");
 			if(!empty($name))
-				$name = HelperUC::convertTitleToAlias($name);
+				$name = EWPHelper::convertTitleToAlias($name);
 			else{
 				if(!isset($data["name"]))
 					$name = null;	//to avoid validation if not passed
@@ -530,11 +530,11 @@ class UniteCreatorLayoutsWork extends UniteElementsBaseUC{
 				$title = UniteFunctionsUC::getVal($data, "title");
 				
 				$objLayout->updateTitle($title, $name);
-				$message = esc_html__("Title Saved","unlimited_elements");
+				$message = esc_html__("Title Saved","unlimited_elementor_elements");
 				
 			}else{
 				$objLayout->update($data);
-				$message = HelperUC::getText("layout_updated");
+				$message = EWPHelper::getText("layout_updated");
 			}
 			
 		}
@@ -591,7 +591,7 @@ class UniteCreatorLayoutsWork extends UniteElementsBaseUC{
 		
 		if($redirectToLayout == true){
 			
-			$urlRedirect = HelperUC::getViewUrl_Layout($duplicatedID);
+			$urlRedirect = EWPHelper::getViewUrl_Layout($duplicatedID);
 			return($urlRedirect);
 		}
 		
@@ -687,9 +687,9 @@ class UniteCreatorLayoutsWork extends UniteElementsBaseUC{
 			return(null);
 		
 		if(empty($layoutID))
-			$urlRedirect = HelperUC::getViewUrl_LayoutsList($params);
+			$urlRedirect = EWPHelper::getViewUrl_LayoutsList($params);
 		else
-			$urlRedirect = HelperUC::getViewUrl_Layout($layoutID, $params);
+			$urlRedirect = EWPHelper::getViewUrl_Layout($layoutID, $params);
 
 		
 		return($urlRedirect);

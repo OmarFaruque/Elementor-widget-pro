@@ -6,7 +6,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class BloxViewLicense{
@@ -19,9 +19,9 @@ class BloxViewLicense{
 	 */
 	protected function putHeaderHtml(){
 		
-		$headerTitle = esc_html__(" License", "unlimited_elements");
+		$headerTitle = esc_html__(" License", "unlimited_elementor_elements");
 		
-		require HelperUC::getPathTemplate("header");
+		require EWPHelper::getPathTemplate("header");
 		
 	}
 	
@@ -34,10 +34,10 @@ class BloxViewLicense{
 		if($this->showHeader == true)
 			$this->putHeaderHtml();
 		else
-			require HelperUC::getPathTemplate("header_missing");
+			require EWPHelper::getPathTemplate("header_missing");
 		
 			
-		$path = HelperUC::getPathViewObject("activation_view.class");
+		$path = EWPHelper::getPathViewObject("activation_view.class");
 		require_once $path;
 		
 		$pathProvider = GlobalsUC::$pathProviderViews."provider_activation_view.class.php";

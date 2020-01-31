@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorViewsChooser{
@@ -42,17 +42,17 @@ class UniteCreatorViewsChooser{
 	 */
 	protected function init(){
 		
-		$urlAddons = helperUC::getViewUrl_Addons();
-		$urlDividers = helperUC::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPE_DEVIDER);
-		$urlShapes = helperUC::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPES);
+		$urlAddons = EWPHelper::getViewUrl_Addons();
+		$urlDividers = EWPHelper::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPE_DEVIDER);
+		$urlShapes = EWPHelper::getViewUrl_Addons(GlobalsUC::ADDON_TYPE_SHAPES);
 		
-		$urlSections = HelperUC::getViewUrl_LayoutsList(array(), GlobalsUC::ADDON_TYPE_LAYOUT_SECTION);
+		$urlSections = EWPHelper::getViewUrl_LayoutsList(array(), GlobalsUC::ADDON_TYPE_LAYOUT_SECTION);
 		
-		$textAddons = esc_html__("My Addons", "unlimited_elements");
-		$textDividers = esc_html__("Dividers", "unlimited_elements");
-		$textShapes = esc_html__("Shapes", "unlimited_elements");
-		$textSection = esc_html__("Sections", "unlimited_elements");
-		$textPageTemplates = esc_html__("Page Templates", "unlimited_elements");
+		$textAddons = esc_html__("My Addons", "unlimited_elementor_elements");
+		$textDividers = esc_html__("Dividers", "unlimited_elementor_elements");
+		$textShapes = esc_html__("Shapes", "unlimited_elementor_elements");
+		$textSection = esc_html__("Sections", "unlimited_elementor_elements");
+		$textPageTemplates = esc_html__("Page Templates", "unlimited_elementor_elements");
 				
 		$this->addPage($urlAddons, $textAddons);
 		$this->addPage($urlDividers, $textDividers, "map");
@@ -87,9 +87,9 @@ class UniteCreatorViewsChooser{
 			
 			$headerTitle = $this->headerText;
 			
-			require HelperUC::getPathTemplate("header");
+			require EWPHelper::getPathTemplate("header");
 		}else
-			require HelperUC::getPathTemplate("header_missing");
+			require EWPHelper::getPathTemplate("header_missing");
 		
 		
 		?>

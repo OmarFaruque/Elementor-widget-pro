@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorLayoutPreview{
@@ -41,7 +41,7 @@ class UniteCreatorLayoutPreview{
 		
 		$titleText = $this->layout->getTitle();
 		
-		$title = HelperUC::getText("preview_layout")." - ";
+		$title = EWPHelper::getText("preview_layout")." - ";
 		
 		return($title);
 	}
@@ -52,7 +52,7 @@ class UniteCreatorLayoutPreview{
 	 */
 	protected function outputLayout($fullPage = false){
 		
-		HelperUC::outputLayout($this->layoutID, false, $fullPage);
+		EWPHelper::outputLayout($this->layoutID, false, $fullPage);
 		
 	}
 	

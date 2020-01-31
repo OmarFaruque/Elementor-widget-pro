@@ -1,7 +1,7 @@
 <?php
 
 // no direct access
-defined('UNLIMITED_ELEMENTS_INC') or die;
+defined('ELEMENTOR_WIDGET_PRO_INC') or die;
 
 class UniteCreatorAddonsViewProvider extends UniteCreatorAddonsView{
 	

@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 	
 	class UniteCreatorSettingsOutput extends UniteSettingsOutputUC{
 		
@@ -124,9 +124,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			<div id="<?php echo esc_attr($id)?>" data-name="<?php echo esc_attr($name)?>" data-settingtype="save_section_tolibrary" class="uc-setting-save-panel-wrapper unite-setting-input-object">
 				
 				<?php 
-				$buttonTitle = esc_html__("Save Section", "unlimited_elements");
-				$loaderTitle = esc_html__("Saving...", "unlimited_elements");
-				$successTitle = esc_html__("Section Saved", "unlimited_elements");
+				$buttonTitle = esc_html__("Save Section", "unlimited_elementor_elements");
+				$loaderTitle = esc_html__("Saving...", "unlimited_elementor_elements");
+				$successTitle = esc_html__("Section Saved", "unlimited_elementor_elements");
 				HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 				?>
 				
@@ -153,7 +153,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			$label = UniteFunctionsUC::getVal($setting, "button_text");
 			if(empty($label))
-				$label = esc_html__("Click Me", "unlimited_elements");
+				$label = esc_html__("Click Me", "unlimited_elementor_elements");
 			
 			$label = UniteFunctionsUC::sanitizeAttr($label);
 						
@@ -292,10 +292,10 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			$arrSuffix = array("top", "right", "bottom", "left");
 			$arrTitles = array(
-					esc_html__("Top","unlimited_elements"),
-					esc_html__("Right","unlimited_elements"), 
-					esc_html__("Bottom","unlimited_elements"),
-					esc_html__("Left","unlimited_elements")
+					esc_html__("Top","unlimited_elementor_elements"),
+					esc_html__("Right","unlimited_elementor_elements"), 
+					esc_html__("Bottom","unlimited_elementor_elements"),
+					esc_html__("Left","unlimited_elementor_elements")
 			);
 			
 			//put only top and bottom
@@ -303,8 +303,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				
 				$arrSuffix = array("top", "bottom");
 				$arrTitles = array(
-						esc_html__("Top","unlimited_elements"),
-						esc_html__("Bottom","unlimited_elements"),
+						esc_html__("Top","unlimited_elementor_elements"),
+						esc_html__("Bottom","unlimited_elementor_elements"),
 				);
 				
 			}
@@ -434,7 +434,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					$urlThumb = $value;
 				}
 			
-				$urlThumbFull = HelperUC::URLtoFull($urlThumb);
+				$urlThumbFull = EWPHelper::URLtoFull($urlThumb);
 				if(!empty($previewStyle))
 					$previewStyle .= ";";
 				
@@ -479,19 +479,19 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 						<div class="unite-no-image">
 					        <i class="fa fa-plus-circle"></i>
 					        <br>
-					        <?php esc_html_e("Select Image", "unlimited_elements")?>
+					        <?php esc_html_e("Select Image", "unlimited_elementor_elements")?>
 					     </div>
 					     
 					    <div class="unite-image-actions">
-					      <span class="unite-button-clear"><?php esc_html_e("Clear", "unlimited_elements")?></span>
-					      <span class="unite-button-choose"><?php esc_html_e("Change", "unlimited_elements")?></span>
+					      <span class="unite-button-clear"><?php esc_html_e("Clear", "unlimited_elementor_elements")?></span>
+					      <span class="unite-button-choose"><?php esc_html_e("Change", "unlimited_elementor_elements")?></span>
 					    </div>
       					
 					</div>
 				
 					<input type="text" id="<?php echo esc_attr($setting["id"])?>" name="<?php echo esc_attr($setting["name"])?>"  <?php echo UniteProviderFunctionsUC::escAddParam($class)?> value="<?php echo esc_attr($urlImage)?>" placeholder="<?php echo esc_attr($textPlaceholder)?>" <?php echo UniteProviderFunctionsUC::escAddParam($addHtml)?> />
 					
-					<div class='unite-setting-image-error' <?php echo UniteProviderFunctionsUC::escAddParam($errorStyle)?>><?php esc_html_e("Please select assets path", "unlimited_elements")?></div>
+					<div class='unite-setting-image-error' <?php echo UniteProviderFunctionsUC::escAddParam($errorStyle)?>><?php esc_html_e("Please select assets path", "unlimited_elementor_elements")?></div>
 															
 				</div>
 			<?php
@@ -540,8 +540,8 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			?>
 				<div class="unite-setting-mp3">
 					<input type="text" id="<?php echo esc_attr($setting["id"])?>" name="<?php echo esc_attr($setting["name"])?>" <?php echo UniteProviderFunctionsUC::escAddParam($class)?> value="<?php echo esc_attr($value)?>" <?php echo UniteProviderFunctionsUC::escAddParam($addHtml)?> />
-					<a href="javascript:void(0)" class="unite-button-secondary unite-button-choose <?php echo esc_attr($buttonAddClass)?>"><?php esc_html_e("Choose", "unlimited_elements")?></a>
-					<div class='unite-setting-mp3-error' <?php echo UniteProviderFunctionsUC::escAddParam($errorStyle)?>><?php esc_html_e("Please select assets path", "unlimited_elements")?></div>
+					<a href="javascript:void(0)" class="unite-button-secondary unite-button-choose <?php echo esc_attr($buttonAddClass)?>"><?php esc_html_e("Choose", "unlimited_elementor_elements")?></a>
+					<div class='unite-setting-mp3-error' <?php echo UniteProviderFunctionsUC::escAddParam($errorStyle)?>><?php esc_html_e("Please select assets path", "unlimited_elementor_elements")?></div>
 				</div>
 			<?php
 		}
@@ -650,7 +650,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		private function getFontsPanelHtmlFields($arrParams, $arrFontsData, $addTemplate = false){
 			
-			$arrData = HelperUC::getFontPanelData($addTemplate);
+			$arrData = EWPHelper::getFontPanelData($addTemplate);
 			
 			if($addTemplate == true)
 				$arrFontsTemplate = UniteCreatorPageBuilder::getPageFontNames(true);
@@ -715,16 +715,16 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				 $classInput = "uc-fontspanel-field";
 				 
 				 if($addTemplate == true)
-				 	$selectFontTemplate = HelperHtmlUC::getHTMLSelect($arrFontsTemplate, $fontTemplate,"data-fieldname='template' class='{$classInput}'", true, "not_chosen", esc_html__("---- Select Page Font----", "unlimited_elements"));
+				 	$selectFontTemplate = HelperHtmlUC::getHTMLSelect($arrFontsTemplate, $fontTemplate,"data-fieldname='template' class='{$classInput}'", true, "not_chosen", esc_html__("---- Select Page Font----", "unlimited_elementor_elements"));
 				 
-				 $selectFontFamily = HelperHtmlUC::getHTMLSelect($arrData["arrFontFamily"],$fontFamily,"data-fieldname='font-family' class='{$classInput}'", true, "not_chosen", esc_html__("Select Font Family", "unlimited_elements"));
+				 $selectFontFamily = HelperHtmlUC::getHTMLSelect($arrData["arrFontFamily"],$fontFamily,"data-fieldname='font-family' class='{$classInput}'", true, "not_chosen", esc_html__("Select Font Family", "unlimited_elementor_elements"));
 				 
-				 $selectFontWeight = HelperHtmlUC::getHTMLSelect($arrData["arrFontWeight"],$fontWeight,"data-fieldname='font-weight' class='{$classInput}'", false, "not_chosen", esc_html__("Select", "unlimited_elements"));
+				 $selectFontWeight = HelperHtmlUC::getHTMLSelect($arrData["arrFontWeight"],$fontWeight,"data-fieldname='font-weight' class='{$classInput}'", false, "not_chosen", esc_html__("Select", "unlimited_elementor_elements"));
 				 
-				 $selectLineHeight = HelperHtmlUC::getHTMLSelect($arrData["arrLineHeight"],$lineHeight,"data-fieldname='line-height' class='{$classInput}'", false, "not_chosen", esc_html__("Select", "unlimited_elements"));
-				 $selectTextDecoration = HelperHtmlUC::getHTMLSelect($arrData["arrTextDecoration"],$textDecoration,"data-fieldname='text-decoration' class='{$classInput}'", false, "not_chosen", esc_html__("Select Text Decoration", "unlimited_elements"));
+				 $selectLineHeight = HelperHtmlUC::getHTMLSelect($arrData["arrLineHeight"],$lineHeight,"data-fieldname='line-height' class='{$classInput}'", false, "not_chosen", esc_html__("Select", "unlimited_elementor_elements"));
+				 $selectTextDecoration = HelperHtmlUC::getHTMLSelect($arrData["arrTextDecoration"],$textDecoration,"data-fieldname='text-decoration' class='{$classInput}'", false, "not_chosen", esc_html__("Select Text Decoration", "unlimited_elementor_elements"));
 				 
-				 $selectFontStyle = HelperHtmlUC::getHTMLSelect($arrData["arrFontStyle"],$fontStyle,"data-fieldname='font-style' class='{$classInput}'", false, "not_chosen", esc_html__("Select", "unlimited_elements"));
+				 $selectFontStyle = HelperHtmlUC::getHTMLSelect($arrData["arrFontStyle"],$fontStyle,"data-fieldname='font-style' class='{$classInput}'", false, "not_chosen", esc_html__("Select", "unlimited_elementor_elements"));
 				 
 				 $classSection = "uc-fontspanel-details";			 
 				 
@@ -747,18 +747,18 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			     if($addTemplate == true){
 			     	
 				     $html .= "<span class=\"{$classSection} uc-details-font-select\">".$br;
-				     $html .= " 			".esc_html__("From Page Font", "unlimited_elements")."<br>".$br;
+				     $html .= " 			".esc_html__("From Page Font", "unlimited_elementor_elements")."<br>".$br;
 				     $html .= "		".$selectFontTemplate.$br;
 				     $html .= "</span>".$br;
 			     }
 			     
 			     $html .= "<span class=\"{$classSection} uc-details-font-family\">".$br;
-			     $html .= " 			".esc_html__("Font Family", "unlimited_elements")."<br>".$br;
+			     $html .= " 			".esc_html__("Font Family", "unlimited_elementor_elements")."<br>".$br;
 			     $html .= "		".$selectFontFamily.$br;
 			     $html .= "</span>".$br;
 			     
 			     $html .= "<span class=\"{$classSection} uc-details-font-weight\">".$br;
-			     $html .= "			".esc_html__("Font Weight", "unlimited_elements")."<br>".$br;
+			     $html .= "			".esc_html__("Font Weight", "unlimited_elementor_elements")."<br>".$br;
 			     $html .= "		".$selectFontWeight.$br;
 			     $html .= "</span>".$br;
 			     
@@ -770,19 +770,19 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			     
 			     $arrPlaceholdersGroup = array($idFontSize, $idFontSizeTablet, $idFontSizeMobile);
 			     
-			     $text = esc_html__("Font Size (px)", "unlimited_elements");
+			     $text = esc_html__("Font Size (px)", "unlimited_elementor_elements");
 			     $html .= $this->getFontsPanelHtmlFields_slider("font-size", $text, $fontSize, "", $idFontSize, $arrPlaceholdersGroup, "uc-showin-desktop");
 				
-			     $text = esc_html__("Font Size - Tablet (px)", "unlimited_elements");
+			     $text = esc_html__("Font Size - Tablet (px)", "unlimited_elementor_elements");
 			     $html .= $this->getFontsPanelHtmlFields_slider("font-size-tablet", $text, $fontSizeTablet, $placeholderSizeTablet, $idFontSizeTablet, $arrPlaceholdersGroup, "uc-showin-tablet");
 			     
-			     $text = esc_html__("Font Size - Mobile (px)", "unlimited_elements");
+			     $text = esc_html__("Font Size - Mobile (px)", "unlimited_elementor_elements");
 			     $html .= $this->getFontsPanelHtmlFields_slider("font-size-mobile", $text, $fontSizeMobile, $placeholderSizeMobile, $idFontSizeMobile,null,"uc-showin-mobile");
 			     
 			     // --------- 
 		      	 		      	 
 			     $html .= "<span class=\"{$classSection} uc-details-line-height\">".$br;
-			     $html .= "		".esc_html__("Line Height", "unlimited_elements")."<br>".$br;
+			     $html .= "		".esc_html__("Line Height", "unlimited_elementor_elements")."<br>".$br;
 			     $html .= "		".$selectLineHeight.$br;
 			     $html .= "</span>".$br;
 			     
@@ -791,12 +791,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			     $html .= "<div class=\"uc-fontspanel-line\">".$br;
 			     		      			      		
 		      	 $html .= "<span class=\"{$classSection} uc-details-text-decoration\">".$br;
-		      	 $html .= "	".esc_html__("Text Decoration", "unlimited_elements")."<br>".$br;
+		      	 $html .= "	".esc_html__("Text Decoration", "unlimited_elementor_elements")."<br>".$br;
 		      	 $html .= $selectTextDecoration;
 		      	 $html .= "</span>".$br;
 			     
 		      	 $html .= "<span class=\"{$classSection} uc-details-color\">".$br;
-		      	 $html .= "	".esc_html__("Color", "unlimited_elements")."<br>".$br;
+		      	 $html .= "	".esc_html__("Color", "unlimited_elementor_elements")."<br>".$br;
 		      	 $html .= "<div class='unite-color-picker-wrapper'>".$br;
 		      	 $html .= "	<input type=\"text\" data-fieldname='color' value=\"{$color}\" class=\"unite-color-picker {$classInput}\">	".$br;
 		      	 $html .= "</div>".$br;
@@ -804,18 +804,18 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			     
 		      	 /*
 		      	 $html .= "<span class=\"{$classSection} uc-details-mobile-size\">".$br;
-		      	 $html .= "	".esc_html__("Mobile Font Size", "unlimited_elements")."<br>".$br;
+		      	 $html .= "	".esc_html__("Mobile Font Size", "unlimited_elementor_elements")."<br>".$br;
 		      	 $html .= "	".$selectMobileSize.$br;
 		      	 $html .= "</span>".$br;
 		      	 */
 		      	 
 		      	 $html .= "<span class=\"{$classSection} uc-details-font-style\">".$br;
-		      	 $html .= "	".esc_html__("Font Style", "unlimited_elements")."<br>".$br;
+		      	 $html .= "	".esc_html__("Font Style", "unlimited_elementor_elements")."<br>".$br;
 		      	 $html .= $selectFontStyle;
 		      	 $html .= "</span>".$br;
 		      	 
 		      	 $html .= "<span class=\"{$classSection} uc-details-custom-styles\">".$br;
-		      	 $html .= "	".esc_html__("Custom Styles", "unlimited_elements")."<br>".$br;
+		      	 $html .= "	".esc_html__("Custom Styles", "unlimited_elementor_elements")."<br>".$br;
 		      	 $html .= "	<input type=\"text\" data-fieldname='custom' value=\"{$customStyles}\" class=\"{$classInput}\">	".$br;
 		      	 $html .= "</span>".$br;
 		      	 
@@ -873,7 +873,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$isElementor = true;
 			
 			
-			$arrData = HelperUC::getFontPanelData();
+			$arrData = EWPHelper::getFontPanelData();
 			$valueNotChosen = "not_chosen";
 			
 			
@@ -936,12 +936,12 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					
 					$styleSelector = "uc-style-{$addonName}-{$name}";
 					
-					$styleSelector = HelperUC::convertTitleToHandle($styleSelector);
+					$styleSelector = EWPHelper::convertTitleToHandle($styleSelector);
 					
 					$arrFields[] = $this->getFontsParams_getArrParam(UniteCreatorDialogParam::PARAM_HIDDEN, "style-selector", $name, "Style Selector", $styleSelector);
 				}
 				
-				$fieldEnable = $this->getFontsParams_getArrParam(UniteCreatorDialogParam::PARAM_CHECKBOX, "fonts-enabled", $name, __("Enable Styles", "unlimited_elements"),null, null, array("is_checked"=>$isDataExists));
+				$fieldEnable = $this->getFontsParams_getArrParam(UniteCreatorDialogParam::PARAM_CHECKBOX, "fonts-enabled", $name, __("Enable Styles", "unlimited_elementor_elements"),null, null, array("is_checked"=>$isDataExists));
 				
 				$arrFields[] = $fieldEnable;
 				
@@ -975,7 +975,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				$arrFields[] = $this->getFontsParams_getArrParam($paramType, "font-size-tablet", 	$name, "Tablet Size", $mobileSize, $arrTabletSize);
 				$arrFields[] = $this->getFontsParams_getArrParam($paramType, "line-height", 	$name, "Line Height", $lineHeight, $arrLineHeight);
 				$arrFields[] = $this->getFontsParams_getArrParam($paramType, "text-decoration", 	$name, "Text Decoraiton", $textDecoration, $arrTextDecoration);
-				$arrFields[] = $this->getFontsParams_getArrParam(UniteCreatorDialogParam::PARAM_TEXTAREA, "custom", 	$name, __("Custom Styles", "unlimited_elements"), $customStyles);
+				$arrFields[] = $this->getFontsParams_getArrParam(UniteCreatorDialogParam::PARAM_TEXTAREA, "custom", 	$name, __("Custom Styles", "unlimited_elementor_elements"), $customStyles);
 								
 				
 				$arrParams[$name] = $arrFields;
@@ -1007,7 +1007,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			}else{
 							
 				$html .= self::TAB3."<div class='uc-addon-config-fonts'>".self::BR;
-				$html .= "<h2>".esc_html__("Edit Fonts", "unlimited_elements")."</h2>";
+				$html .= "<h2>".esc_html__("Edit Fonts", "unlimited_elementor_elements")."</h2>";
 				
 				$isInsideGrid = UniteFunctionsUC::getVal($setting, "inside_grid");
 				$addGridTemplate = UniteFunctionsUC::strToBool($isInsideGrid);
@@ -1048,9 +1048,9 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			<?php 
 				
 				if($this->isSidebar == true): ?>
-					<a href="javascript:void(0)" class="unite-button-secondary uc-setting-items-panel-button"><?php esc_html_e("Edit Addon Items", "unlimited_elements")?></a>
+					<a href="javascript:void(0)" class="unite-button-secondary uc-setting-items-panel-button"><?php esc_html_e("Edit Addon Items", "unlimited_elementor_elements")?></a>
 					
-					<div id='<?php echo esc_attr($idDialog)?>' class='uc-settings-items-panel-dialog' title="<?php esc_html_e("Edit Addon Items", "unlimited_elements")?>" style='display:none'>
+					<div id='<?php echo esc_attr($idDialog)?>' class='uc-settings-items-panel-dialog' title="<?php esc_html_e("Edit Addon Items", "unlimited_elementor_elements")?>" style='display:none'>
 				<?php endif;
 				
 				$objManager->outputHtml();

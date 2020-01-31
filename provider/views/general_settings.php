@@ -1,6 +1,6 @@
 <?php
 
-defined('UNLIMITED_ELEMENTS_INC') or die;
+defined('ELEMENTOR_WIDGET_PRO_INC') or die;
 
 class UniteCreatorViewGeneralSettingsProvider extends UniteCreatorViewGeneralSettings{
 
@@ -12,7 +12,7 @@ class UniteCreatorViewGeneralSettingsProvider extends UniteCreatorViewGeneralSet
 		return(false);
 		
 		?>
-			<a data-contentid="uc_tab_developers" href="javascript:void(0)" onfocus="this.blur()"> <?php esc_html_e("Theme Developers", "unlimited_elements")?></a>
+			<a data-contentid="uc_tab_developers" href="javascript:void(0)" onfocus="this.blur()"> <?php esc_html_e("Theme Developers", "unlimited_elementor_elements")?></a>
 		<?php
 		
 	}

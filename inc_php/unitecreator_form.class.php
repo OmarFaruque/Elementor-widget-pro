@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorForm extends HtmlOutputBaseUC{
 	
@@ -62,29 +62,29 @@ class UniteCreatorForm extends HtmlOutputBaseUC{
 		$arrValues = UniteFunctionsUC::getVal($value, $name);
 		
 		
-		$adminEmail = helperuc::getGeneralSetting("form_admin_email");
+		$adminEmail = EWPHelper::getGeneralSetting("form_admin_email");
 		$adminEmail = trim($adminEmail);
 		
-		$urlGeneralSettings = HelperUC::getViewUrl(GlobalsUC::VIEW_SETTINGS);
-		$linkGeneralSettings = HelperHtmlUC::getHtmlLink($urlGeneralSettings, esc_html__("General Settings","unlimited_elements"),"","",true);
+		$urlGeneralSettings = EWPHelper::getViewUrl(GlobalsUC::VIEW_SETTINGS);
+		$linkGeneralSettings = HelperHtmlUC::getHtmlLink($urlGeneralSettings, esc_html__("General Settings","unlimited_elementor_elements"),"","",true);
 		$urlGeneralSettings .= "#tab=fields_settings";
 		
 		
 		if(empty($adminEmail))
-			$objSettings->addStaticText(esc_html__("Please fill admin email in","unlimited_elements")." {$linkGeneralSettings}.");
+			$objSettings->addStaticText(esc_html__("Please fill admin email in","unlimited_elementor_elements")." {$linkGeneralSettings}.");
 		else
-			$objSettings->addStaticText(esc_html__("Admin Email","unlimited_elements").": <b>$adminEmail</b> (".esc_html__("you can change it in","unlimited_elements")." {$linkGeneralSettings})");
+			$objSettings->addStaticText(esc_html__("Admin Email","unlimited_elementor_elements").": <b>$adminEmail</b> (".esc_html__("you can change it in","unlimited_elementor_elements")." {$linkGeneralSettings})");
 		
 		$objSettings->addHr();
 		
 		$sendTextValue = UniteFunctionsUC::getVal($arrValues, $name."_send_button_text", "Send");
-		$objSettings->addTextBox($name."_send_button_text",$sendTextValue,esc_html__("Send Button Text", "unlimited_elements"));
+		$objSettings->addTextBox($name."_send_button_text",$sendTextValue,esc_html__("Send Button Text", "unlimited_elementor_elements"));
 		
 		$sendingTextValue = UniteFunctionsUC::getVal($arrValues, $name."_sending_text", "Sending...");
-		$objSettings->addTextBox($name."_sending_text",$sendingTextValue,esc_html__("Loading Text", "unlimited_elements"));
+		$objSettings->addTextBox($name."_sending_text",$sendingTextValue,esc_html__("Loading Text", "unlimited_elementor_elements"));
 		
 		$successTextValue = UniteFunctionsUC::getVal($arrValues, $name."_success_text", "Thank you for contacting us");
-		$objSettings->addTextBox($name."_success_text",$successTextValue,esc_html__("Thank you text", "unlimited_elements"));
+		$objSettings->addTextBox($name."_success_text",$successTextValue,esc_html__("Thank you text", "unlimited_elementor_elements"));
 		
 	}
 	
@@ -130,7 +130,7 @@ class UniteCreatorForm extends HtmlOutputBaseUC{
 		
 		$this->addFormIncludes();
 		
-		$sendButtonText = UniteFunctionsUC::getVal($arrValues, "{$paramName}_send_button_text", esc_html__("Send", "unlimited_elements"));
+		$sendButtonText = UniteFunctionsUC::getVal($arrValues, "{$paramName}_send_button_text", esc_html__("Send", "unlimited_elementor_elements"));
 		
 		$htmlStart = "";
 		$htmlStart .= "<form class='uc-form' name='uc_form_{$paramName}'>".self::BR;
@@ -259,7 +259,7 @@ class UniteCreatorForm extends HtmlOutputBaseUC{
 		
 		$message = "";
 		
-		$emailPrefix = HelperUC::getGeneralSetting("form_admin_email_prefix");
+		$emailPrefix = EWPHelper::getGeneralSetting("form_admin_email_prefix");
 		if(empty($emailPrefix))
 			$emailPrefix = "The client info is:";
 		
@@ -308,7 +308,7 @@ class UniteCreatorForm extends HtmlOutputBaseUC{
 		//put error message
 		$title = UniteFunctionsUC::getVal($arrField, "title");
 		
-		$message = esc_html__("Please fill","unlimited_elements"). " <b>".$title. "</b>". esc_html__(" field","unlimited_elements");
+		$message = esc_html__("Please fill","unlimited_elementor_elements"). " <b>".$title. "</b>". esc_html__(" field","unlimited_elementor_elements");
 		UniteFunctionsUC::throwError($message);
 		
 		
@@ -351,9 +351,9 @@ class UniteCreatorForm extends HtmlOutputBaseUC{
 			
 			$insideValidation = false;
 			
-			$adminEmail = HelperUC::getGeneralSetting("form_admin_email");
+			$adminEmail = EWPHelper::getGeneralSetting("form_admin_email");
 			
-			$urlViewSettings = HelperUC::getViewUrl(GlobalsUC::VIEW_SETTINGS,"#tab=fields_settings");
+			$urlViewSettings = EWPHelper::getViewUrl(GlobalsUC::VIEW_SETTINGS,"#tab=fields_settings");
 			$htmlLink = HelperHtmlUC::getHtmlLink($urlViewSettings, "general settings","","",true);
 			
 			if(UniteFunctionsUC::isEmailValid($adminEmail) == false)

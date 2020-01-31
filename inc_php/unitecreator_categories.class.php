@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
@@ -94,7 +94,7 @@ class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
 		//all
 		$arrCatAll = array();
 		$arrCatAll["id"] = "all";
-		$arrCatAll["title"] = HelperUC::getText("all_addons");
+		$arrCatAll["title"] = EWPHelper::getText("all_addons");
 		$arrCatAll["alias"] = "";
 		$arrCatAll["ordering"] = 0;
 		$arrCatAll["parent_id"] = "";
@@ -106,7 +106,7 @@ class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
 		//uncategorized
 		$arrCatZero = array();
 		$arrCatZero["id"] = 0;
-		$arrCatZero["title"] = HelperUC::getText("uncategorized");
+		$arrCatZero["title"] = EWPHelper::getText("uncategorized");
 		$arrCatZero["alias"] = "";
 		$arrCatZero["ordering"] = 0;
 		$arrCatZero["parent_id"] = "";
@@ -216,7 +216,7 @@ class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
 		//add uncategorised
 		$arrCatsNew[] = array(
 				"id" => 0,
-				"title" => esc_html__("Uncategorized", "unlimited_elements"),
+				"title" => esc_html__("Uncategorized", "unlimited_elementor_elements"),
 				"num_layouts" => 0
 		);
 		
@@ -365,24 +365,24 @@ class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
 		
 		switch($addType){
 			case "empty":
-				$arrCatsOutput[""] = esc_html__("[Not Selected]", "unlimited_elements");
+				$arrCatsOutput[""] = esc_html__("[Not Selected]", "unlimited_elementor_elements");
 			break;
 			case "new":
-				$arrCatsOutput["new"] = esc_html__("[Add New Category]", "unlimited_elements");
+				$arrCatsOutput["new"] = esc_html__("[Add New Category]", "unlimited_elementor_elements");
 			break;
 			case "component":
-				$arrCatsOutput[""] = esc_html__("[From Gallery Settings]", "unlimited_elements");
+				$arrCatsOutput[""] = esc_html__("[From Gallery Settings]", "unlimited_elementor_elements");
 			break;
 			case "all_uncat":
-				$arrCatsOutput["all"] = HelperUC::getText("all_addons");
-				$arrCatsOutput[0] = HelperUC::getText("uncategorized");
+				$arrCatsOutput["all"] = EWPHelper::getText("all_addons");
+				$arrCatsOutput[0] = EWPHelper::getText("uncategorized");
 			break;
 			case "uncategorized":
-				$arrCatsOutput[0] = HelperUC::getText("uncategorized");
+				$arrCatsOutput[0] = EWPHelper::getText("uncategorized");
 			break;
 			case "all_uncat_layouts":
-				$arrCatsOutput["all"] = HelperUC::getText("all_layouts");
-				$arrCatsOutput[0] = HelperUC::getText("uncategorized");
+				$arrCatsOutput["all"] = EWPHelper::getText("all_layouts");
+				$arrCatsOutput[0] = EWPHelper::getText("uncategorized");
 			break;
 			
 		}
@@ -693,6 +693,7 @@ class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
 		$numAddons = UniteFunctionsUC::getVal($cat, "num_addons", 0);
 				
 		$showTitle = $title;
+
 	
 		if(!empty($numAddons))
 			$showTitle .= " ($numAddons)";
@@ -717,26 +718,22 @@ class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
 		if(!empty($class))
 			$class = "class=\"{$class}\"";
 		
-		$html = "";
-		$html .= "<li id=\"category_{$id}\" {$class} data-id=\"{$id}\" data-numaddons=\"{$numAddons}\" data-title=\"{$dataTitle}\" {$addHtml}>\n";
+		$output = "";
+		$output .= "<li id=\"category_{$id}\" {$class} data-id=\"{$id}\" data-numaddons=\"{$numAddons}\" data-title=\"{$dataTitle}\" {$addHtml}>\n";
 		
 		//add icon
 		if(!empty($classIcon))
 			$showTitle = "<i class='uc-cat-icon $classIcon'></i>".$showTitle;
 		
-		$html .= "	<span class=\"cat_title\">{$showTitle}</span>\n";
+		$output .= "	<span class=\"cat_title\">".$showTitle."</span>\n";
 		if($isweb == true){
-			
 			$urlWebIcon = GlobalsUC::$urlPluginImages."icon_cloud.svg";
-			
-			$textCloudCat = __("This category not installed yet in your catalog", "unlimited_elements");
-			
-			$html .= "<img class=\"uc-state-label-icon\" src=\"{$urlWebIcon}\" title=\"$textCloudCat\">\n";
+			$textCloudCat = __("This category not installed yet in your catalog", "unlimited_elementor_elements");
+			$output .= "<img class=\"uc-state-label-icon\" src=\"{$urlWebIcon}\" title=\"$textCloudCat\">\n";
 		}
-		
-		$html .= "</li>\n";
+		$output .= "</li>\n";
 	
-		return($html);
+		return($output);
 	}
 	
 	
@@ -945,7 +942,7 @@ class UniteCreatorCategoriesWork extends UniteElementsBaseUC{
 		$arrCat = array("id"=>$response["id"],"title"=>$response["title"],"num_addons"=>0);
 		$html = $this->getCatHTML($arrCat);
 		
-		$response["message"] = esc_html__("Category Added", "unlimited_elements");
+		$response["message"] = esc_html__("Category Added", "unlimited_elementor_elements");
 		$response["htmlSelectCats"] = $this->getHtmlSelectCats($type);
 		$response["htmlCat"] = $html;
 		

@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved.
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorLayoutsExporterWork extends UniteCreatorExporterBase{
 	
@@ -224,7 +224,7 @@ class UniteCreatorLayoutsExporterWork extends UniteCreatorExporterBase{
 			$prefix = $this->getExportPrefix();
 		}
 		
-		$handle = HelperUC::convertTitleToHandle($title);
+		$handle = EWPHelper::convertTitleToHandle($title);
 		
 		
 		UniteFunctionsUC::validateDir($this->pathCopyLayout,"copy layout path");
@@ -280,7 +280,7 @@ class UniteCreatorLayoutsExporterWork extends UniteCreatorExporterBase{
 	private function getExportedFileData(){
 		
 		$filepath = $this->pathExportZip;
-		$urlFile = HelperUC::pathToFullUrl($filepath);
+		$urlFile = EWPHelper::pathToFullUrl($filepath);
 		$filename = $this->filenameZip;
 		
 		$output = array();
@@ -428,21 +428,21 @@ class UniteCreatorLayoutsExporterWork extends UniteCreatorExporterBase{
 			if(strpos($urlImage, self::KEY_LOCAL) !== false)
 			    return(null);
 		
-		$urlImage = HelperUC::URLtoFull($urlImage);
+		$urlImage = EWPHelper::URLtoFull($urlImage);
 		
-		$pathImage = HelperUC::urlToPath($urlImage);
+		$pathImage = EWPHelper::urlToPath($urlImage);
 		if(empty($pathImage))
 			return null;
 		
 		if(file_exists($pathImage) == false || is_file($pathImage) == false)
 			return null;
 							
-		$isUnderAssets = HelperUC::isPathUnderAssetsPath($pathImage);
+		$isUnderAssets = EWPHelper::isPathUnderAssetsPath($pathImage);
 		
 		if($isUnderAssets == true)
 			return null;
 		
-		$handlePath = HelperUC::convertTitleToHandle($pathImage);
+		$handlePath = EWPHelper::convertTitleToHandle($pathImage);
 		
 		if(isset($this->arrExportImages[$handlePath])){
 			$saveFilename = $this->arrExportImages[$handlePath]["save_filename"];
@@ -1071,8 +1071,8 @@ class UniteCreatorLayoutsExporterWork extends UniteCreatorExporterBase{
 			
 			$arrImage["dest"] = $destFilepath;
 			
-			$arrImage["url"] = HelperUC::pathToRelativeUrl($destFilepath);
-			$arrImage["urlfull"] = HelperUC::pathToFullUrl($destFilepath);
+			$arrImage["url"] = EWPHelper::pathToRelativeUrl($destFilepath);
+			$arrImage["urlfull"] = EWPHelper::pathToFullUrl($destFilepath);
 			
 			$this->arrImportImages[$key] = $arrImage;
 		}

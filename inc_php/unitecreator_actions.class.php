@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorActions{
 
@@ -20,7 +20,7 @@ class UniteCreatorActions{
 		//create
 		if($isUpdate == false){
 			
-			HelperUC::ajaxResponseData($response);
+			EWPHelper::ajaxResponseData($response);
 			
 		}else{
 			//update
@@ -32,7 +32,7 @@ class UniteCreatorActions{
 			if(!empty($pageName))
 				$arrData["page_name"] = $pageName;
 			
-			HelperUC::ajaxResponseSuccess($message,$arrData);
+			EWPHelper::ajaxResponseSuccess($message,$arrData);
 		}
 		
 	}
@@ -83,7 +83,6 @@ class UniteCreatorActions{
 		
 		
 		$action = UniteFunctionsUC::getPostGetVariable("client_action","",UniteFunctionsUC::SANITIZE_KEY);
-		
 		//go to front
 		switch($action){
 			case "send_form":
@@ -113,22 +112,22 @@ class UniteCreatorActions{
 				case "remove_category":
 					$response = $categories->removeFromData($data);
 				
-					HelperUC::ajaxResponseSuccess(esc_html__("The category deleted successfully","unlimited_elements"),$response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("The category deleted successfully","unlimited_elementor_elements"),$response);
 					break;
 				case "update_category":
 					$categories->updateFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Category updated","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Category updated","unlimited_elementor_elements"));
 					break;
 				case "update_cat_order":
 					$categories->updateOrderFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Order updated","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Order updated","unlimited_elementor_elements"));
 				break;
 				case "get_category_settings_html":
 					
 					$manager = UniteCreatorManager::getObjManagerByAddonType($addonType);
 					
 					$responeData = $manager->getCatSettingsHtmlFromData($data);
-					HelperUC::ajaxResponseData($responeData);
+					EWPHelper::ajaxResponseData($responeData);
 				break;
 				case "get_cat_addons":
 					
@@ -136,7 +135,7 @@ class UniteCreatorActions{
 					
 					$responeData = $manager->getCatAddonsHtmlFromData($data);
 					
-					HelperUC::ajaxResponseData($responeData);
+					EWPHelper::ajaxResponseData($responeData);
 				break;
 				case "get_layouts_params_settings_html":
 					
@@ -144,7 +143,7 @@ class UniteCreatorActions{
 								
 					$responseData = $manager->getAddonPropertiesDialogHtmlFromData($data);
 					
-					HelperUC::ajaxResponseData($responseData);
+					EWPHelper::ajaxResponseData($responseData);
 					
 				break;
 				case "get_catlist":
@@ -153,32 +152,32 @@ class UniteCreatorActions{
 					
 					$responeData = $manager->getCatListFromData($data);
 					
-					HelperUC::ajaxResponseData($responeData);
+					EWPHelper::ajaxResponseData($responeData);
 				break;
 				case "get_layouts_categories":
 					$responeData = $categories->getLayoutsCatsListFromData($data);
-					HelperUC::ajaxResponseData($responeData);
+					EWPHelper::ajaxResponseData($responeData);
 				break;
 				case "update_addon":
 					$response = $addons->updateAddonFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Updated.","unlimited_elements"),$response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Updated.","unlimited_elementor_elements"),$response);
 				break;
 				case "get_addon_bulk_dialog":
 					$response = $operations->getAddonBulkDialogFromData($data);
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 				break;
 				case "update_addons_bulk":
 					$addons->updateAddonsBulkFromData($data);
 					$response = $operations->getAddonBulkDialogFromData($data);
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 				break;
 				case "delete_addon":
 					$addons->deleteAddonFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("The addon deleted successfully","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("The addon deleted successfully","unlimited_elementor_elements"));
 				break;
 				case "add_category":
 					$catData = $categories->addFromData($data);
-					HelperUC::ajaxResponseData($catData);
+					EWPHelper::ajaxResponseData($catData);
 				break;
 				case "add_addon":
 					
@@ -187,65 +186,65 @@ class UniteCreatorActions{
 					
 					$response = $addons->createFromManager($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Addon added successfully","unlimited_elements"), $response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Addon added successfully","unlimited_elementor_elements"), $response);
 				break;
 				case "update_addon_title":
 					$addons->updateAddonTitleFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Addon updated successfully","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Addon updated successfully","unlimited_elementor_elements"));
 				break;
 				case "update_addons_activation":
 					$addons->activateAddonsFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Addons updated successfully","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Addons updated successfully","unlimited_elementor_elements"));
 				break;
 				case "remove_addons":
 					$response = $addons->removeAddonsFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Addons Removed","unlimited_elements"), $response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Addons Removed","unlimited_elementor_elements"), $response);
 				break;
 				case "update_addons_order":
 					$addons->saveOrderFromData($data);
 
-					HelperUC::ajaxResponseSuccess(esc_html__("Order Saved","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Order Saved","unlimited_elementor_elements"));
 				break;
 				case "update_layouts_order":
 					$layouts->updateOrderFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Order Saved","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Order Saved","unlimited_elementor_elements"));
 				break;
 				case "move_addons":
 					$response = $addons->moveAddonsFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Done Operation","unlimited_elements"),$response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Done Operation","unlimited_elementor_elements"),$response);
 				break;
 				case "duplicate_addons":
 					$response = $addons->duplicateAddonsFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Duplicated Successfully","unlimited_elements"),$response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Duplicated Successfully","unlimited_elementor_elements"),$response);
 				break;
 				case "get_addon_config_html":
 					
 					$response = $addons->getAddonConfigHTML($data);
 					
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 				break;
 				case "get_addon_settings_html":
 					
 					$html = $addons->getAddonSettingsHTMLFromData($data);
-					HelperUC::ajaxResponseData(array("html"=>$html));
+					EWPHelper::ajaxResponseData(array("html"=>$html));
 				break;
 				case "get_addon_item_settings_html":
 				
 					$html = $addons->getAddonItemsSettingsHTMLFromData($data);
-					HelperUC::ajaxResponseData(array("html"=>$html));
+					EWPHelper::ajaxResponseData(array("html"=>$html));
 				break;
 				case "get_addon_editor_data":
 					$response = $addons->getAddonEditorData($data);
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 				break;
 				case "get_addon_output_data":
 					$response = $addons->getLayoutAddonOutputData($data);
 					
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 				break;
 				case "show_preview":
 					$addons->showAddonPreviewFromData($data);
@@ -253,19 +252,19 @@ class UniteCreatorActions{
 				break;
 				case "save_addon_defaults":
 					$addons->saveAddonDefaultsFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Saved","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Saved","unlimited_elementor_elements"));
 				break;
 				case "save_test_addon":
 					$addons->saveTestAddonData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Saved","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Saved","unlimited_elementor_elements"));
 				break;
 				case "get_test_addon_data":
 					$response = $addons->getTestAddonData($data);
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 				break;
 				case "delete_test_addon_data":
 					$addons->deleteTestAddonData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Test data deleted","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Test data deleted","unlimited_elementor_elements"));
 				break;
 				case "export_addon":
 					$addons->exportAddon($data);
@@ -277,20 +276,20 @@ class UniteCreatorActions{
 				case "import_addons":
 					$response = $addons->importAddons($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Addons Imported","unlimited_elements"),$response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Addons Imported","unlimited_elementor_elements"),$response);
 				break;
 				case "import_layouts":
 					$urlRedirect = $layouts->importLayouts($data);
 					
 					if(!empty($urlRedirect))
-						HelperUC::ajaxResponseSuccessRedirect(HelperUC::getText("layout_imported"), $urlRedirect);
+						EWPHelper::ajaxResponseSuccessRedirect(EWPHelper::getText("layout_imported"), $urlRedirect);
 					else
-						HelperUC::ajaxResponseSuccess(HelperUC::getText("layout_imported"));
+						EWPHelper::ajaxResponseSuccess(EWPHelper::getText("layout_imported"));
 					
 				break;
 				case "get_version_text":
 					$content = HelperHtmlUC::getVersionText();
-					HelperUC::ajaxResponseData(array("text"=>$content));
+					EWPHelper::ajaxResponseData(array("text"=>$content));
 				break;
 				case "update_plugin":
 				
@@ -305,13 +304,13 @@ class UniteCreatorActions{
 				case "update_general_settings":
 					$operations->updateGeneralSettingsFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Settings Saved","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Settings Saved","unlimited_elementor_elements"));
 				break;
 				case "update_global_layout_settings":
 					
 					UniteCreatorLayout::updateLayoutGlobalSettingsFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Settings Saved","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Settings Saved","unlimited_elementor_elements"));
 				break;
 				case "update_layout":
 					
@@ -321,29 +320,29 @@ class UniteCreatorActions{
 				break;
 				case "update_layout_category":
 					$response = $layouts->updateLayoutCategoryFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Category Updated","unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Category Updated","unlimited_elementor_elements"));
 				break;
 				
 				case "update_layout_params":
 					
 					$response = $layouts->updateParamsFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Layout Updated","unlimited_elements"), $response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Layout Updated","unlimited_elementor_elements"), $response);
 				break;
 				case "delete_layout":
 					
 					$layouts->deleteLayoutFromData($data);
-					$urlLayouts = HelperUC::getViewUrl_LayoutsList();
+					$urlLayouts = EWPHelper::getViewUrl_LayoutsList();
 					
-					HelperUC::ajaxResponseSuccessRedirect(HelperUC::getText("layout_deleted"), $urlLayouts);
+					EWPHelper::ajaxResponseSuccessRedirect(EWPHelper::getText("layout_deleted"), $urlLayouts);
 					
 				break;
 				case "duplicate_layout":
 					
 					$urlRedirect = $layouts->duplicateLayoutFromData($data);
 					if(empty($urlRedirect))	
-						$urlRedirect = HelperUC::getViewUrl_LayoutsList();
+						$urlRedirect = EWPHelper::getViewUrl_LayoutsList();
 					
-					HelperUC::ajaxResponseSuccessRedirect(HelperUC::getText("layout_duplicated"), $urlRedirect);
+					EWPHelper::ajaxResponseSuccessRedirect(EWPHelper::getText("layout_duplicated"), $urlRedirect);
 					
 				break;
 				case "export_layout":
@@ -354,33 +353,34 @@ class UniteCreatorActions{
 					
 					$expireDays = $webAPI->activateProductFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Product Activated", "unlimited_elements"), array("expire_days"=>$expireDays));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Product Activated", "unlimited_elementor_elements"), array("expire_days"=>$expireDays));
 				break;
 				case "deactivate_product":
 					
 					$webAPI->deactivateProduct($data);
 					
-					HelperUC::ajaxResponseSuccess("Product Deactivated, please refresh the page");
+					EWPHelper::ajaxResponseSuccess("Product Deactivated, please refresh the page");
 				break;
 				case "check_catalog":
+					// echo 'check catelog true';
 					$isForce = UniteFunctionsUC::getVal($data, "force");
 					$isForce = UniteFunctionsUC::strToBool($isForce);
 					
 					$response = $webAPI->checkUpdateCatalog();
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 				break;
 				case "install_catalog_addon":
 										
 					$response = $webAPI->installCatalogAddonFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Addon Installed", "unlimited_elements"), $response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Addon Installed", "unlimited_elementor_elements"), $response);
 				break;
 				case "install_catalog_page":
 					$arrResponse = $webAPI->installCatalogPageFromData($data);
-					HelperUC::ajaxResponseSuccess(esc_html__("Layouts Installed", "unlimited_elements"), $arrResponse);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Layouts Installed", "unlimited_elementor_elements"), $arrResponse);
 				break;
 				case "update_addon_from_catalog":	//by id
 					$urlRedirect = $addons->updateAddonFromCatalogFromData($data);
-					HelperUC::ajaxResponseSuccessRedirect(esc_html__("Addon Updated","unlimited_elements"), $urlRedirect);
+					EWPHelper::ajaxResponseSuccessRedirect(esc_html__("Addon Updated","unlimited_elementor_elements"), $urlRedirect);
 				break;
 				case "get_shapes_css":
 					
@@ -391,41 +391,41 @@ class UniteCreatorActions{
 				case "save_screenshot":
 					$response = $operations->saveScreenshotFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Screenshot Saved", "unlimited_elements"), $response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Screenshot Saved", "unlimited_elementor_elements"), $response);
 				break;
 				case "save_section_tolibrary":
 					
 					$response = $layouts->saveSectionToLibraryFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Section Saved", "unlimited_elements"), $response);
+					EWPHelper::ajaxResponseSuccess(esc_html__("Section Saved", "unlimited_elementor_elements"), $response);
 					
 				break;
 				case "get_grid_import_layout_data":
 					
 					$response = $layouts->getLayoutGridDataForEditor($data);
 					
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 					
 				break;
 				case "save_custom_settings":
 					
 					$operations->updateCustomSettingsFromData($data);
 					
-					HelperUC::ajaxResponseSuccess(esc_html__("Settings Saved", "unlimited_elements"));
+					EWPHelper::ajaxResponseSuccess(esc_html__("Settings Saved", "unlimited_elementor_elements"));
 					
 				break;
 				case "get_posts_list_forselect":
 					
 					$arrPostList = $operations->getPostListForSelectFromData($data);
 					
-					HelperUC::ajaxResponseData($arrPostList);
+					EWPHelper::ajaxResponseData($arrPostList);
 					
 				break;
 				case "get_post_child_params":
 					
 					$response = $operations->getPostAttributesFromData($data);
 					
-					HelperUC::ajaxResponseData($response);
+					EWPHelper::ajaxResponseData($response);
 					
 				break;
 				default:
@@ -437,7 +437,7 @@ class UniteCreatorActions{
 						$found = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_ADMIN_AJAX_ACTION, $found, $action, $data);
 										
 					if(!$found)
-						HelperUC::ajaxResponseError("wrong ajax action: <b>$action</b> ");
+						EWPHelper::ajaxResponseError("wrong ajax action: <b>$action</b> ");
 				break;
 			}
 		
@@ -451,11 +451,11 @@ class UniteCreatorActions{
 				$errorMessage = $message."<pre>".$trace."</pre>";
 			}
 		
-			HelperUC::ajaxResponseError($errorMessage);
+			EWPHelper::ajaxResponseError($errorMessage);
 		}
 		
 		//it's an ajax action, so exit
-		HelperUC::ajaxResponseError("No response output on <b> $action </b> action. please check with the developer.");
+		EWPHelper::ajaxResponseError("No response output on <b> $action </b> action. please check with the developer.");
 		exit();
 		
 	}
@@ -489,12 +489,12 @@ class UniteCreatorActions{
 					$objForm = new UniteCreatorForm();
 					$objForm->sendFormFromData($data);
 					
-					HelperUC::ajaxResponseSuccess("Form Sent");
+					EWPHelper::ajaxResponseSuccess("Form Sent");
 					
 				break;
 				default:
 					
-					HelperUC::ajaxResponseError("wrong ajax action: <b>$action</b> ");
+					EWPHelper::ajaxResponseError("wrong ajax action: <b>$action</b> ");
 				break;
 			}
 			
@@ -508,12 +508,12 @@ class UniteCreatorActions{
 				$errorMessage = $message."<pre>".$trace."</pre>";
 			}
 		
-			HelperUC::ajaxResponseError($errorMessage);
+			EWPHelper::ajaxResponseError($errorMessage);
 		}
 		
 		
 		//it's an ajax action, so exit
-		HelperUC::ajaxResponseError("No response output on <b> $action </b> action. please check with the developer.");
+		EWPHelper::ajaxResponseError("No response output on <b> $action </b> action. please check with the developer.");
 		exit();		
 	}
 	

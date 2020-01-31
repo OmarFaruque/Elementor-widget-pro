@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 /**
@@ -59,7 +59,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 					
 				$itemText = $addDataText;
 				if(empty($itemText))
-					$itemText = "[".esc_html__("not chosen", "unlimited_elements")."]";
+					$itemText = "[".esc_html__("not chosen", "unlimited_elementor_elements")."]";
 					
 				$html .= "<option $selected value=''>{$itemText}</option>";
 			}
@@ -95,20 +95,20 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function getTableAddonsRow($addonID, $title){
 			
-			$editLink = HelperUC::getViewUrl_EditAddon($addonID);
+			$editLink = EWPHelper::getViewUrl_EditAddon($addonID);
 			
 			$htmlTitle = htmlspecialchars($title);
 			
 			$html = "<tr>\n";
 			$html.= "<td><a href='{$editLink}'>{$title}</a></td>\n";
 			$html.= "	<td>\n";
-			$html.= " 	  <a href='{$editLink}' class='unite-button-secondary float_left mleft_15'>". esc_html__("Edit","unlimited_elements") . "</a>\n";
-			$html.= "		<a href='javascript:void(0)' data-addonid='{$addonID}' class='uc-button-delete unite-button-secondary float_left mleft_15'>".esc_html__("Delete","unlimited_elements")."</a>";
-			$html.= "		<span class='loader_text uc-loader-delete mleft_10' style='display:none'>" . esc_html__("Deleting", "unlimited_elements") . "</span>";
-			$html.= "		<a href='javascript:void(0)' data-addonid='{$addonID}' class='uc-button-duplicate unite-button-secondary float_left mleft_15'>" . esc_html__("Duplicate","unlimited_elements")."</a>\n";
-			$html.= "		<span class='loader_text uc-loader-duplicate mleft_10' style='display:none'>" . esc_html__("Duplicating", "unlimited_elements") . "</span>";
-			$html.= "		<a href='javascript:void(0)' data-addonid='{$addonID}' data-title='{$htmlTitle}' class='uc-button-savelibrary unite-button-secondary float_left mleft_15'>" . esc_html__("Save To Library","unlimited_elements")."</a>\n";
-			$html.= "		<span class='loader_text uc-loader-save mleft_10' style='display:none'>" . esc_html__("Saving to library", "unlimited_elements") . "</span>";
+			$html.= " 	  <a href='{$editLink}' class='unite-button-secondary float_left mleft_15'>". esc_html__("Edit","unlimited_elementor_elements") . "</a>\n";
+			$html.= "		<a href='javascript:void(0)' data-addonid='{$addonID}' class='uc-button-delete unite-button-secondary float_left mleft_15'>".esc_html__("Delete","unlimited_elementor_elements")."</a>";
+			$html.= "		<span class='loader_text uc-loader-delete mleft_10' style='display:none'>" . esc_html__("Deleting", "unlimited_elementor_elements") . "</span>";
+			$html.= "		<a href='javascript:void(0)' data-addonid='{$addonID}' class='uc-button-duplicate unite-button-secondary float_left mleft_15'>" . esc_html__("Duplicate","unlimited_elementor_elements")."</a>\n";
+			$html.= "		<span class='loader_text uc-loader-duplicate mleft_10' style='display:none'>" . esc_html__("Duplicating", "unlimited_elementor_elements") . "</span>";
+			$html.= "		<a href='javascript:void(0)' data-addonid='{$addonID}' data-title='{$htmlTitle}' class='uc-button-savelibrary unite-button-secondary float_left mleft_15'>" . esc_html__("Save To Library","unlimited_elementor_elements")."</a>\n";
+			$html.= "		<span class='loader_text uc-loader-save mleft_10' style='display:none'>" . esc_html__("Saving to library", "unlimited_elementor_elements") . "</span>";
 			$html.= "	</td>\n";
 			$html.= "	</tr>\n";
 			
@@ -131,7 +131,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$jsArrayText = UniteFunctionsUC::phpArrayToJsArrayText(GlobalsUC::$arrClientSideText,"				");
 			
 			//prepare assets path
-			$pathAssets = HelperUC::pathToRelative(GlobalsUC::$pathAssets, false);
+			$pathAssets = EWPHelper::pathToRelative(GlobalsUC::$pathAssets, false);
 			$pathAssets = urlencode($pathAssets);
 			
 			//check catalog
@@ -140,7 +140,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			
 			$arrGeneralSettings = array();
-			$arrGeneralSettings["color_picker_type"] = HelperUC::getGeneralSetting("color_picker_type");
+			$arrGeneralSettings["color_picker_type"] = EWPHelper::getGeneralSetting("color_picker_type");
 			
 			$arrGeneralSettings = UniteProviderFunctionsUC::applyFilters(UniteCreatorFilters::FILTER_CLIENTSIDE_GENERAL_SETTINGS, $arrGeneralSettings);
 			
@@ -161,12 +161,14 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			
 			$js .= self::TAB2."var g_ucGeneralSettings = {$strGeneralSettings};".self::BR;
 			
+			
 			if(GlobalsUC::$enableWebCatalog == true){
 				if($isNeedCheckCatalog)
 					$js .= self::TAB2.'var g_ucCheckCatalog = true;'.self::BR;
 				
 				$js .= self::TAB2.'var g_ucCatalogAddonType="'.GlobalsUC::$defaultAddonType.'";'.self::BR;
 			}
+			$js .= self::TAB2.'var g_ucCatalogAddonType="'.GlobalsUC::$defaultAddonType.'";'.self::BR;
 			
 			//output icons
 			$jsonFaIcons = UniteFontManagerUC::fa_getJsonIcons();
@@ -199,7 +201,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			$html .= self::TAB2.'<div id="div_debug" class="unite-div-debug"></div>'.self::BR;
 			$html .= self::TAB2.'<div id="debug_line" style="display:none"></div>'.self::BR;
 			$html .= self::TAB2.'<div id="debug_side" style="display:none"></div>'.self::BR;
-			$html .= self::TAB2.'<div class="unite_error_message" id="error_message" style="display:none;"></div>'.self::BR;
+			$html .= self::TAB2.'<div class="unite_error_message omar9" id="error_message" style="display:none;"></div>'.self::BR;
 			$html .= self::TAB2.'<div class="unite_success_message" id="success_message" style="display:none;"></div>'.self::BR;
 			
 			return($html);
@@ -438,13 +440,11 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 						
 			?>
 			<script type="text/javascript">
-				
 				<?php echo self::getGlobalJsOutput();?>
 				
 			</script>
 			
 			<?php 
-				
 				echo self::getGlobalDebugDivs();
 				
 				if(method_exists("UniteProviderFunctionsUC", "putMasterHTML"))
@@ -463,7 +463,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 				<div class="unite-inputs-sap"></div> 
 			
 				<div class="unite-inputs-label unite-italic">
-					* <?php esc_html_e("only dropdown and radio boolean field types are used for conditional inputs", "unlimited_elements")?>.
+					* <?php esc_html_e("only dropdown and radio boolean field types are used for conditional inputs", "unlimited_elementor_elements")?>.
 				</div>
 			
 			<?php 
@@ -679,7 +679,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * output memory log html
 		 */
 		public static function outputMemoryUsageLog(){
-			$arrLog = HelperUC::getLastMemoryUsage();
+			$arrLog = EWPHelper::getLastMemoryUsage();
 			
 			if(empty($arrLog)){
 				echo "no memory log found";
@@ -745,7 +745,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function putHtmlAdminNotices(){
 			
-			$arrNotices = HelperUC::getAdminNotices();
+			$arrNotices = EWPHelper::getAdminNotices();
 			if(empty($arrNotices))
 				return(false);
 			
@@ -766,7 +766,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 */
 		public static function putFooterAdminNotices(){
 			
-			$arrNotices = HelperUC::getAdminNotices();
+			$arrNotices = EWPHelper::getAdminNotices();
 			if(empty($arrNotices))
 				return(false);
 			

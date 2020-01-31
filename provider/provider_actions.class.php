@@ -5,7 +5,7 @@
  * @copyright (C) 2012 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 /**
  * actions
@@ -26,16 +26,16 @@ class UniteCreatorActions extends UniteCreatorActionsWork{
 			
 			$layoutID = $response["layout_id"];
 			
-			$urlRedirect = HelperUC::getViewUrl_Layout($layoutID);
+			$urlRedirect = EWPHelper::getViewUrl_Layout($layoutID);
 			
-			HelperUC::ajaxResponseSuccessRedirect(esc_html__("Layout Created, redirecting...", "unlimited_elements"), $urlRedirect);
+			EWPHelper::ajaxResponseSuccessRedirect(esc_html__("Layout Created, redirecting...", "unlimited_elementor_elements"), $urlRedirect);
 			
 		}else{
 			//update
 			
-			$message = esc_html__("Updated", "unlimited_elements");
+			$message = esc_html__("Updated", "unlimited_elementor_elements");
 			
-			HelperUC::ajaxResponseSuccess($message);
+			EWPHelper::ajaxResponseSuccess($message);
 		}
 		
 	}

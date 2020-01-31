@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 	class UniteFunctionsUC{
@@ -778,10 +778,10 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		public static function getArrSanitizeTypes(){
 			
 			$arrSanitize = array();
-			$arrSanitize[self::SANITIZE_ID] = __("Sanitize ID", "unlimited_elements");
-			$arrSanitize[self::SANITIZE_KEY] = __("Sanitize KEY", "unlimited_elements");
-			$arrSanitize[self::SANITIZE_TEXT_FIELD] = __("Sanitize Text Field", "unlimited_elements");
-			$arrSanitize[self::SANITIZE_NOTHING] = __("No Sanitize (not recomended)", "unlimited_elements");
+			$arrSanitize[self::SANITIZE_ID] = __("Sanitize ID", "unlimited_elementor_elements");
+			$arrSanitize[self::SANITIZE_KEY] = __("Sanitize KEY", "unlimited_elementor_elements");
+			$arrSanitize[self::SANITIZE_TEXT_FIELD] = __("Sanitize Text Field", "unlimited_elementor_elements");
+			$arrSanitize[self::SANITIZE_NOTHING] = __("No Sanitize (not recomended)", "unlimited_elementor_elements");
 			
 			return($arrSanitize);
 		}
@@ -907,7 +907,6 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * decode content given from js
 		 */
 		public static function jsonDecode($content, $outputArray = false){
-			
 			if($outputArray == true && empty($content))
 				return(array());
 			
@@ -1068,6 +1067,10 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 		 * get url contents
 		 */
 		public static function getUrlContents($url,$arrPost=array(),$method = "post",$debug=false){
+
+			// echo 'arrPost <br/><pre>';
+			// print_r($arrPost);
+			// echo '</pre>';
 			$ch = curl_init();
 			$timeout = 0;
 		
@@ -1417,7 +1420,7 @@ defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
 			if($isValid == true)
 				return(false);
 				
-			self::throwError(__("The $fieldName is not valid", "unlimited_elements"));
+			self::throwError(__("The $fieldName is not valid", "unlimited_elementor_elements"));
 			
 		}
 		

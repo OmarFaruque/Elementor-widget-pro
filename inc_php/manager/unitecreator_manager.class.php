@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorManager{
@@ -101,7 +101,7 @@ class UniteCreatorManager{
 	protected function getMenuSingleItem(){
 	
 		$arrMenuItem = array();
-		$arrMenuItem["no_action"] = esc_html__("No Action","unlimited_elements");
+		$arrMenuItem["no_action"] = esc_html__("No Action","unlimited_elementor_elements");
 	
 		return($arrMenuItem);
 	}
@@ -112,7 +112,7 @@ class UniteCreatorManager{
 	protected function getMenuField(){
 	
 		$arrMenuField = array();
-		$arrMenuField["no_action"] = esc_html__("No Action","unlimited_elements");
+		$arrMenuField["no_action"] = esc_html__("No Action","unlimited_elementor_elements");
 	
 		return($arrMenuField);
 	}
@@ -131,7 +131,7 @@ class UniteCreatorManager{
 	 */
 	protected function getNoItemsText(){
 		
-		$text = esc_html__("No Items", "unlimited_elements");
+		$text = esc_html__("No Items", "unlimited_elementor_elements");
 		
 		return($text);
 	}
@@ -170,7 +170,7 @@ class UniteCreatorManager{
 
 			<?php if($this->enableCatsActions == true):?>
 				<div class="manager-cats-buttons">
-						<span class="manager-cats-title"><?php esc_html_e("Categories","unlimited_elements")?></span>
+						<span class="manager-cats-title"><?php esc_html_e("Categories","unlimited_elementor_elements")?></span>
 						<a id="button_add_category" data-action="add_category" type="button" class="uc-cat-action-button uc-button-add-cat">+</a>
 				</div>
 
@@ -179,7 +179,7 @@ class UniteCreatorManager{
 			<div id="cats_section" class="cats_section">
 				<div class="cat_list_wrapper">			 
 					<ul id="list_cats" class="list_cats">
-						<?php echo UniteProviderFunctionsUC::escCombinedHtml($htmlCatList)?>
+						<?php  echo UniteProviderFunctionsUC::escCombinedHtml($htmlCatList)?>
 					</ul>					
 				</div>
 			</div>			 	
@@ -193,22 +193,22 @@ class UniteCreatorManager{
 	 */
 	protected function putDialogEditCategory(){
 		?>
-			<div id="uc_dialog_edit_category"  title="<?php esc_html_e("Edit Category","unlimited_elements")?>" style="display:none;" >
+			<div id="uc_dialog_edit_category"  title="<?php esc_html_e("Edit Category","unlimited_elementor_elements")?>" style="display:none;" >
 				
 				<div class="unite-dialog-top"></div>
 					
-					<?php esc_html_e("Category ID", "unlimited_elements")?>: <b><span id="span_catdialog_id"></span></b>
+					<?php esc_html_e("Category ID", "unlimited_elementor_elements")?>: <b><span id="span_catdialog_id"></span></b>
 					
 					<br><br>
 					
-					<?php esc_html_e("Edit Title", "unlimited_elements")?>:
+					<?php esc_html_e("Edit Title", "unlimited_elementor_elements")?>:
 					<input type="text" id="uc_dialog_edit_category_title" class="unite-input-regular">
 					
 					<?php 
 						$prefix = "uc_dialog_edit_category";
-						$buttonTitle = esc_html__("Update Category", "unlimited_elements");
-						$loaderTitle = esc_html__("Updating Category...", "unlimited_elements");
-						$successTitle = esc_html__("Category Updated", "unlimited_elements");
+						$buttonTitle = esc_html__("Update Category", "unlimited_elementor_elements");
+						$loaderTitle = esc_html__("Updating Category...", "unlimited_elementor_elements");
+						$successTitle = esc_html__("Category Updated", "unlimited_elementor_elements");
 						HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 					?>			
 					
@@ -224,18 +224,18 @@ class UniteCreatorManager{
 	protected function putDialogAddCategory(){
 		?>
 		
-			<div id="uc_dialog_add_category"  title="<?php esc_html_e("Add New Category","unlimited_elements")?>" style="display:none;" class="unite-inputs">
+			<div id="uc_dialog_add_category"  title="<?php esc_html_e("Add New Category","unlimited_elementor_elements")?>" style="display:none;" class="unite-inputs">
 			
 				<div class="unite-dialog-top"></div>
-				<div class="unite-inputs-label"><?php esc_html_e("Enter Category Name", "unlimited_elements")?></div>
+				<div class="unite-inputs-label"><?php esc_html_e("Enter Category Name", "unlimited_elementor_elements")?></div>
 			
 				<input id="uc_dialog_add_category_catname" type="text" class="unite-input-regular" value="">
 				
 			<?php 
 				$prefix = "uc_dialog_add_category";
-				$buttonTitle = esc_html__("Create Category", "unlimited_elements");
-				$loaderTitle = esc_html__("Adding Category...", "unlimited_elements");
-				$successTitle = esc_html__("Category Added", "unlimited_elements");
+				$buttonTitle = esc_html__("Create Category", "unlimited_elementor_elements");
+				$loaderTitle = esc_html__("Adding Category...", "unlimited_elementor_elements");
+				$successTitle = esc_html__("Category Added", "unlimited_elementor_elements");
 				HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 			?>			
 				
@@ -250,7 +250,7 @@ class UniteCreatorManager{
 	 */
 	protected function putDialogDeleteCategory(){
 		?>
-			<div id="uc_dialog_delete_category"  title="<?php esc_html_e("Delete Category","unlimited_elements")?>" style="display:none;" class="unite-inputs">
+			<div id="uc_dialog_delete_category"  title="<?php esc_html_e("Delete Category","unlimited_elementor_elements")?>" style="display:none;" class="unite-inputs">
 			
 				<div class="unite-dialog-top"></div>
 			
@@ -262,9 +262,9 @@ class UniteCreatorManager{
 				
 			<?php 
 				$prefix = "uc_dialog_delete_category";
-				$buttonTitle = esc_html__("Delete Category", "unlimited_elements");
-				$loaderTitle = esc_html__("Deleting Category...", "unlimited_elements");
-				$successTitle = esc_html__("Category and it's addons Deleted", "unlimited_elements");
+				$buttonTitle = esc_html__("Delete Category", "unlimited_elementor_elements");
+				$loaderTitle = esc_html__("Deleting Category...", "unlimited_elementor_elements");
+				$successTitle = esc_html__("Category and it's addons Deleted", "unlimited_elementor_elements");
 				HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 			?>			
 			
@@ -280,7 +280,7 @@ class UniteCreatorManager{
 	protected function getMenuCategory(){
 	
 		$arrMenuCat = array();
-		$arrMenuCat["no_action"] = esc_html__("No Action","unlimited_elements");
+		$arrMenuCat["no_action"] = esc_html__("No Action","unlimited_elementor_elements");
 	
 		return($arrMenuCat);
 	}
@@ -337,7 +337,7 @@ class UniteCreatorManager{
 	
 		//init category field menu
 		$arrMenuCatField = array();
-		$arrMenuCatField["add_category"] = __("Add Category","unlimited_elements");
+		$arrMenuCatField["add_category"] = __("Add Category","unlimited_elementor_elements");
 		
 		$this->putRightMenu($arrMenuCatField, "rightmenu_catfield", "category_field");
 		
@@ -471,7 +471,7 @@ class UniteCreatorManager{
 								
 								<div id="item_operations_wrapper" class="item_operations_wrapper unite-disabled">
 									
-									<?php esc_html_e("Move To", "unlimited_elements")?>
+									<?php esc_html_e("Move To", "unlimited_elementor_elements")?>
 									
 									<select id="select_item_category" disabled="disabled">
 										<?php echo UniteProviderFunctionsUC::escCombinedHtml($htmlCatSelect) ?>
@@ -520,7 +520,7 @@ class UniteCreatorManager{
 		?>
 			<ul id="menu_copymove" class="unite-context-menu" style="display:none">
 				<li>
-					<a href="javascript:void(0)" data-operation="copymove_move"><?php esc_html_e("Move Here","unlimited_elements")?></a>
+					<a href="javascript:void(0)" data-operation="copymove_move"><?php esc_html_e("Move Here","unlimited_elementor_elements")?></a>
 				</li>
 			</ul>
 		<?php
@@ -548,7 +548,7 @@ class UniteCreatorManager{
 	 */
 	protected function getMenuMulitipleItems(){
 		$arrMenuItemMultiple = array();
-		$arrMenuItemMultiple["no_action"] = __("No Action","unlimited_elements");
+		$arrMenuItemMultiple["no_action"] = __("No Action","unlimited_elementor_elements");
 		return($arrMenuItemMultiple);
 	}
 	
@@ -641,24 +641,24 @@ class UniteCreatorManager{
 	public static function putScriptsIncludes($type){
 		
 		
-		HelperUC::addScript("dropzone", "dropzone_js","js/dropzone");
-		HelperUC::addStyle("dropzone", "dropzone_css","js/dropzone");
+		EWPHelper::addScript("dropzone", "dropzone_js","js/dropzone");
+		EWPHelper::addStyle("dropzone", "dropzone_css","js/dropzone");
 		
-		HelperUC::addScript("unitecreator_manager_items","unitecreator_manager_items","js/manager");
-		HelperUC::addScript("unitecreator_manager","unitecreator_manager","js/manager");
-		HelperUC::addStyle("unitecreator_manager","unitecreator_manager_css");
+		EWPHelper::addScript("unitecreator_manager_items","unitecreator_manager_items","js/manager");
+		EWPHelper::addScript("unitecreator_manager","unitecreator_manager","js/manager");
+		EWPHelper::addStyle("unitecreator_manager","unitecreator_manager_css");
 		
 		switch($type){
 			case self::TYPE_PAGES:
 			case self::TYPE_ADDONS:
-				HelperUC::addScript("unitecreator_manager_cats","unitecreator_manager_cats","js/manager");
-				HelperUC::addScript("unitecreator_manager_actions_addons","unitecreator_manager_actions_addons","js/manager");
-				HelperUC::addScript("unitecreator_browser","unitecreator_browser");
-				HelperUC::addStyle("unitecreator_browser","unitecreator_browser_css");
+				EWPHelper::addScript("unitecreator_manager_cats","unitecreator_manager_cats","js/manager");
+				EWPHelper::addScript("unitecreator_manager_actions_addons","unitecreator_manager_actions_addons","js/manager");
+				EWPHelper::addScript("unitecreator_browser","unitecreator_browser");
+				EWPHelper::addStyle("unitecreator_browser","unitecreator_browser_css");
 			break;
 			case self::TYPE_ITEMS_INLINE:
-				HelperUC::addScript("unitecreator_params_dialog", "unitecreator_params_dialog");
-				HelperUC::addScript("unitecreator_manager_actions_inline","unitecreator_manager_actions_inline","js/manager");
+				EWPHelper::addScript("unitecreator_params_dialog", "unitecreator_params_dialog");
+				EWPHelper::addScript("unitecreator_manager_actions_inline","unitecreator_manager_actions_inline","js/manager");
 			break;
 		}
 		
@@ -803,8 +803,8 @@ class UniteCreatorManager{
 		//the type should be set already in child classes
 		$this->validateInited();
 		
-		$this->itemsLoaderText = __("Getting Items", "unlimited_elements");
-		$this->textItemsSelected = __("items selected","unlimited_elements");
+		$this->itemsLoaderText = __("Getting Items", "unlimited_elementor_elements");
+		$this->textItemsSelected = __("items selected","unlimited_elementor_elements");
 		
 		if($this->hasCats){
 			$this->objCats = new UniteCreatorCategories();

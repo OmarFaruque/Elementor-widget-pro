@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorObjectsListView extends UniteElementsBaseUC{
@@ -15,7 +15,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 	protected $viewObject, $viewObjectPreview, $urlListBase;
 	protected $actionDelete;
 	
-	protected $enableCategories = false;
+	protected $enblCategories = false;
 	
 	protected $defaultOrderBy = "title";
 	protected $sizeActions = 380;
@@ -81,7 +81,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 		$textSearch = "Search"." ".$this->txtSingleName;
 		
 		//if less then 5, put only if the search phrase exists
-		$this->objTable->putSearchForm($textSearch, esc_html__("Clear","unlimited_elements"), $isPutSearchForm);
+		$this->objTable->putSearchForm($textSearch, esc_html__("Clear","unlimited_elementor_elements"), $isPutSearchForm);
 		
 	}
 	
@@ -95,7 +95,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 		
 		$this->objTable->putActionsFormEnd();
 		
-		if($this->enableCategories)
+		if($this->enblCategories)
 			$this->putDialogCategories();
 		
 	}
@@ -106,7 +106,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 	protected function getClientSideOptions(){
 		
 		$options = array();
-		$options["enable_categories"] = $this->enableCategories;
+		$options["enable_categories"] = $this->enblCategories;
 		$options["action_delete"] = $this->actionDelete;
 		
 		return($options);
@@ -118,7 +118,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 	 */
 	protected function putHtml_table(){
 		
-		$txtDelete = esc_html__("Are you sure you want to delete this", "unlimited_elements")." ".$this->txtSingleName;
+		$txtDelete = esc_html__("Are you sure you want to delete this", "unlimited_elementor_elements")." ".$this->txtSingleName;
 		
 		$options = $this->getClientSideOptions();
 		$strOptions = UniteFunctionsUC::jsonEncodeForHtmlData($options);
@@ -129,7 +129,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 				<?php if(empty($this->arrObjects)): ?>
 				<div>
 					<?php 
-						$txtNotFound = esc_html__("No","unlimited_elements")." ".$this->txtMultipleName." ".esc_html__("Found","unlimited_elements");
+						$txtNotFound = esc_html__("No","unlimited_elementor_elements")." ".$this->txtMultipleName." ".esc_html__("Found","unlimited_elementor_elements");
 						echo esc_html($txtNotFound);
 					?>
 				</div>			
@@ -139,28 +139,28 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 					<thead>
 						<tr>
 							<th width=''>
-								<?php $this->objTable->putTableOrderHeader("title", $this->txtSingleName." ".esc_html__("Title", "unlimited_elements")) ?>
+								<?php $this->objTable->putTableOrderHeader("title", $this->txtSingleName." ".esc_html__("Title", "unlimited_elementor_elements")) ?>
 							</th>
 							
-							<?php if($this->enableCategories == true):?>
-							<th width='200'><?php $objTable->putTableOrderHeader("catid", esc_html__("Category","unlimited_elements")) ?>
+							<?php if($this->enblCategories == true):?>
+							<th width='200'><?php $objTable->putTableOrderHeader("catid", esc_html__("Category","unlimited_elementor_elements")) ?>
 							<?php endif?>
 							
-							<th width='<?php echo esc_attr($sizeActions)?>'><?php esc_html_e("Actions","unlimited_elements"); ?></th>
-							<th width='60'><?php esc_html_e("Preview","unlimited_elements"); ?></th>
+							<th width='<?php echo esc_attr($sizeActions)?>'><?php esc_html_e("Actions","unlimited_elementor_elements"); ?></th>
+							<th width='60'><?php esc_html_e("Preview","unlimited_elementor_elements"); ?></th>
 						</tr>
 						
 						<?php foreach($this->arrObjects as $key=>$object):
 								
 								$id = $object->getID();
 								$title = $object->getTitle();
-								$editLink = HelperUC::getViewUrl($this->viewObject,"id=".$id);
-								$previewLink = HelperUC::getViewUrl($this->viewObjectPreview,"id=".$id, true);
+								$editLink = EWPHelper::getViewUrl($this->viewObject,"id=".$id);
+								$previewLink = EWPHelper::getViewUrl($this->viewObjectPreview,"id=".$id, true);
 								
 								$showTitle = HelperHtmlUC::getHtmlLink($editLink, $title);
 								$rowClass = ($key%2==0)?"unite-row1":"unite-row2";
 								
-								if($this->enableCategories){
+								if($this->enblCategories){
 									dmp("check the getCategoryInfo function");
 									$arrCategory = $object->getCategoryInfo();
 									$catID = UniteFunctionsUC::getVal($arrCategory, "id");
@@ -173,26 +173,26 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 						<tr class="<?php echo esc_attr($rowClass)?>">
 							<td><?php echo esc_html($showTitle)?></td>
 							
-							<?php if($this->enableCategories):?>
+							<?php if($this->enblCategories):?>
 							<td><a href="javascript:void(0)" class="uc-layouts-list-category" data-layoutid="<?php echo esc_attr($id)?>" data-catid="<?php echo esc_attr($catID)?>" data-action="manage_category"><?php echo esc_html($catTitle)?></a></td>
 							<?php endif?>
 							
 							<td>
-								<a href='<?php echo esc_attr($editLink)?>' class="unite-button-primary float_left mleft_15"><?php echo esc_html__("Edit", "unlimited_elements")." ".$this->txtSingleName ?></a>
+								<a href='<?php echo esc_attr($editLink)?>' class="unite-button-primary float_left mleft_15"><?php echo esc_html__("Edit", "unlimited_elementor_elements")." ".$this->txtSingleName ?></a>
 								
-								<a href='javascript:void(0)' data-action="delete" data-id="<?php echo esc_attr($id)?>" class="uc-button-action unite-button-secondary float_left mleft_15"><?php esc_html_e("Delete","unlimited_elements"); ?></a>
-								<span class="loader_text uc-loader-delete" style="display:none"><?php esc_html_e("Deleting", "unlimited_elements")?></span>
+								<a href='javascript:void(0)' data-action="delete" data-id="<?php echo esc_attr($id)?>" class="uc-button-action unite-button-secondary float_left mleft_15"><?php esc_html_e("Delete","unlimited_elementor_elements"); ?></a>
+								<span class="loader_text uc-loader-delete" style="display:none"><?php esc_html_e("Deleting", "unlimited_elementor_elements")?></span>
 
 								<!-- 
-								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_duplicate unite-button-secondary float_left mleft_15"><?php esc_html_e("Duplicate","unlimited_elements"); ?></a>
-								<span class="loader_text uc-loader-duplicate" style="display:none"><?php esc_html_e("Duplicating", "unlimited_elements")?></span>
+								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_duplicate unite-button-secondary float_left mleft_15"><?php esc_html_e("Duplicate","unlimited_elementor_elements"); ?></a>
+								<span class="loader_text uc-loader-duplicate" style="display:none"><?php esc_html_e("Duplicating", "unlimited_elementor_elements")?></span>
 								
-								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_export unite-button-secondary float_left mleft_15"><?php esc_html_e("Export","unlimited_elements"); ?></a>
+								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_export unite-button-secondary float_left mleft_15"><?php esc_html_e("Export","unlimited_elementor_elements"); ?></a>
 								-->
 								
 							</td>
 							<td>
-								<a href='<?php echo esc_attr($previewLink)?>' target="_blank" class="unite-button-secondary float_left"><?php esc_html_e("Preview","unlimited_elements"); ?></a>
+								<a href='<?php echo esc_attr($previewLink)?>' target="_blank" class="unite-button-secondary float_left"><?php esc_html_e("Preview","unlimited_elementor_elements"); ?></a>
 							</td>
 							
 						</tr>							
@@ -234,7 +234,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 	 */
 	protected function putHtml(){
 		
-		$txtDelete = esc_html__("Are you sure you want to delete this", "unlimited_elements")." ".$this->txtSingleName;
+		$txtDelete = esc_html__("Are you sure you want to delete this", "unlimited_elementor_elements")." ".$this->txtSingleName;
 		
 		?>
 			<div class="unite-content-wrapper">
@@ -328,7 +328,7 @@ class UniteCreatorObjectsListView extends UniteElementsBaseUC{
 	 */
 	protected function putScriptIncludes(){
 		
-		HelperUC::addScript("unitecreator_admin_objectslist", "unitecreator_admin_objectslist.js");
+		EWPHelper::addScript("unitecreator_admin_objectslist", "unitecreator_admin_objectslist.js");
 	}
 	
 	

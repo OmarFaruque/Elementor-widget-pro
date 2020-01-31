@@ -1,7 +1,7 @@
 <?php
 
 	// no direct access
-	defined('UNLIMITED_ELEMENTS_INC') or die;
+	defined('ELEMENTOR_WIDGET_PRO_INC') or die;
 
 	class UniteCreatorProviderMasterView{
 		
@@ -37,13 +37,13 @@
 				
 				<div class="uc-dialog-image-select-bottom">
 					
-					<?php esc_html_e("Selected Image: ", "unlimited_elements")?>
+					<?php esc_html_e("Selected Image: ", "unlimited_elementor_elements")?>
 					
 					<input id="uc_dialog_image_select_url" type="text" readonly class="unite-input-regular"  value="">
 					
 					<div class="vert_sap10"></div>
 					
-					<a id="uc_dialog_image_select_button" href="javascript:void(0)" class="unite-button-secondary"><?php esc_html_e("Select Image","unlimited_elements")?></a>
+					<a id="uc_dialog_image_select_button" href="javascript:void(0)" class="unite-button-secondary"><?php esc_html_e("Select Image","unlimited_elementor_elements")?></a>
 				
 				</div>
 				
@@ -74,13 +74,13 @@
 				
 				<div class="uc-dialog-image-select-bottom">
 					
-					<?php esc_html_e("Selected Audio: ", "unlimited_elements")?>
+					<?php esc_html_e("Selected Audio: ", "unlimited_elementor_elements")?>
 					
 					<input id="uc_dialog_audio_select_url" type="text" readonly class="unite-input-regular"  value="">
 					
 					<div class="vert_sap10"></div>
 					
-					<a id="uc_dialog_audio_select_button" href="javascript:void(0)" class="unite-button-secondary"><?php esc_html_e("Select Audio","unlimited_elements")?></a>
+					<a id="uc_dialog_audio_select_button" href="javascript:void(0)" class="unite-button-secondary"><?php esc_html_e("Select Audio","unlimited_elementor_elements")?></a>
 				
 				</div>
 				

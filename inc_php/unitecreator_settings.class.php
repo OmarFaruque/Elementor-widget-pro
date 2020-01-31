@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 	
@@ -232,7 +232,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 	 */
 	protected function addInstagramSelector($name,$value,$title,$extra){
 		
-		$description = esc_html__("Type instagram user (@username)", "unlimited_elements");
+		$description = esc_html__("Type instagram user (@username)", "unlimited_elementor_elements");
 		$params = array("description"=>$description);
 		
 		if(empty($value))
@@ -240,7 +240,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 		
 		$params["origtype"] = UniteCreatorDialogParam::PARAM_TEXTFIELD;
 		
-		$this->addTextBox($name, $value ,esc_html__("Instagram User", "unlimited_elements"), $params);
+		$this->addTextBox($name, $value ,esc_html__("Instagram User", "unlimited_elementor_elements"), $params);
 	}
 	
 	
@@ -374,14 +374,14 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 		$this->addImage("image","","Image",$extra);
 		
 		$extra = array("origtype"=>"uc_textarea");
-		$this->addTextArea("description", "", esc_html__("Description", "unlimited_elements"),$extra);
+		$this->addTextArea("description", "", esc_html__("Description", "unlimited_elementor_elements"),$extra);
 		
 		/*
 		$extra = array("origtype"=>"uc_radioboolean");
-		$this->addRadioBoolean("enable_link", esc_html__("Enable Link", "unlimited_elements"),false, "Yes","No",$extra);
+		$this->addRadioBoolean("enable_link", esc_html__("Enable Link", "unlimited_elementor_elements"),false, "Yes","No",$extra);
 			
 		$extra = array("class"=>"unite-input-link", "origtype"=>"uc_textfield");
-		$this->addTextBox("link", "", esc_html__("Link", "unlimited_elements"),$extra);
+		$this->addTextBox("link", "", esc_html__("Link", "unlimited_elementor_elements"),$extra);
 		*/
 		
 	}
@@ -608,7 +608,7 @@ class UniteCreatorSettingsWork extends UniteSettingsAdvancedUC{
 		$arrCats = $objCategories->getCatsShort("", $addonType);
 		
 		if($addNew == true)
-			$arrCats["new"] = "[". esc_html__("New Category", "unlimited_elements")."]";
+			$arrCats["new"] = "[". esc_html__("New Category", "unlimited_elementor_elements")."]";
 		
 		$fistValue = UniteFunctionsUC::getFirstNotEmptyKey($arrCats);
 		

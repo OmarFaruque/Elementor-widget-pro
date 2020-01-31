@@ -5,7 +5,7 @@
  * @copyright (C) 2017 Unite CMS, All Rights Reserved. 
  * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  * */
-defined('UNLIMITED_ELEMENTS_INC') or die('Restricted access');
+defined('ELEMENTOR_WIDGET_PRO_INC') or die('Restricted access');
 
 
 class UniteCreatorLayoutsView{
@@ -45,19 +45,19 @@ class UniteCreatorLayoutsView{
 		
 		
 		$arrText = array(
-			"import_layout"=>esc_html__("Import ","unlimited_elements").$this->layoutTypeTitle,
-			"import_layouts"=>esc_html__("Import ","unlimited_elements").$this->layoutTypeTitlePlural,
-			"uploading_layouts_file"=>esc_html__("Uploading ","unlimited_elements"). $this->layoutTypeTitlePlural. esc_html__("  file...","unlimited_elements"),
-			"layouts_added_successfully"=> $this->layoutTypeTitle.esc_html__(" Added Successfully","unlimited_elements"),
-			"my_layouts"=>esc_html__("My ","unlimited_elements").$this->layoutTypeTitlePlural,
-			"search_layout"=> esc_html__("Search","unlimited_elements")." ". $this->layoutTypeTitlePlural,
-			"layout_title"=>$this->layoutTypeTitle." ". esc_html__("Title","unlimited_elements"),
-			"no_layouts_found"=>esc_html__("No","unlimited_elements")." ".$this->layoutTypeTitlePlural. " ". esc_html__("Found","unlimited_elements"),
-			"are_you_sure_to_delete_this_layout"=>esc_html__("Are you sure to delete this ?","unlimited_elements").$titleLower,
-			"edit_layout"=>esc_html__("Edit","unlimited_elements")." ".$this->layoutTypeTitle,
-			"manage_layout_categories"=>esc_html__("Manage ","unlimited_elements"). $this->layoutTypeTitlePlural. esc_html__(" Categories","unlimited_elements"),
-			"select_layouts_export_file"=>esc_html__("Select ","unlimited_elements"). $pluralLower.  esc_html__(" export file","unlimited_elements"),
-			"new_layout"=>esc_html__("New","unlimited_elements")." ". $this->layoutTypeTitle,
+			"import_layout"=>esc_html__("Import ","unlimited_elementor_elements").$this->layoutTypeTitle,
+			"import_layouts"=>esc_html__("Import ","unlimited_elementor_elements").$this->layoutTypeTitlePlural,
+			"uploading_layouts_file"=>esc_html__("Uploading ","unlimited_elementor_elements"). $this->layoutTypeTitlePlural. esc_html__("  file...","unlimited_elementor_elements"),
+			"layouts_added_successfully"=> $this->layoutTypeTitle.esc_html__(" Added Successfully","unlimited_elementor_elements"),
+			"my_layouts"=>esc_html__("My ","unlimited_elementor_elements").$this->layoutTypeTitlePlural,
+			"search_layout"=> esc_html__("Search","unlimited_elementor_elements")." ". $this->layoutTypeTitlePlural,
+			"layout_title"=>$this->layoutTypeTitle." ". esc_html__("Title","unlimited_elementor_elements"),
+			"no_layouts_found"=>esc_html__("No","unlimited_elementor_elements")." ".$this->layoutTypeTitlePlural. " ". esc_html__("Found","unlimited_elementor_elements"),
+			"are_you_sure_to_delete_this_layout"=>esc_html__("Are you sure to delete this ?","unlimited_elementor_elements").$titleLower,
+			"edit_layout"=>esc_html__("Edit","unlimited_elementor_elements")." ".$this->layoutTypeTitle,
+			"manage_layout_categories"=>esc_html__("Manage ","unlimited_elementor_elements"). $this->layoutTypeTitlePlural. esc_html__(" Categories","unlimited_elementor_elements"),
+			"select_layouts_export_file"=>esc_html__("Select ","unlimited_elementor_elements"). $pluralLower.  esc_html__(" export file","unlimited_elementor_elements"),
+			"new_layout"=>esc_html__("New","unlimited_elementor_elements")." ". $this->layoutTypeTitle,
 		);
 		
 		return($arrText);
@@ -80,11 +80,11 @@ class UniteCreatorLayoutsView{
 		//set text
 		$arrText = $this->getTemplatesTextArray();
 		
-		HelperUC::setLocalText($arrText);
+		EWPHelper::setLocalText($arrText);
 		
 		//set other settings
 		$this->isTemplate = $this->objLayoutType->isTemplate;
-		$this->showColCategory = $this->objLayoutType->enableCategories;
+		$this->showColCategory = $this->objLayoutType->enblCategories;
 		$this->showColShortcode = $this->objLayoutType->enableShortcodes;
 		
 		//set display type manager / table
@@ -131,7 +131,7 @@ class UniteCreatorLayoutsView{
 		$this->arrLayouts = $response["layouts"];
 		$pagingData = $response["paging"];
 		
-		$urlLayouts = HelperUC::getViewUrl_LayoutsList();
+		$urlLayouts = EWPHelper::getViewUrl_LayoutsList();
 		
 		$this->objTable->setPagingData($urlLayouts, $pagingData);
 		
@@ -156,15 +156,15 @@ class UniteCreatorLayoutsView{
 	protected function initDisplayVars(){
 		
 		//init layout type		
-		$this->urlViewCreateObject = HelperUC::getViewUrl_Layout();
-		$this->urlManageAddons = HelperUC::getViewUrl_Addons();
+		$this->urlViewCreateObject = EWPHelper::getViewUrl_Layout();
+		$this->urlManageAddons = EWPHelper::getViewUrl_Addons();
 			
 		
 		if($this->showHeaderTitle == true){
-			$headerTitle = HelperUC::getText("my_layouts");
-			require HelperUC::getPathTemplate("header");
+			$headerTitle = EWPHelper::getText("my_layouts");
+			require EWPHelper::getPathTemplate("header");
 		}else
-			require HelperUC::getPathTemplate("header_missing");
+			require EWPHelper::getPathTemplate("header_missing");
 		
 		//table object
 		if($this->isDisplayTable == true)
@@ -202,17 +202,17 @@ class UniteCreatorLayoutsView{
 		$prefix = "uc_dialog_add_category";
 		
 		?>
-			<div id="uc_dialog_add_category"  title="<?php HelperUC::putText("manage_layout_categories")?>" style="display:none; height: 300px;" class="unite-inputs">
+			<div id="uc_dialog_add_category"  title="<?php EWPHelper::putText("manage_layout_categories")?>" style="display:none; height: 300px;" class="unite-inputs">
 				
 				<div class="unite-dialog-top">
 				
 					<input type="text" class="uc-catdialog-button-clearfilter" style="margin-bottom: 1px;">
-					<a class='uc-catdialog-button-filter unite-button-secondary' href="javascript:void(0)"><?php esc_html_e("Filter", "unlimited_elements")?></a>
-					<a class='uc-catdialog-button-filter-clear unite-button-secondary' href="javascript:void(0)"><?php esc_html_e("Clear Filter", "unlimited_elements")?></a>
+					<a class='uc-catdialog-button-filter unite-button-secondary' href="javascript:void(0)"><?php esc_html_e("Filter", "unlimited_elementor_elements")?></a>
+					<a class='uc-catdialog-button-filter-clear unite-button-secondary' href="javascript:void(0)"><?php esc_html_e("Clear Filter", "unlimited_elementor_elements")?></a>
 					
 					<span class="uc-catlist-sort-wrapper">
 					
-						<?php esc_html_e("Sort: ","unlimited_elements")?>
+						<?php esc_html_e("Sort: ","unlimited_elementor_elements")?>
 						<a href="javascript:void(0)" class="uc-link-change-cat-sort" data-type="a-z">a-z</a>
 						, 
 						<a href="javascript:void(0)" class="uc-link-change-cat-sort" data-type="z-a">z-a</a>
@@ -224,24 +224,24 @@ class UniteCreatorLayoutsView{
 				
 				<hr/>
 				
-					<?php esc_html_e("Add New Category", "unlimited_elements")?>: 
+					<?php esc_html_e("Add New Category", "unlimited_elementor_elements")?>: 
 					<input id="uc_dialog_add_category_catname" type="text" class="unite-input-regular" value="">
 					
-					<a id="uc_dialog_add_category_button_add" href="javascript:void(0)" class="unite-button-secondary" data-action="add_category"><?php esc_html_e("Create Category", "unlimited_elements")?></a>
+					<a id="uc_dialog_add_category_button_add" href="javascript:void(0)" class="unite-button-secondary" data-action="add_category"><?php esc_html_e("Create Category", "unlimited_elementor_elements")?></a>
 					
 				<div>
 				
 					<?php 
-					$buttonTitle = esc_html__("Set Category to Page", "unlimited_elements");
-					$loaderTitle = esc_html__("Updating Category...", "unlimited_elements");
-					$successTitle = esc_html__("Category Updated", "unlimited_elements");
+					$buttonTitle = esc_html__("Set Category to Page", "unlimited_elementor_elements");
+					$loaderTitle = esc_html__("Updating Category...", "unlimited_elementor_elements");
+					$successTitle = esc_html__("Category Updated", "unlimited_elementor_elements");
 					HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 				?>
 				
 				
 			</div>
 			
-			<div id="uc_layout_categories_message" title="<?php esc_html_e("Categories Message", "unlimited_elements")?>">
+			<div id="uc_layout_categories_message" title="<?php esc_html_e("Categories Message", "unlimited_elementor_elements")?>">
 			</div>
 			
 		</div>
@@ -255,7 +255,7 @@ class UniteCreatorLayoutsView{
 	 */
 	public function putDialogImportLayout(){
 	
-		$dialogTitle = HelperUC::getText("import_layout");
+		$dialogTitle = EWPHelper::getText("import_layout");
 		
 		?>
 		
@@ -264,7 +264,7 @@ class UniteCreatorLayoutsView{
 				<div class="unite-dialog-top"></div>
 				
 				<div class="unite-inputs-label">
-					<?php HelperUC::putText("select_layouts_export_file")?>:
+					<?php EWPHelper::putText("select_layouts_export_file")?>:
 				</div>
 				
 				<form id="dialog_import_layouts_form" name="form_import_layouts">
@@ -276,7 +276,7 @@ class UniteCreatorLayoutsView{
 				
 				<div class="unite-inputs-label" >
 					<label for="dialog_import_layouts_file_overwrite">
-						<?php esc_html_e("Overwrite Addons", "unlimited_elements")?>:
+						<?php esc_html_e("Overwrite Addons", "unlimited_elementor_elements")?>:
 					</label>
 					<input type="checkbox" id="dialog_import_layouts_file_overwrite">
 				</div>
@@ -287,9 +287,9 @@ class UniteCreatorLayoutsView{
 				<?php 
 					$prefix = "uc_dialog_import_layouts";
 					
-					$buttonTitle = HelperUC::getText("import_layouts");
-					$loaderTitle = HelperUC::getText("uploading_layouts_file");
-					$successTitle = HelperUC::getText("layouts_added_successfully");
+					$buttonTitle = EWPHelper::getText("import_layouts");
+					$loaderTitle = EWPHelper::getText("uploading_layouts_file");
+					$successTitle = EWPHelper::getText("layouts_added_successfully");
 					
 					HelperHtmlUC::putDialogActions($prefix, $buttonTitle, $loaderTitle, $successTitle);
 				?>
@@ -309,12 +309,12 @@ class UniteCreatorLayoutsView{
 				
 		?>
 		<div class="uc-buttons-panel unite-clearfix">
-			<a href="<?php echo esc_attr($this->urlViewCreateObject)?>" class="unite-button-primary unite-float-left"><?php HelperUC::putText("new_layout");?></a>
+			<a href="<?php echo esc_attr($this->urlViewCreateObject)?>" class="unite-button-primary unite-float-left"><?php EWPHelper::putText("new_layout");?></a>
 			
-			<a id="uc_button_import_layout" href="javascript:void(0)" class="unite-button-secondary unite-float-left mleft_20"><?php HelperUC::putText("import_layouts");?></a>
+			<a id="uc_button_import_layout" href="javascript:void(0)" class="unite-button-secondary unite-float-left mleft_20"><?php EWPHelper::putText("import_layouts");?></a>
 			
-			<a href="javascript:void(0)" id="uc_layouts_global_settings" class="unite-float-right mright_20 unite-button-secondary"><?php HelperUC::putText("layouts_global_settings");?></a>
-			<a href="<?php echo esc_attr($this->urlManageAddons)?>" class="unite-float-right mright_20 unite-button-secondary"><?php esc_html_e("My Addons", "unlimited_elements")?></a>
+			<a href="javascript:void(0)" id="uc_layouts_global_settings" class="unite-float-right mright_20 unite-button-secondary"><?php EWPHelper::putText("layouts_global_settings");?></a>
+			<a href="<?php echo esc_attr($this->urlManageAddons)?>" class="unite-float-right mright_20 unite-button-secondary"><?php esc_html_e("My Addons", "unlimited_elementor_elements")?></a>
 			
 		</div>
 		<?php 
@@ -350,7 +350,7 @@ class UniteCreatorLayoutsView{
 
 				$tabTitle = UniteFunctionsUC::getVal($arrType, "plural");
 				
-				$urlView = HelperUC::getViewUrl_TemplatesList(null, $type);
+				$urlView = EWPHelper::getViewUrl_TemplatesList(null, $type);
 				
 				$addClass = "";
 				if($type == $this->layoutType){
@@ -423,7 +423,7 @@ class UniteCreatorLayoutsView{
 		
 		
 		<?php 
-		$this->objTable->putSearchForm(HelperUC::getText("search_layout"), "Clear");
+		$this->objTable->putSearchForm(EWPHelper::getText("search_layout"), "Clear");
 		
 			if($this->isTemplate == false):
 			
@@ -437,29 +437,29 @@ class UniteCreatorLayoutsView{
 		
 		<?php if(empty($this->arrLayouts)): ?>
 		<div class="uc-no-layouts-wrapper">
-			<?php HelperUC::putText("no_layouts_found");?>
+			<?php EWPHelper::putText("no_layouts_found");?>
 		</div>			
 		<?php else:?>
 	
 			<!-- sort chars: &#8743 , &#8744; -->
 			
-			<table id="uc_table_layouts" class='unite_table_items' data-text-delete="<?php HelperUC::putText("are_you_sure_to_delete_this_layout")?>">
+			<table id="uc_table_layouts" class='unite_table_items' data-text-delete="<?php EWPHelper::putText("are_you_sure_to_delete_this_layout")?>">
 				<thead>
 					<tr>
 						<th width=''>
-							<?php $this->objTable->putTableOrderHeader("title", HelperUC::getText("layout_title")) ?>
+							<?php $this->objTable->putTableOrderHeader("title", EWPHelper::getText("layout_title")) ?>
 						</th>
 						
 						<?php if($this->showColShortcode == true):?>
-						<th width='200'><?php esc_html_e("Shortcode","unlimited_elements"); ?></th>
+						<th width='200'><?php esc_html_e("Shortcode","unlimited_elementor_elements"); ?></th>
 						<?php endif?>
 						
 						<?php if($this->showColCategory == true):?>
-						<th width='200'><?php $this->objTable->putTableOrderHeader("catid", esc_html__("Category","unlimited_elements")) ?>
+						<th width='200'><?php $this->objTable->putTableOrderHeader("catid", esc_html__("Category","unlimited_elementor_elements")) ?>
 						<?php endif?>
 						
-						<th width='<?php echo esc_attr($sizeActions)?>'><?php esc_html_e("Actions","unlimited_elements"); ?></th>
-						<th width='60'><?php esc_html_e("Preview","unlimited_elements"); ?></th>						
+						<th width='<?php echo esc_attr($sizeActions)?>'><?php esc_html_e("Actions","unlimited_elementor_elements"); ?></th>
+						<th width='60'><?php esc_html_e("Preview","unlimited_elementor_elements"); ?></th>						
 					</tr>
 				</thead>
 				<tbody>
@@ -473,9 +473,9 @@ class UniteCreatorLayoutsView{
 						$shortcode = $layout->getShortcode();
 						$shortcode = UniteFunctionsUC::sanitizeAttr($shortcode);
 												
-						$editLink = HelperUC::getViewUrl_Layout($id);
+						$editLink = EWPHelper::getViewUrl_Layout($id);
 												
-						$previewLink = HelperUC::getViewUrl_LayoutPreview($id, true);
+						$previewLink = EWPHelper::getViewUrl_LayoutPreview($id, true);
 						
 						$showTitle = HelperHtmlUC::getHtmlLink($editLink, $title);
 						
@@ -505,17 +505,17 @@ class UniteCreatorLayoutsView{
 							<?php endif?>
 							
 							<td>
-								<a href='<?php echo esc_attr($editLink)?>' class="unite-button-primary float_left mleft_15"><?php HelperUC::putText("edit_layout"); ?></a>
+								<a href='<?php echo esc_attr($editLink)?>' class="unite-button-primary float_left mleft_15"><?php EWPHelper::putText("edit_layout"); ?></a>
 								
-								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_delete unite-button-secondary float_left mleft_15"><?php esc_html_e("Delete","unlimited_elements"); ?></a>
-								<span class="loader_text uc-loader-delete" style="display:none"><?php esc_html_e("Deleting", "unlimited_elements")?></span>
-								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_duplicate unite-button-secondary float_left mleft_15"><?php esc_html_e("Duplicate","unlimited_elements"); ?></a>
-								<span class="loader_text uc-loader-duplicate" style="display:none"><?php esc_html_e("Duplicating", "unlimited_elements")?></span>
-								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_export unite-button-secondary float_left mleft_15"><?php esc_html_e("Export","unlimited_elements"); ?></a>
+								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_delete unite-button-secondary float_left mleft_15"><?php esc_html_e("Delete","unlimited_elementor_elements"); ?></a>
+								<span class="loader_text uc-loader-delete" style="display:none"><?php esc_html_e("Deleting", "unlimited_elementor_elements")?></span>
+								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_duplicate unite-button-secondary float_left mleft_15"><?php esc_html_e("Duplicate","unlimited_elementor_elements"); ?></a>
+								<span class="loader_text uc-loader-duplicate" style="display:none"><?php esc_html_e("Duplicating", "unlimited_elementor_elements")?></span>
+								<a href='javascript:void(0)' data-layoutid="<?php echo esc_attr($id)?>" data-id="<?php echo esc_attr($id)?>" class="button_export unite-button-secondary float_left mleft_15"><?php esc_html_e("Export","unlimited_elementor_elements"); ?></a>
 								<?php UniteProviderFunctionsUC::doAction(UniteCreatorFilters::ACTION_LAYOUTS_LIST_ACTIONS, $id); ?>
 							</td>
 							<td>
-								<a href='<?php echo esc_attr($previewLink)?>' target="_blank" class="unite-button-secondary float_left"><?php esc_html_e("Preview","unlimited_elements"); ?></a>					
+								<a href='<?php echo esc_attr($previewLink)?>' target="_blank" class="unite-button-secondary float_left"><?php esc_html_e("Preview","unlimited_elementor_elements"); ?></a>					
 							</td>
 						</tr>							
 					<?php endforeach;?>
